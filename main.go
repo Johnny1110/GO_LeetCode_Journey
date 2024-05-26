@@ -1,5 +1,7 @@
 package main
 
+import "go_leetcode_journey/longest_palindromic_substring"
+
 func main() {
-	println("test123")
+	longest_palindromic_substring.Go()
 }
