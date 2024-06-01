@@ -5,13 +5,8 @@ import (
 )
 
 func longestPalindrome(s string) string {
-	return expandAroundCenter(s)
-	//return dynamicProgramming(s)
-}
-
-func dynamicProgramming(s string) string {
-	// TODO
-	return ""
+	//return expandAroundCenter(s)
+	return dynamicProgramming(s)
 }
 
 // GO 中心擴展法 (Expand Around Center)
