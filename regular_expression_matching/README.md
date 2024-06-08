@@ -52,3 +52,66 @@ It is guaranteed for each appearance of the character '*', there will be a previ
 ## Approach 1. Recursion
 
 ## Approach 2. Dynamic Programming
+
+<br>
+
+my idea -1:
+
+這個算法是沒有搞懂題目下的產物，*的用意代表前一個字元可以重複出現或者一次也不出現，我以為 *可以拿來匹配任意字元。
+搞錯了...
+
+"a*" _> 代表 可以: "" || "aaaaaaa" || "a" || "aa" 
+
+```go
+package main 
+
+func myIdea(s, p string) bool {
+	if p == "*" {
+		return true
+	}
+	// source string idx + pattern index
+	sourceInx, patternInx := 0, 0
+
+	for {
+		if sourceInx == len(s) && patternInx == len(p) {
+			// when both reach to the end, return true
+			return true
+		}
+
+		if sourceInx == len(s) || patternInx == len(p) {
+			// one of then reach to then end first, return false
+			return false
+		}
+
+		// if s = p or p = '.' skip this
+		if s[sourceInx] == p[patternInx] || p[patternInx] == '.' {
+			sourceInx++
+			patternInx++
+			continue
+		} else if p[patternInx] == '*' {
+			// 看下一個 PATTERN 自元是否符合 source
+
+			if sourceInx+1 == len(s) { // end of source
+				if patternInx+1 == len(p) { // if pattern also reached to the end
+					return true
+				} else {
+					return false
+				}
+			}
+
+			if s[sourceInx+1] == p[patternInx+1] || p[patternInx] == '.' {
+				// both next char are match then both ++
+				sourceInx++
+				patternInx++
+			} else {
+				// if not, source ++ pattern stay cool
+				sourceInx++
+			}
+			continue
+		} else {
+			return false
+		}
+
+	}
+}
+```
