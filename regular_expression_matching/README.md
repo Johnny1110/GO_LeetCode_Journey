@@ -115,3 +115,12 @@ func myIdea(s, p string) bool {
 	}
 }
 ```
+
+<br>
+
+## about Dynamic Programing
+
+<br>
+
+what's the dynamic programming's trick? I feel like it always create a 2D array for contains all the result.
+first of all, init base result, and then new result always based on existing calculate result.

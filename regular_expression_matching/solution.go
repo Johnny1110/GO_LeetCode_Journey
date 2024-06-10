@@ -4,7 +4,8 @@ import "go_leetcode_journey/common"
 
 func isMatch(s string, p string) bool {
 	//return myIdea(s, p)
-	return recursiveSolution(s, p)
+	//return recursiveSolution(s, p)
+	return dynamicProgrammingSolution(s, p)
 }
 
 func myIdea(s, p string) bool {
@@ -76,7 +77,49 @@ func recursiveSolution(input, pattern string) bool {
 }
 
 func dynamicProgrammingSolution(input, pattern string) bool {
-	return false
+	// init dp array
+	inputLen := len(input)
+	patternLen := len(pattern)
+
+	// dp[x][y] means (input 0~x == pattern 0~y)
+	dp := make([][]bool, inputLen+1)
+	for i := range dp {
+		dp[i] = make([]bool, patternLen+1)
+	}
+
+	// empty input(0~0) equals to empty pattern(0~0)
+	dp[0][0] = true
+
+	// init first row: empty input input(0~0) vs pattern(0~patternLen-1)
+	// what kind of pattern can match a empty string except empty pattern: the answer is like: a*, a*b*, a*b*c*
+	// so, let's set them up.
+	for i := 2; i <= patternLen; i++ {
+		if pattern[i-1] == '*' { // start form second char (empty(0) -> first(1) -> sec(!2!))
+			dp[0][i] = dp[0][i-2] // if matched: empty input vs pattern(0~i-1) == empty input vs pattern(0~i-2)
+		}
+	}
+
+	// dynamic func fill the dp:
+	for dpInputIdx := 1; dpInputIdx <= inputLen; dpInputIdx++ {
+		for dpPatternIdx := 1; dpPatternIdx <= patternLen; dpPatternIdx++ {
+
+			if pattern[dpPatternIdx-1] == '.' || pattern[dpPatternIdx-1] == input[dpInputIdx-1] {
+				// when current pattern char is '.' or current pattern char == current input char:
+				dp[dpInputIdx][dpPatternIdx] = dp[dpInputIdx-1][dpPatternIdx-1]
+				// check '?*'
+			} else if pattern[dpPatternIdx-1] == '*' {
+				// ignore '?*'
+				dp[dpInputIdx][dpPatternIdx] = dp[dpInputIdx][dpPatternIdx-2]
+				// if the char before * matched current input char
+				if pattern[dpPatternIdx-2] == '.' || pattern[dpPatternIdx-2] == input[dpInputIdx-1] {
+					dp[dpInputIdx][dpPatternIdx] = dp[dpInputIdx][dpPatternIdx] || dp[dpInputIdx-1][dpPatternIdx]
+				}
+			}
+
+		}
+	}
+
+	return dp[inputLen][patternLen]
 }
 
 // Go call this func in main.go
@@ -86,5 +129,5 @@ func Go() {
 	common.Assert_answer(isMatch("abc", "a*bc"), true)
 	common.Assert_answer(isMatch("aaabc", "a*bc"), true)
 	common.Assert_answer(isMatch("bc", "a*bc"), true)
-	common.Assert_answer(isMatch("ab", ".*"), true)
+	common.Assert_answer(isMatch("aa", "a*"), true)
 }
