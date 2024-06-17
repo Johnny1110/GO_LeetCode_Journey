@@ -101,3 +101,48 @@ Explanation:
 * String
 
 <br>
+
+## Chat-GPT approaching:
+
+### 1. Mapping Values
+
+* We have a mapping of symbols to their respective values:
+
+    ```mathematica
+    Symbol  Value
+    I       1
+    V       5
+    X       10
+    L       50
+    C       100
+    D       500
+    M       1000
+    ```
+
+### 2. Conversion Rules
+
+* Roman numerals are constructed by subtracting the largest possible symbol value from the number repeatedly until the number becomes zero.
+* Special cases for subtractive combinations (e.g., IV, IX, etc.) are used when applicable.
+
+<br>
+
+### 3. Implementation Strategy
+
+* Create lists for symbols and their corresponding values.
+* Use a __greedy algorithm__ approach:
+  * Start from the highest symbol (M = 1000) and move downwards.
+  * Check how many times each symbol can fit into the number and append the corresponding Roman numeral symbol to the result.
+  * Subtract the value of the appended symbol from the number and repeat until the number becomes zero.
+
+<br>
+
+## About Greedy Algorithm
+
+https://www.bilibili.com/video/BV18V411b74c/?spm_id_from=333.337.search-card.all.click
+
+
+<br>
+
+## Other
+
+in golang, if u want to concat string should using `result := strings.Builder{}`, it's better then `result += resut + "1"` in runtime.
