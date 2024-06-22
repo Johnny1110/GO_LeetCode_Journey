@@ -76,3 +76,11 @@ Constraints:
 * String
 
 <br>
+
+## what I'm thinking?
+
+1. Create a map to associate Roman symbols with numeric values.
+2. Next, start an index from the last character of the input (right side) and move towards the first character (left side).
+3. Iterate through the input characters from right to left. In each step, check if the character to the left is smaller than the current one. If it is, subtract the value of the left-side character from the current character's value and add it to a global variable like totalResult.
+
+let's do this.
