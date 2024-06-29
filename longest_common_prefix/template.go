@@ -2,7 +2,7 @@ package longest_common_prefix
 
 import (
 	"go_leetcode_journey/common"
-	"go_leetcode_journey/longest_common_prefix/horizontal_scanning"
+	"go_leetcode_journey/longest_common_prefix/vertical_scanning"
 	"strings"
 )
 
@@ -57,10 +57,11 @@ func mySol(strs []string) string {
 }
 
 func longestCommonPrefix(strs []string) string {
-	return horizontal_scanning.HorizontalScanning(strs)
+	//return horizontal_scanning.HorizontalScanning(strs)
+	return vertical_scanning.VerticalScanning(strs)
 }
 
 // Go call this func in main.go
 func Go() {
-	common.Assert_answer(longestCommonPrefix([]string{"flower", "ma", "flight"}), "fl")
+	common.Assert_answer(longestCommonPrefix([]string{"flower", "fl", "flight"}), "fl")
 }

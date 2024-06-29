@@ -64,7 +64,7 @@ anyway, there are few approaches showed on leetcode's Editorial:
 
 * Approach 1: [Horizontal scanning](horizontal_scanning)
 
-* Approach 2: Vertical scanning
+* Approach 2: [Vertical Scanning](vertical_scanning)
 
 * Approach 3: Divide and conquer
 
