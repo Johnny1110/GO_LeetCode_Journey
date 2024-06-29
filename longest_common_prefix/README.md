@@ -62,7 +62,7 @@ leetcode said this is a "easy" level problem,actually it's not.
 I'm using a trie, but it's seems like can not solve this problem at all.
 anyway, there are few approaches showed on leetcode's Editorial:
 
-* Approach 1: Horizontal scanning
+* Approach 1: [Horizontal scanning](horizontal_scanning)
 
 * Approach 2: Vertical scanning
 
