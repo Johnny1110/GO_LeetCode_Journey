@@ -1,8 +1,6 @@
 package main
 
-import (
-	"go_leetcode_journey/longest_common_prefix"
-)
+import "go_leetcode_journey/longest_common_prefix"
 
 func main() {
 	//longest_palindromic_substring.Go()
