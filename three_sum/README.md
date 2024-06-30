@@ -72,3 +72,6 @@ Constraints:
 
 ## Thinking
 
+1. seems like I got to sort that input array then utilized two pointer.
+
+
