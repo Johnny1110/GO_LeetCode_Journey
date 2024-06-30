@@ -66,7 +66,7 @@ anyway, there are few approaches showed on leetcode's Editorial:
 
 * Approach 2: [Vertical Scanning](vertical_scanning)
 
-* Approach 3: Divide and conquer
+* Approach 3: [Divide and conquer](divide_and_conquer)
 
-* Approach 4: Binary search (someone said it wrong, I will figure it out)
+* Approach 4: [Binary search](binary_search) (not a typical binary search)
 
