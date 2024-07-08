@@ -18,4 +18,5 @@ weekly leetcode with golang
 * 2024/06/17: Roman to Integer ([problem link](https://leetcode.com/problems/roman-to-integer/description/)) ([solution](roman_to_integer))
 * 2024/06/22: Longest Common Prefix ([problem link](https://leetcode.com/problems/longest-common-prefix/description/)) ([solution](longest_common_prefix))
 * 2024/06/30: 3 sum ([problem link](https://leetcode.com/problems/3sum/description/)) ([solution](three_sum))
+* 2024/07/12: 3 sum closet ([problem link](https://leetcode.com/problems/3sum-closest/description/)) ([solution](three_sum_closet))
 
