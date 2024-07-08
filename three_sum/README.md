@@ -74,4 +74,24 @@ Constraints:
 
 1. seems like I got to sort that input array then utilized two pointer.
 
+## with ChatGPT hint
+
+First of all, sort all the integers from the input nums array. Then, iterate through the nums array with an index i.
+
+Make 2 pointers:
+
+```
+left: i+1 
+right: len(muns)-1
+```
+
+Sum num[i], num[left], num[right], if sum result = 0, add those triplets to the answer list.
+then increment left by 1, and decrement right by 1.
+
+if num[i], num[left], num[right] sum result is less then 0, move the left index forward (to the right)
+Otherwise, move right index backward (to the left)
+
+and remember skip duplicates value for the iterate.
+
+<br>
 
