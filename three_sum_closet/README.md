@@ -50,3 +50,10 @@ Constraints:
 
 <br>
 
+## Thinking
+
+I think 3Sum closet is same as 3Sum. just adjust the result condition,
+so first of all, I want to try reuse 3Sum to complete this one.
+
+<br>
+It's worked!!
