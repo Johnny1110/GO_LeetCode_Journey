@@ -19,4 +19,5 @@ weekly leetcode with golang
 * 2024/06/22: Longest Common Prefix ([problem link](https://leetcode.com/problems/longest-common-prefix/description/)) ([solution](longest_common_prefix))
 * 2024/06/30: 3 sum ([problem link](https://leetcode.com/problems/3sum/description/)) ([solution](three_sum))
 * 2024/07/12: 3 sum closet ([problem link](https://leetcode.com/problems/3sum-closest/description/)) ([solution](three_sum_closet))
+* 2024/07/13: Letter Combinations of a Phone Number ([problem link](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)) ([solution](letter_combinations_of_a_phone_number))
 
