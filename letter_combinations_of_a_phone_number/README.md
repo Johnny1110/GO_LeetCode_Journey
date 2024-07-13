@@ -60,3 +60,8 @@ digits[i] is a digit in the range ['2', '9'].
 <br>
 
 # Thinking
+
+I think this is kind of ez... I'm gonna figure out what is Backtracking later and try it tomorrow (2024/07/13).
+
+<br>
+
