@@ -55,7 +55,7 @@ digits[i] is a digit in the range ['2', '9'].
 * Hash Table
 * String
 * [Backtracking](https://datascientest.com/en/backtracking-what-is-it-how-do-i-use-it#:~:text=Backtracking%20is%20a%20search%20technique,optimization%2C%20planning%20and%20gaming%20problems.) 
-
+    [Tutorial](https://medium.com/@ralph-tech/%E6%BC%94%E7%AE%97%E6%B3%95%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9E%E6%BA%AF%E6%B3%95-backtracking-%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C%E6%B3%95-branch-and-bound-29165391c377)
 <br>
 <br>
 
@@ -64,4 +64,9 @@ digits[i] is a digit in the range ['2', '9'].
 I think this is kind of ez... I'm gonna figure out what is Backtracking later and try it tomorrow (2024/07/13).
 
 <br>
+
+When I learn about backtrack, things become complicated.
+I'm not really good at understanding recursive solution, and backtrack is a kind of recursive.
+
+
 
