@@ -26,7 +26,7 @@ weekly leetcode with golang
 <br>
 <br>
 
-## Bouns
+## Bonus
 
 <br>
 
