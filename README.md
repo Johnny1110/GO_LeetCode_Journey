@@ -21,3 +21,13 @@ weekly leetcode with golang
 * 2024/07/12: 3 sum closet ([problem link](https://leetcode.com/problems/3sum-closest/description/)) ([solution](three_sum_closet))
 * 2024/07/13: Letter Combinations of a Phone Number ([problem link](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)) ([solution](letter_combinations_of_a_phone_number))
 
+<br>
+<br>
+<br>
+<br>
+
+## Bouns
+
+<br>
+
+2024/07/19: Algorithm of the shortest route between two subway stations (Taipei MRT) ([solution](bonus/taipei_mrt))
