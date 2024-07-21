@@ -34,6 +34,7 @@ func (pq *PriorityQueue) Push(x interface{}) {
 	item := x.(Item)
 	item.index = n
 	*pq = append(*pq, item)
+	heap.Fix(pq, item.index)
 }
 
 func (pq *PriorityQueue) Pop() interface{} {
@@ -43,6 +44,7 @@ func (pq *PriorityQueue) Pop() interface{} {
 	item := old[n-1]
 	old[n-1] = Item{} // Avoid memory leak
 	*pq = old[0 : n-1]
+	//heap.Fix(pq, item.index)
 	return item
 }
 

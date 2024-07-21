@@ -182,4 +182,11 @@ The key is that the heap property ensures that the smallest priority item is alw
 
 <br>
 
-let's check it out later...
+Now I figure out what is the PriorityQueue. and let's keep on doing:
+
+Next, I gonna implements this:
+![1.png](imgs/1.png)
+
+Other step I comment in code.
+
+Amazing!!!
