@@ -66,7 +66,16 @@ I think this is kind of ez... I'm gonna figure out what is Backtracking later an
 <br>
 
 When I learn about backtrack, things become complicated.
-I'm not really good at understanding recursive solution, and backtrack is a kind of recursive.
+I'm not perfect at understanding recursive solution, and backtrack is a kind of recursive.
+
+
+<br>
+
+Based on [permutation](../bonus/Fpermutation), I figure out how to utilize backtrack(DFS) to solve __Permutations__ problem.
+
+just only need to understand what to do in first layer, and know when to stop the recursion.
+
+
 
 
 

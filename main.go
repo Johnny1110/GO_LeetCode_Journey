@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/bonus/permutation"
+import "go_leetcode_journey/four_sum"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -9,5 +9,7 @@ func main() {
 	//longest_common_prefix.Go()
 	//three_sum.Go()
 	//taipei_mrt.Go()
-	permutation.Go()
+	//permutation.Go()
+	//letter_combinations_of_a_phone_number.Go()
+	four_sum.Go()
 }
