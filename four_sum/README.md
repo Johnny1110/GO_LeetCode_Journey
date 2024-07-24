@@ -35,3 +35,17 @@ Constraints:
 -109 <= nums[i] <= 109
 -109 <= target <= 109
 ```
+
+<br>
+
+## Topic 
+
+* Array
+* Two Pointers
+* Sorting
+
+<br>
+
+## Thinking
+
+I Think I should review 3Sum first...
