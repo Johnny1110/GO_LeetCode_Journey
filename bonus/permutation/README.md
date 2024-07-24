@@ -1,4 +1,4 @@
-# [1, 2, 3] Permutation
+# [1, 2, 3] Permutations
 
 <br>
 

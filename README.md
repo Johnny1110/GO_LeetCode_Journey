@@ -8,7 +8,7 @@ weekly leetcode with golang
 
 <br>
 
-## Log
+## LeetCode Log
 
 <br>
 
@@ -31,5 +31,5 @@ weekly leetcode with golang
 
 <br>
 
-2024/07/19: Algorithm of the shortest route between two subway stations (Taipei MRT) ([solution](bonus/taipei_mrt))
-2024/07/24: [1, 2, 3] Permutation ([solution](bonus/permutation))
+* 2024/07/19: Algorithm of the shortest route between two subway stations (Taipei MRT) ([solution](bonus/taipei_mrt))
+* 2024/07/24: About `[1, 2, 3]` Permutations ([solution](bonus/permutation))
