@@ -49,3 +49,39 @@ Constraints:
 ## Thinking
 
 I Think I should review 3Sum first...
+
+<br>
+
+Alright! After I reviewed the 3Sum and 4Sum solutions, I put together some ideas.
+
+In the 3Sum case, we iterate through all the numbers with index i and set up two pointers: i+1 and len(nums)-1, to calculate the sum of three numbers.
+
+In the 4Sum case, we still need a two-pointer sum approach, and we have two more numbers i and i+1.
+
+so, it' more like:
+
+3Sum:
+
+```
+i, i+1, len(nums)-1
+```
+
+4Sum:
+
+```
+i, i+1, i+2, len(nums)-1
+```
+
+5Sum:
+
+```
+i, i+1, i+2, i+3, len(nums)-1
+```
+
+And so on.
+
+<br>
+
+It's is suitable to using recursive to solve this problem.
+
+Let's have fun there!
