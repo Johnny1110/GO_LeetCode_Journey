@@ -50,3 +50,67 @@ The number of nodes in the list is sz.
 
 * Linked List
 * Two Pointers
+
+<br>
+
+## Thinking
+
+Topic said Linked List and Two Pointers. About Linked List, absolutely right,
+but I'm a little bit confused about Two Pointers.
+
+I need think about why should to utilized Two Pointers.
+
+<br>
+
+```go
+package main
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func removeNthFromEnd(head *ListNode, n int) *ListNode {
+	return nil
+}
+```
+
+So the ListNode is a singly linked list, if I want to find a node from the end 
+I should reach to the end first.
+
+I may want to iterate through the ListNode, then put all of their values to the temp ArrayList.
+like:
+
+```
+ListNode: 1 -> 2 -> 3 -> 4 -> 5
+
+ArrayList: [1, 2, 3, 4, 5]
+```
+
+<br>
+
+using ArrayList to find the target values that we need to remove.
+
+```java
+targetValue = ArrayList[len(ArrayList) - n]
+// so that:
+targetValue = ArrayList(3) = 4
+targetIndex = 3
+```
+
+then:
+
+```java
+ListNode[targetIndex-1].Next = ListNode[targetIndex].Next
+// so that:
+ListNode[2] -> ListNode[4]
+```
+
+<br>
+
+all done.
+
+
+
+
+
