@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/four_sum"
+import "go_leetcode_journey/remove_nth_node_from_end_of_list"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -11,5 +11,6 @@ func main() {
 	//taipei_mrt.Go()
 	//permutation.Go()
 	//letter_combinations_of_a_phone_number.Go()
-	four_sum.Go()
+	//four_sum.Go()
+	remove_nth_node_from_end_of_list.Go()
 }

@@ -192,6 +192,19 @@ Explanation:
 
 This approach has a time complexity of O(sz) and a space complexity of O(1), making it efficient and elegant.
 
+<br>
+<br>
+
+## FINAL
+
+<br>
+
+the core of this problem is fast&slow double pointer.
+
+faster pointer go n ahead of slow one
+and faster&slow pointer both start moving to right side @ sametime
+until faster pointer reached the end.
+slow pointer's will pointer @ the node before target node
 
 
 
