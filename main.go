@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/remove_nth_node_from_end_of_list"
+import "go_leetcode_journey/valid_parentheses"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -12,5 +12,6 @@ func main() {
 	//permutation.Go()
 	//letter_combinations_of_a_phone_number.Go()
 	//four_sum.Go()
-	remove_nth_node_from_end_of_list.Go()
+	//remove_nth_node_from_end_of_list.Go()
+	valid_parentheses.Go()
 }

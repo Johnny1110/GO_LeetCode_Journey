@@ -22,6 +22,7 @@ weekly leetcode with golang
 * 2024/07/13: Letter Combinations of a Phone Number ([problem link](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)) ([solution](letter_combinations_of_a_phone_number))
 * 2024/07/21: 4Sum ([problem link](https://leetcode.com/problems/4sum/description/)) ([solution](four_sum))
 * 2024/07/28: Remove Nth Node From End of List ([problem link](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)) ([solution](remove_nth_node_from_end_of_list))
+* 2024/08/03: Valid Parentheses ([problem link](https://leetcode.com/problems/valid-parentheses/description/)) ([solution](valid_parentheses))
 
 <br>
 <br>
