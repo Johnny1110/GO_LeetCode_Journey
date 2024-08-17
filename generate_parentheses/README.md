@@ -36,7 +36,7 @@ Constraints:
 ## Topic
 
 * Dynamic Programming
-* Backtracking (link to Letter Combinations of a Phone Number)
+* Backtracking (link to [permutation](../Fbonus/permutation))
 
 <br>
 <br>
