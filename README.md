@@ -25,6 +25,7 @@ weekly leetcode with golang
 * 2024/08/03: Valid Parentheses ([problem link](https://leetcode.com/problems/valid-parentheses/description/)) ([solution](valid_parentheses))
 * 2024/08/10: Merge Two Sorted Lists ([problem link](https://leetcode.com/problems/merge-two-sorted-lists/description/))([solution](merge_two_sorted_lists))
 * 2024/08/17 Generate Parentheses ([problem link](https://leetcode.com/problems/generate-parentheses/description/))([solution](generate_parentheses))
+* 2024/08/17 Climbing Stairs ([problem link](https://leetcode.com/problems/climbing-stairs/description/))([solution](climbing_stairs))
 
 <br>
 <br>

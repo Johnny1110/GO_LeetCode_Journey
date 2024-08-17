@@ -35,8 +35,8 @@ Constraints:
 
 ## Topic
 
-* Dynamic Programming
-* Backtracking (link to [permutation](../Fbonus/permutation))
+* Dynamic Programming (link to [Climbing Stairs](../climbing_stairs))
+* Backtracking (link to [permutation](../bonus/permutation))
 
 <br>
 <br>
