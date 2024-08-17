@@ -71,7 +71,7 @@ I'm not perfect at understanding recursive solution, and backtrack is a kind of 
 
 <br>
 
-Based on [permutation](../bonus/Fpermutation), I figure out how to utilize backtrack(DFS) to solve __Permutations__ problem.
+Based on [permutation](../bonus/permutation), I figure out how to utilize backtrack(DFS) to solve __Permutations__ problem.
 
 just only need to understand what to do in first layer, and know when to stop the recursion.
 
