@@ -58,3 +58,11 @@ Both list1 and list2 are sorted in non-decreasing order.
 ## Thinking
 
 <br>
+
+I draw a blue print like this:
+
+![1](imgs/1.jpg)
+
+Utilizing recursion and linked list.
+
+let's try it.
