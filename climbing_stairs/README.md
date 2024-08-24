@@ -59,3 +59,7 @@ Dynamic Programming
 <br>
 
 This is a basic Dynamic Programming problem example.
+
+![1](imgs/1.jpg)
+
+That one was ez.

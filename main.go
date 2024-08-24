@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/merge_two_sorted_lists"
+import "go_leetcode_journey/climbing_stairs"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -14,5 +14,6 @@ func main() {
 	//four_sum.Go()
 	//remove_nth_node_from_end_of_list.Go()
 	//valid_parentheses.Go()
-	merge_two_sorted_lists.Go()
+	//merge_two_sorted_lists.Go()
+	climbing_stairs.Go()
 }

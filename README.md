@@ -3,8 +3,8 @@
 <br>
 
 ---
-
-weekly leetcode with golang
+Journey to the West,
+weekly leetcode with golang. Making progress step by step.
 
 <br>
 
@@ -24,8 +24,8 @@ weekly leetcode with golang
 * 2024/07/28: Remove Nth Node From End of List ([problem link](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)) ([solution](remove_nth_node_from_end_of_list))
 * 2024/08/03: Valid Parentheses ([problem link](https://leetcode.com/problems/valid-parentheses/description/)) ([solution](valid_parentheses))
 * 2024/08/10: Merge Two Sorted Lists ([problem link](https://leetcode.com/problems/merge-two-sorted-lists/description/))([solution](merge_two_sorted_lists))
-* 2024/08/17 Generate Parentheses ([problem link](https://leetcode.com/problems/generate-parentheses/description/))([solution](generate_parentheses))
 * 2024/08/17 Climbing Stairs ([problem link](https://leetcode.com/problems/climbing-stairs/description/))([solution](climbing_stairs))
+* 2024/08/17 Generate Parentheses ([problem link](https://leetcode.com/problems/generate-parentheses/description/))([solution](generate_parentheses))
 
 <br>
 <br>
