@@ -64,9 +64,9 @@ The sum of lists[i].length will not exceed 104.
 ## Topic
 
 * Linked List
-* Divide and Conquer
+* [Divide and Conquer](https://www.bilibili.com/video/BV1854y1R7VG/?spm_id_from=333.337.search-card.all.click&vd_source=9780a181ac9f1fee5f680f255ee5bc73)
 * Heap (Priority Queue)
-* Merge Sort
+* [Merge Sort](https://www.bilibili.com/video/BV1Hf4y1j7DA/?spm_id_from=333.337.search-card.all.click&vd_source=9780a181ac9f1fee5f680f255ee5bc73)
 
 <br>
 
