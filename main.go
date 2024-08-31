@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/climbing_stairs"
+import "go_leetcode_journey/generate_parentheses"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -15,5 +15,6 @@ func main() {
 	//remove_nth_node_from_end_of_list.Go()
 	//valid_parentheses.Go()
 	//merge_two_sorted_lists.Go()
-	climbing_stairs.Go()
+	//climbing_stairs.Go()
+	generate_parentheses.Go()
 }
