@@ -1,7 +1,5 @@
 package main
 
-import "go_leetcode_journey/generate_parentheses"
-
 func main() {
 	//longest_palindromic_substring.Go()
 	//regular_expression_matching.Go()
@@ -16,5 +14,5 @@ func main() {
 	//valid_parentheses.Go()
 	//merge_two_sorted_lists.Go()
 	//climbing_stairs.Go()
-	generate_parentheses.Go()
+	//generate_parentheses.Go()
 }
