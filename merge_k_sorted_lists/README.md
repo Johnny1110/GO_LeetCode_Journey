@@ -70,3 +70,8 @@ The sum of lists[i].length will not exceed 104.
 
 <br>
 
+Approach:
+
+1. [DivideAndConquer](DivideAndConquer) Solution.
+2. [PriorityQueue](PriorityQueue) Solution.
+3. [MergeSort](MergeSort) Solution.

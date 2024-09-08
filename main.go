@@ -1,5 +1,7 @@
 package main
 
+import merge_k_sorted_lists_pq "go_leetcode_journey/merge_k_sorted_lists/PriorityQueue"
+
 func main() {
 	//longest_palindromic_substring.Go()
 	//regular_expression_matching.Go()
@@ -15,4 +17,5 @@ func main() {
 	//merge_two_sorted_lists.Go()
 	//climbing_stairs.Go()
 	//generate_parentheses.Go()
+	merge_k_sorted_lists_pq.Go()
 }
