@@ -1,6 +1,8 @@
 package main
 
-import merge_k_sorted_lists_pq "go_leetcode_journey/merge_k_sorted_lists/PriorityQueue"
+import (
+	merge_k_sorted_lists_dac "go_leetcode_journey/merge_k_sorted_lists/DivideAndConquer"
+)
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -17,5 +19,6 @@ func main() {
 	//merge_two_sorted_lists.Go()
 	//climbing_stairs.Go()
 	//generate_parentheses.Go()
-	merge_k_sorted_lists_pq.Go()
+	//merge_k_sorted_lists_pq.Go()
+	merge_k_sorted_lists_dac.Go()
 }
