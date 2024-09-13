@@ -26,9 +26,9 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/08/10: Merge Two Sorted Lists ([problem link](https://leetcode.com/problems/merge-two-sorted-lists/description/))([solution](merge_two_sorted_lists))
 * 2024/08/17: Climbing Stairs ([problem link](https://leetcode.com/problems/climbing-stairs/description/))([solution](climbing_stairs))
 * 2024/08/17: Generate Parentheses ([problem link](https://leetcode.com/problems/generate-parentheses/description/))([solution](generate_parentheses))
-  * 2024/08/31: Merge k Sorted Lists ([problem link](https://leetcode.com/problems/merge-k-sorted-lists/description/))([solution](merge_k_sorted_lists))
-  [DivideAndConquer](merge_k_sorted_lists%2FDivideAndConquer),
-  [PriorityQueue](merge_k_sorted_lists%2FPriorityQueue)
+* 2024/08/31: Merge k Sorted Lists ([problem link](https://leetcode.com/problems/merge-k-sorted-lists/description/))([solution](merge_k_sorted_lists))
+[DivideAndConquer](merge_k_sorted_lists%2FDivideAndConquer),
+[PriorityQueue](merge_k_sorted_lists%2FPriorityQueue)
 * 2024/09/13: Swap Nodes in Pairs ([problem link](https://leetcode.com/problems/swap-nodes-in-pairs/description/))([solution](swap_nodes_in_pairs))
 
 <br>
