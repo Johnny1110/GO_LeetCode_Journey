@@ -74,4 +74,3 @@ Approach:
 
 1. [DivideAndConquer](DivideAndConquer) Solution.
 2. [PriorityQueue](PriorityQueue) Solution.
-3. [MergeSort](MergeSort) Solution.
