@@ -1,7 +1,7 @@
 package main
 
 import (
-	merge_k_sorted_lists_dac "go_leetcode_journey/merge_k_sorted_lists/DivideAndConquer"
+	"go_leetcode_journey/swap_nodes_in_pairs"
 )
 
 func main() {
@@ -20,5 +20,6 @@ func main() {
 	//climbing_stairs.Go()
 	//generate_parentheses.Go()
 	//merge_k_sorted_lists_pq.Go()
-	merge_k_sorted_lists_dac.Go()
+	//merge_k_sorted_lists_dac.Go()
+	swap_nodes_in_pairs.Go()
 }
