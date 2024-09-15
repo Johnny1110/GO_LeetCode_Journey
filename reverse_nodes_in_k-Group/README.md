@@ -60,3 +60,12 @@ Follow-up: Can you solve the problem in O(1) extra memory space?
 <br>
 
 ## Thinking
+
+![S__11771908.jpg](imgs/S__11771908.jpg)
+
+* init a dummy head node, link to head input.
+* input to recursive func with dummy node.
+* implements a swap k node func like input `1-2-3` swap `3-2-1`
+* swap dummy's next with k, linked dummy's next to new sorted link head
+* linked new sort linked last node to next step's head
+* recursive call.
