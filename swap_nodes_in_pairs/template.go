@@ -11,13 +11,11 @@ type ListNode struct {
 }
 
 func swapPairs(head *ListNode) *ListNode {
-	if head.Next == nil {
+	if head == nil || head.Next == nil {
 		return head
 	}
 	secNode := head.Next
-
 	swap(head)
-
 	return secNode
 }
 
@@ -32,36 +30,32 @@ func swap(firstNode *ListNode) {
 	secNode.Next = firstNode
 
 	if thirdNode == nil {
+		firstNode.Next = nil
 		return
 	}
 
 	forthNode := thirdNode.Next
 
 	if forthNode == nil {
+		firstNode.Next = thirdNode
 		return
 	}
 
 	firstNode.Next = forthNode
-	fmt.Println("first: ", firstNode.Val)
-	fmt.Println("sec: ", secNode.Val)
-	fmt.Println("third: ", thirdNode.Val)
-	fmt.Println("forth: ", forthNode.Val)
-	fmt.Println("first.next: ", firstNode.Next.Val)
-	fmt.Println("sec.next: ", secNode.Next.Val)
-	fmt.Println("third.next: ", thirdNode.Next.Val)
-	fmt.Println("forth.next: ", forthNode.Next.Val)
 	swap(thirdNode)
 }
 
 // Go call this func in main.go
 func Go() {
-	testNode1 := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}}
-	ans := swapPairs(testNode1)
+	testNode1 := &ListNode{1, nil}
+	//testNode1 := &ListNode{1, &ListNode{2, nil}}
+	//testNode1 := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}}
+	//testNode1 := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, nil}}}}
+	//testNode1 := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, &ListNode{6, nil}}}}}}
+	ans1 := swapPairs(testNode1)
 
-	fmt.Println(ans.Val)
-	fmt.Println(ans.Next.Val)
-	fmt.Println(ans.Next.Next.Val)
-	fmt.Println(ans.Next.Next.Next.Val)
-	fmt.Println(ans.Next.Next.Next.Next.Val)
-
+	for ans1 != nil {
+		fmt.Println(ans1.Val)
+		ans1 = ans1.Next
+	}
 }
