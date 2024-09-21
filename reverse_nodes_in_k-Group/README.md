@@ -69,3 +69,71 @@ Follow-up: Can you solve the problem in O(1) extra memory space?
 * swap dummy's next with k, linked dummy's next to new sorted link head
 * linked new sort linked last node to next step's head
 * recursive call.
+
+<br>
+
+Further more brain storm:
+
+![S__11862020.jpg](imgs/S__11862020.jpg)
+
+
+<br>
+
+## Final
+
+```go
+package main
+
+type ListNode struct {
+    Val  int
+    Next *ListNode
+}
+
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	dummy := &ListNode{}
+	recursion(dummy, head, k)
+	return dummy.Next
+}
+
+// assume there are 3 nodes: A, B, C.
+func recursion(lastGroupLastOne, currentGroupFirstOne *ListNode, k int) {
+	// 1. find Node C:
+	nodeC := currentGroupFirstOne
+	for i := range k {
+		if nodeC == nil {
+			lastGroupLastOne.Next = currentGroupFirstOne
+			return
+		}
+		if i < k-1 {
+			nodeC = nodeC.Next
+		}
+	}
+
+	// 2. keep C's next as D
+	nodeD := nodeC.Next
+
+	// 3. keep A for next recursion call `lastGroupLastOne`
+	nodeA := currentGroupFirstOne
+
+	// 4. reverse K Nodes "A->B->C" => "A<-B<-C"
+	reverseKNode(currentGroupFirstOne, currentGroupFirstOne.Next, k-1)
+
+	// 5. link last group last one to nodeC
+	lastGroupLastOne.Next = nodeC
+
+	// 6. recursion call
+	recursion(nodeA, nodeD, k)
+
+}
+
+func reverseKNode(first, second *ListNode, k int) {
+	if k == 0 {
+		return
+	}
+	third := second.Next
+	second.Next = first
+	reverseKNode(second, third, k-1)
+
+}
+```
+
