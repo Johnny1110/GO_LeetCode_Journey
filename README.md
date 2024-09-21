@@ -31,6 +31,7 @@ weekly leetcode with golang. Making progress step by step.
 [PriorityQueue](merge_k_sorted_lists%2FPriorityQueue)
 * 2024/09/13: Swap Nodes in Pairs ([problem link](https://leetcode.com/problems/swap-nodes-in-pairs/description/))([solution](swap_nodes_in_pairs))
 * 2024/09/15: Reverse Nodes in k-Group ([problem link](https://leetcode.com/problems/reverse-nodes-in-k-group/description/))([solution](reverse_nodes_in_k-Group))
+* 2024/09/21: Remove Duplicates from Sorted Array ([problem link](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/))[solution](remove_duplicates_from_sorted_array)
 
 <br>
 <br>
