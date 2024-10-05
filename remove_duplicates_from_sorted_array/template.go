@@ -8,10 +8,9 @@ func removeDuplicates(nums []int) int {
 	pointerA := 0
 
 	for pointerB := 1; pointerB < len(nums); pointerB++ {
-
 		if nums[pointerA] != nums[pointerB] {
-			nums[pointerA+1] = nums[pointerB]
 			pointerA++
+			nums[pointerA] = nums[pointerB]
 		}
 	}
 

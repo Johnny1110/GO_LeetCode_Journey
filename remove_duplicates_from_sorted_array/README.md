@@ -79,6 +79,23 @@ Topic said using Two Pointer, so I think it's should be like just using two poin
 
 
 ```golang
+package remove_duplicates_from_sorted_array
 
+func removeDuplicates(nums []int) int {
+	if len(nums) <= 1 {
+		return len(nums)
+	}
+
+	pointerA := 0
+
+	for pointerB := 1; pointerB < len(nums); pointerB++ {
+		if nums[pointerA] != nums[pointerB] {
+			pointerA++
+			nums[pointerA] = nums[pointerB]
+		}
+	}
+
+	return pointerA + 1
+}
 ```
 
