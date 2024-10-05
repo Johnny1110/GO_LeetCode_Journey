@@ -1,6 +1,6 @@
 package main
 
-import reverse_nodes_in_k_Group "go_leetcode_journey/reverse_nodes_in_k-Group"
+import "go_leetcode_journey/remove_duplicates_from_sorted_array"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -20,5 +20,6 @@ func main() {
 	//merge_k_sorted_lists_pq.Go()
 	//merge_k_sorted_lists_dac.Go()
 	//swap_nodes_in_pairs.Go()
-	reverse_nodes_in_k_Group.Go()
+	//reverse_nodes_in_k_Group.Go()
+	remove_duplicates_from_sorted_array.Go()
 }
