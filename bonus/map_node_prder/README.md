@@ -25,14 +25,17 @@ type TreeNode struct {
 }
 
 func preOrder(root *TreeNode) string {
+    // TODO
     return nil
 }
 
 func postOrder(root *TreeNode) string {
+    // TODO
     return nil
 }
 
 func levelOrder(root *TreeNode) string {
+    // TODO Hint: using queue
     return nil
 }
 
