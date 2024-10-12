@@ -47,11 +47,20 @@ func approachB(nums []int, val int) int {
 	}
 
 	pointerA := 0
-	pointerB := len(nums) - 1
+	for pointerB := 1; pointerB < len(nums); pointerB++ {
+		if nums[pointerB] != val {
+			temp := nums[pointerA]
+			nums[pointerA] = nums[pointerB]
+			nums[pointerB] = temp
+			pointerA++
+		}
+	}
 
-	// TODO: implements
-
-	return pointerA
+	if nums[pointerA] == val {
+		return pointerA
+	} else {
+		return pointerA + 1
+	}
 }
 
 func Go() {
@@ -66,4 +75,16 @@ func Go() {
 	demo3 := []int{1}
 	ans3 := removeElement(demo3, 1)
 	common.Assert_answer(ans3, 0)
+
+	demo4 := []int{1, 1, 1, 1}
+	ans4 := removeElement(demo4, 1)
+	common.Assert_answer(ans4, 0)
+
+	demo5 := []int{3, 2, 2, 3}
+	ans5 := removeElement(demo5, 3)
+	common.Assert_answer(ans5, 2)
+
+	demo6 := []int{1, 2, 3, 4}
+	ans6 := removeElement(demo6, 3)
+	common.Assert_answer(ans6, 3)
 }
