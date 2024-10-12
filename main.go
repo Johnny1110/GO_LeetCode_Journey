@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/bonus/map_node_prder"
+import "go_leetcode_journey/remove_element"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -22,5 +22,6 @@ func main() {
 	//swap_nodes_in_pairs.Go()
 	//reverse_nodes_in_k_Group.Go()
 	//remove_duplicates_from_sorted_array.Go()
-	map_node_prder.Go()
+	//map_node_prder.Go()
+	remove_element.Go()
 }

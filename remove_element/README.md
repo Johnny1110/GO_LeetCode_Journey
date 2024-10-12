@@ -83,3 +83,49 @@ Constraints:
 
 ## Thinking
 
+I was thinking about using 2 pointer A and B, each from begin and end of the array.
+Those two points converge towards the middle through the loop. if the left pointer A pointing at the target element.
+swap with right pointer B and pointer B moving towards to left 1 step.
+
+the final answer is (left pointer A + 1).
+
+```go
+// approachA two pointer each from nums's begin(left) and the end(right).
+func approachA(nums []int, val int) int {
+    if len(nums) == 0 {
+        return 0
+    }
+
+    pointerA := 0
+    pointerB := len(nums) - 1
+
+    for pointerA <= pointerB {
+        for nums[pointerB] == val {
+            pointerB--
+            if pointerB == -1 {
+                break
+            }
+    }
+
+    if pointerA > pointerB {
+        break
+    }
+
+    if nums[pointerA] == val {
+        nums[pointerA] = nums[pointerB]
+        pointerB--
+    }
+        pointerA++
+    }
+
+    return pointerA
+}
+```
+
+<br>
+<br>
+
+And there's a another way, both pointers start from the left side.
+
+
+
