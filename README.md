@@ -33,6 +33,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/09/15: Reverse Nodes in k-Group ([problem link](https://leetcode.com/problems/reverse-nodes-in-k-group/description/))([solution](reverse_nodes_in_k-Group))
 * 2024/09/21: Remove Duplicates from Sorted Array ([problem link](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/))([solution](remove_duplicates_from_sorted_array))
 * 2024/10/05: Remove Element  ([problem link](https://leetcode.com/problems/remove-element/description/))([remove_element](remove_element))
+* 2024/10/13: Find the Index of the First Occurrence in a String ([problem link](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/))
 
 <br>
 <br>
