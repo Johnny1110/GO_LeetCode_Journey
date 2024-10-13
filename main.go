@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/remove_element"
+import "go_leetcode_journey/find_the_index_of_the_first_occurrence_in_a_string"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -23,5 +23,6 @@ func main() {
 	//reverse_nodes_in_k_Group.Go()
 	//remove_duplicates_from_sorted_array.Go()
 	//map_node_prder.Go()
-	remove_element.Go()
+	//remove_element.Go()
+	find_the_index_of_the_first_occurrence_in_a_string.Go()
 }
