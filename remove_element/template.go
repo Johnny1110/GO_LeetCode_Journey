@@ -47,20 +47,13 @@ func approachB(nums []int, val int) int {
 	}
 
 	pointerA := 0
-	for pointerB := 1; pointerB < len(nums); pointerB++ {
+	for pointerB := 0; pointerB < len(nums); pointerB++ {
 		if nums[pointerB] != val {
-			temp := nums[pointerA]
 			nums[pointerA] = nums[pointerB]
-			nums[pointerB] = temp
 			pointerA++
 		}
 	}
-
-	if nums[pointerA] == val {
-		return pointerA
-	} else {
-		return pointerA + 1
-	}
+	return pointerA
 }
 
 func Go() {
