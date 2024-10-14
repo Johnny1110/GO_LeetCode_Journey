@@ -34,6 +34,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/09/21: Remove Duplicates from Sorted Array ([problem link](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/))([solution](remove_duplicates_from_sorted_array))
 * 2024/10/05: Remove Element  ([problem link](https://leetcode.com/problems/remove-element/description/))([remove_element](remove_element))
 * 2024/10/13: Find the Index of the First Occurrence in a String ([problem link](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/))([solution](find_the_index_of_the_first_occurrence_in_a_string))
+* 2024/10/14: Divide Two Integers ([problem link](https://leetcode.com/problems/divide-two-integers/description/))([solution](divide_two_integers))
 
 <br>
 <br>
