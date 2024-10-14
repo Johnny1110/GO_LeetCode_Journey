@@ -57,5 +57,29 @@ I think just using 2 pointers A and B.
 Pointer B iterate through the string. if B reach the first char of needle, move Pointer A to Pointer B's position directly.
 If all matched up return Pointer A as the answer.
 
+```go
+func strStr(haystack string, needle string) int {
+    if len(needle) > len(haystack) {
+        return -1
+    }
+
+    needleIdx := 0
+    pointerA := 0
+    for pointerB := 0; pointerB < len(haystack); pointerB++ {
+        if haystack[pointerB] == needle[needleIdx] {
+            needleIdx++
+            if needleIdx == len(needle) {
+                return pointerA
+            }
+        } else {
+            pointerA++
+            pointerB = pointerA - 1
+            needleIdx = 0
+        }`
+    }
+    return -1
+}
+```
+
 
 
