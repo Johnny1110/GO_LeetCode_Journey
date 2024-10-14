@@ -53,3 +53,9 @@ haystack and needle consist of only lowercase English characters.
 
 ## Thinking
 
+I think just using 2 pointers A and B.
+Pointer B iterate through the string. if B reach the first char of needle, move Pointer A to Pointer B's position directly.
+If all matched up return Pointer A as the answer.
+
+
+
