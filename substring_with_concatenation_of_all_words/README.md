@@ -81,10 +81,23 @@ s and words[i] consist of lowercase English letters.
 
 * Hash Table
 * String
-* Sliding Window
+* [Sliding Window](https://ms0223900.medium.com/sliding-window-%E6%BC%94%E7%AE%97%E6%B3%95-%E7%B0%A1%E4%BB%8B-d967f64ac811)
 
 <br>
 <br>
 
 ## Thinking
 
+I was thinking about using Sliding Window to iterate the input s.
+
+I got the answer like:
+
+1. Create a frequency map for all words in the list.
+
+2. Slide the window across the string s, and check chunks of word-sized pieces.
+
+3. Update the map by decrementing counts as I found valid words.
+
+4. Check the map at the end of each window to see if all ccount are zero.
+
+5. Handle invalid words or too many occurrences by skipping the current window when necessary.

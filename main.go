@@ -1,6 +1,8 @@
 package main
 
-import "go_leetcode_journey/divide_two_integers"
+import (
+	"go_leetcode_journey/substring_with_concatenation_of_all_words"
+)
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -25,5 +27,6 @@ func main() {
 	//map_node_prder.Go()
 	//remove_element.Go()
 	//find_the_index_of_the_first_occurrence_in_a_string.Go()
-	divide_two_integers.Go()
+	//divide_two_integers.Go()
+	substring_with_concatenation_of_all_words.Go()
 }
