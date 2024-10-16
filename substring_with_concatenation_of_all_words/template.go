@@ -11,30 +11,27 @@ func findSubstring(s string, words []string) []int {
 	}
 
 	stepSize := len(words[0])
-	startRowIdx := 0
-	endRowIdx := stepSize * len(words)
 
-	for endRowIdx <= len(s) {
+	for startRowIdx := 0; startRowIdx < stepSize; startRowIdx++ {
+		for j := startRowIdx; j+stepSize*len(words) <= len(s); j += stepSize {
+			wordMap := make(map[string]int)
+			for key, value := range wordMapProto {
+				wordMap[key] = value
+			}
 
-		wordMap := make(map[string]int)
-		for key, value := range wordMapProto {
-			wordMap[key] = value
+			if validate(wordMap, s[j:j+stepSize*len(words)], stepSize) {
+				result = append(result, j)
+			}
 		}
-
-		if vaildate(wordMap, s[startRowIdx:endRowIdx], stepSize) {
-			result = append(result, startRowIdx)
-		}
-		startRowIdx += 1
-		endRowIdx += 1
 	}
 
 	return result
 }
 
-func vaildate(wordMap map[string]int, s string, stepSize int) bool {
+func validate(wordMap map[string]int, s string, stepSize int) bool {
 	for i := 0; i <= len(s)-stepSize; i = i + stepSize {
 		target := s[i : i+stepSize]
-		if wordMap[target] == 0 {
+		if count, exists := wordMap[target]; !exists || count == 0 {
 			return false
 		}
 		wordMap[target]--
@@ -48,12 +45,6 @@ func vaildate(wordMap map[string]int, s string, stepSize int) bool {
 	//}
 	//
 	//println("----------")
-
-	for _, v := range wordMap {
-		if v > 0 {
-			return false
-		}
-	}
 
 	return true
 }
