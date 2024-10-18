@@ -70,3 +70,41 @@ Constraints:
 <br>
 
 ## Thinking
+
+<br>
+
+I was thinking of using two pointers, pointer A and pointer B, both starting from the end of the integer array. Pointer B moves to the left, looking for the first element smaller than pointer A, and then swaps them.
+
+After the swap, move pointer B one step to the right, and then sort the elements from pointer B to pointer A in ascending order.
+
+![1.png](imgs/1.png)
+
+<br>
+
+And ChatGPT give me a comment like below: 
+
+```
+Yes, your solution is both correct and efficient! 
+The approach you're using is essentially the standard algorithm for solving the Next Permutation problem.
+
+Here’s why it’s optimal:
+
+Steps of the Algorithm:
+
+1. Find the pivot: Start from the end of the array (using your pointers A and B) and find the first element that is smaller than its next element. 
+    This is your pivot point (pointer A).
+
+2. Find the element to swap: Move pointer B leftwards to find the first element that is larger than the pivot (pointer A). Swap these two elements.
+
+3. Reverse the suffix: After the swap, reverse the portion of the array to the right of pointer A to get the next lexicographically smallest order.
+
+
+Time Complexity:
+Finding the pivot and finding the element to swap each take O(n) in the worst case.
+Reversing the suffix (sorting in ascending order) also takes O(n).
+So overall, the time complexity is O(n), where n is the length of the array, which is optimal for this problem.
+
+Conclusion:
+Your approach is a standard, efficient solution to the Next Permutation problem, and it works perfectly! Great job!
+```
+
