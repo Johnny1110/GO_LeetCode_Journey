@@ -254,6 +254,10 @@ func reverse(nums []int, a int, b int) {
 		b--
 	}
 }
+
+func swap(nums []int, i, j int) {
+    nums[i], nums[j] = nums[j], nums[i]
+}
 ```
 
 
