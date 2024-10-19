@@ -108,3 +108,156 @@ Conclusion:
 Your approach is a standard, efficient solution to the Next Permutation problem, and it works perfectly! Great job!
 ```
 
+<br>
+
+After I tried, I still can not make it. my code is like:
+
+
+```golang
+func nextPermutation(nums []int) {
+	maxIdx := len(nums) - 1
+	pointerA := 0
+	pointerB := 0
+
+	// find first element who is greater than last one and swap them.
+	for i := maxIdx; i > 0; i-- {
+		pointerA = i
+		pointerB = i - 1
+
+		for pointerB >= 0 {
+			if nums[pointerA] > nums[pointerB] {
+				swap(nums, pointerA, pointerB)
+
+				//printNums(nums)
+
+				// move 1 step toward to right side and sort
+				pointerB++
+				sort(nums, pointerB, maxIdx)
+				return
+			}
+			pointerB--
+		}
+	}
+
+	// if reaching this point, that means input is last max permutation. like 3, 2, 1
+	sort(nums, 0, maxIdx)
+
+}
+
+func printNums(nums []int) {
+	for i := 0; i < len(nums); i++ {
+		print(nums[i])
+	}
+	println()
+}
+
+func sort(nums []int, i, j int) {
+	for ; i < j; i++ {
+		for x := i + 1; x <= j; x++ {
+			if nums[i] > nums[x] {
+				swap(nums, x, i)
+			}
+		}
+	}
+}
+
+func swap(nums []int, i, j int) {
+	nums[i], nums[j] = nums[j], nums[i]
+}
+```
+
+<br>
+
+And I asked ChatGPT to give me some hints:
+
+* Step 1: Find the first decreasing element from the end
+
+* Step 2: Find the element just larger than nums[i] from the right
+
+* Step 3: Swap nums[i] and nums[j]
+
+* Step 4: Reverse the subarray from i+1 to the end to get the smallest lexicographical order
+
+<br>
+
+### For example: `[5, 4, 7, 5, 3, 2]`
+
+To find the next permutation, the first step is identifying which digits need to be swapped.
+
+In this case, it's `4`. When looking at `7, 5, 3, 2`, there’s no way to find a permutation larger than this sequence because it's in descending order. 
+But when we consider `4, 7, 5, 3, 2`, we can swap to find a new, larger permutation.
+
+Now that we’ve identified `4`, the next step is to find a number in `7, 5, 3, 2` that is as small as possible but still larger than `4`.
+
+we can find `5`
+
+so now, we locked onto `4` and `5`. and we swap them. After swap we got a  new nums is like:
+
+`5, 7, 4, 3, 2`
+
+At this point, the subarray `7, 4, 3, 2` is sorted in descending order.
+
+Next, we reverse the subarray `7, 4, 3, 2` to sort it in ascending order.
+
+we got `5, 2, 3, 4, 7` after reversed.
+
+Thus, the final answer is `5, 5, 2, 3, 4, 7`.
+
+<br>
+
+Let's try this on a new coding area.
+
+<br>
+
+```go
+func nextPermutation(nums []int) {
+
+	endIdx := len(nums) - 1
+
+	// Step 1. identify the num need to swapped. (pointerA)
+	pointerA := -1
+
+	for i := endIdx; i > 0; i-- {
+		if nums[i] > nums[i-1] {
+			pointerA = i - 1
+			break
+		}
+	}
+
+	// if can not find the pointer, that means input nums is biggest permutation, reverse it and return.
+	if pointerA == -1 {
+		reverse(nums, 0, endIdx)
+		return
+	}
+
+	// Step 2. find the element just larger then nums[pointerA] from the right side.
+	pointerB := 0
+
+	for i := endIdx; i > pointerA; i-- {
+		if nums[i] > nums[pointerA] {
+			pointerB = i
+			break
+		}
+	}
+
+	// step 3. swap nums[pointerA] and pointer[B]
+	swap(nums, pointerA, pointerB)
+
+	// step 4. reverse the sub array from pointer+1 to the end.
+	reverse(nums, pointerA+1, endIdx)
+}
+
+func reverse(nums []int, a int, b int) {
+	for a < b {
+		swap(nums, a, b)
+		a++
+		b--
+	}
+}
+```
+
+
+
+
+
+

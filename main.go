@@ -1,8 +1,6 @@
 package main
 
-import (
-	"go_leetcode_journey/substring_with_concatenation_of_all_words/substring_with_concatenation_of_all_words_self_try"
-)
+import "go_leetcode_journey/next_permutation"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -28,5 +26,6 @@ func main() {
 	//remove_element.Go()
 	//find_the_index_of_the_first_occurrence_in_a_string.Go()
 	//divide_two_integers.Go()
-	substring_with_concatenation_of_all_words_self_try.Go()
+	//substring_with_concatenation_of_all_words_self_try.Go()
+	next_permutation.Go()
 }
