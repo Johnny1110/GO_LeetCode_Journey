@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/next_permutation"
+import "go_leetcode_journey/longest_valid_parentheses"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -27,5 +27,6 @@ func main() {
 	//find_the_index_of_the_first_occurrence_in_a_string.Go()
 	//divide_two_integers.Go()
 	//substring_with_concatenation_of_all_words_self_try.Go()
-	next_permutation.Go()
+	//next_permutation.Go()
+	longest_valid_parentheses.Go()
 }

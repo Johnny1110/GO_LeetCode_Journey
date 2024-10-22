@@ -1,4 +1,4 @@
-package longest_valid_parentheses
+package longest_valid_parentheses_enhancement
 
 import (
 	"go_leetcode_journey/common"
@@ -6,93 +6,58 @@ import (
 
 // ---------------------------------
 
-type Uint8Stack struct {
-	stack []uint8
+type IntStack struct {
+	stack []int
 }
 
-func (stack *Uint8Stack) push(s uint8) {
+func (stack *IntStack) push(s int) {
 	stack.stack = append(stack.stack, s)
 }
 
-func (stack *Uint8Stack) pop() uint8 {
+func (stack *IntStack) pop() int {
 	if len(stack.stack) == 0 {
-		return 0
+		return -1
 	}
 	node := stack.stack[len(stack.stack)-1]
 	stack.stack = stack.stack[:len(stack.stack)-1]
 	return node
 }
 
-func (stack *Uint8Stack) reset() {
+func (stack *IntStack) reset() {
 	stack.stack = stack.stack[:0]
 }
 
-func (stack *Uint8Stack) len() int {
+func (stack *IntStack) len() int {
 	return len(stack.stack)
 }
 
 // ---------------------------------
 
 func longestValidParentheses(s string) int {
-	stack := &Uint8Stack{}
-	longest := 0
-
-	reset := func() {
-		stack.reset()
-	}
-
-	n := len(s)
-	dp := make([][]int, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]int, n)
-	}
-
-	for i := 0; i < len(s); i++ {
-
-		for j := i; j < len(s); j++ {
-
-			v := s[j]
-
-			if v == '(' {
-				stack.push(v)
-
-				if j-1 >= 0 {
-					dp[i][j] = dp[i][j-1]
-				}
-
-			}
-
-			if v == ')' {
-				if stack.pop() == '(' {
-
-					//fmt.Println("i:", i, "j:", j)
-
-					dp[i][j] = dp[i][j-1] + 1
-
-					//fmt.Println("dp[i][j]:", dp[i][j])
-					//println("ceil:", ceilDiv((j-i+1), 2))
-
-					if dp[i][j] == ceilDiv((j-i+1), 2) {
-						longest = max(dp[i][j], longest)
-					}
-				} else {
-					break
-				}
-			}
-		}
-
-		reset()
-
-	}
-
-	return longest * 2
+	return approachStack(s)
+	//return approachDP(s)
 }
 
-func ceilDiv(a, b int) int {
-	if a%b == 0 {
-		return a / b
+func approachStack(s string) int {
+	stack := &IntStack{}
+
+	accelator := 0
+
+	for i, v := range s {
+		if v == '(' {
+			stack.push(i)
+		} else {
+			if stack.len() != 0 {
+				mattchedIdx := stack.pop()
+			}
+		}
 	}
-	return a/b + 1
+
+	return 0
+}
+
+func approachDP(s string) int {
+	return 0
 }
 
 func max(a, b int) int {
