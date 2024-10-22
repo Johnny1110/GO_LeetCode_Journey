@@ -37,6 +37,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/10/14: Divide Two Integers ([problem link](https://leetcode.com/problems/divide-two-integers/description/))([solution](divide_two_integers))
 * 2024/10/15: Substring with Concatenation of All Words ([problem link](https://leetcode.com/problems/substring-with-concatenation-of-all-words/description/))([solution](substring_with_concatenation_of_all_words))
 * 2024/10/18: Next Permutation ([problem link](https://leetcode.com/problems/next-permutation/description/))([solution](next_permutation))
+* 2024/10/20: Longest Valid Parentheses ([problem link](https://leetcode.com/problems/longest-valid-parentheses/description/))([solution](longest_valid_parentheses))
 
 <br>
 <br>
