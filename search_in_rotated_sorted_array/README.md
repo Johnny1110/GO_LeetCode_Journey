@@ -65,3 +65,16 @@ nums is an ascending array that is possibly rotated.
 
 <br>
 
+example: [4,5,6,7,0,1,2], target = 6
+
+1. find the pivot index, in this case is idx: 4 (which is 0)
+
+2. we got 2 section:
+
+    sectionA: idx 0 ~ 3 `[4,5,6,7]`
+
+    sectionB: idx 4 ~ 6 `[0,1,2]`
+
+3. we need to find out which section should we drill in. target 6 is greater then 4 and lower then 7, so we got sectionA
+
+4. using Binary Search to find out where is target 6.
