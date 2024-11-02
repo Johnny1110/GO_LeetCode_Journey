@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/search_in_rotated_sorted_array"
+import "go_leetcode_journey/search_in_rotated_sorted_array/search_in_rotated_sorted_array_refactor"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -29,5 +29,6 @@ func main() {
 	//substring_with_concatenation_of_all_words_self_try.Go()
 	//next_permutation.Go()
 	//longest_valid_parentheses_enhancement.Go()
-	search_in_rotated_sorted_array.Go()
+	//search_in_rotated_sorted_array.Go()
+	search_in_rotated_sorted_array_refactor.Go()
 }
