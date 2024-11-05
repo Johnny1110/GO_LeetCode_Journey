@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/search_in_rotated_sorted_array/search_in_rotated_sorted_array_refactor"
+import "go_leetcode_journey/find_first_and_last_position_of_element_in_sorted_array"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -30,5 +30,6 @@ func main() {
 	//next_permutation.Go()
 	//longest_valid_parentheses_enhancement.Go()
 	//search_in_rotated_sorted_array.Go()
-	search_in_rotated_sorted_array_refactor.Go()
+	//search_in_rotated_sorted_array_refactor.Go()
+	find_first_and_last_position_of_element_in_sorted_array.Go()
 }
