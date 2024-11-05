@@ -39,7 +39,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/10/18: Next Permutation ([problem link](https://leetcode.com/problems/next-permutation/description/))([solution](next_permutation))
 * 2024/10/20: Longest Valid Parentheses ([problem link](https://leetcode.com/problems/longest-valid-parentheses/description/))([solution](longest_valid_parentheses))
 * 2024/10/26: Search in Rotated Sorted Array ([problem link](https://leetcode.com/problems/search-in-rotated-sorted-array/description/))([solution](search_in_rotated_sorted_array))
-* 2024/11/02: Find First and Last Position of Element in Sorted Array ([problem link](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/))([solution](find-first-and-last-position-of-element-in-sorted-array))
+* 2024/11/02: Find First and Last Position of Element in Sorted Array ([problem link](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/))([solution](find_first_and_last_position_of_element_in_sorted_array))
 
 <br>
 <br>
