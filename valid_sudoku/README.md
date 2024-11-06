@@ -86,3 +86,21 @@ I initialize a HashMap when checking each row or column, where the keys are "0" 
 After counting all elements in a row or column, I check the map. If any value in the map is greater than 1, I return false.
 
 After finishing the row and column checks, I use the same approach to check all of the 3x3 sub-box matrices.
+
+<br>
+
+## Chat-GPT advice:
+
+Yes, your approach is on the right track! Validating Sudoku by checking each row, column, and 3x3 sub-box is a good approach. Here’s a breakdown of why your method works and a couple of suggestions to refine it:
+
+1. Row and Column Checks: Initializing a HashMap (or even a set) for each row and column check is effective for counting occurrences. By iterating through each cell, you can detect duplicates right away if any value appears more than once.
+
+2. 3x3 Sub-box Checks: Reapplying the same logic for each 3x3 sub-box ensures thorough validation, covering the entire grid.
+
+### Suggested Optimizations
+
+* Use a Set Instead of a Map: If you only need to check for duplicates, a Set can be slightly more efficient than a HashMap since it will only store unique values. If you try to add a duplicate, the Set will reject it, making it straightforward to detect a problem.
+
+* Combined Loops: If you’re open to combining all checks in one pass, you could track rows, columns, and sub-boxes simultaneously. This might save a bit of time, though it could make the code slightly more complex.
+
+Overall, your approach is solid, and with these small adjustments, it can be even more efficient. Great work!
