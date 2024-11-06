@@ -59,3 +59,5 @@ nums contains distinct values sorted in ascending order.
 
 ## Thinking
 
+Just using Binary Search, if can't find target, return mid or mid+1
+

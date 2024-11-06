@@ -7,10 +7,11 @@ import (
 func searchInsert(nums []int, target int) int {
 
 	leftIndex, rightIndex := 0, len(nums)-1
+	midIdx := 0
 
 	for leftIndex <= rightIndex {
 
-		midIdx := leftIndex + (rightIndex-leftIndex)/2
+		midIdx = leftIndex + (rightIndex-leftIndex)/2
 		if nums[midIdx] == target {
 			return midIdx
 		}
@@ -21,13 +22,11 @@ func searchInsert(nums []int, target int) int {
 			rightIndex = midIdx - 1
 		}
 	}
-	if rightIndex < 0 {
-		return 0
-	}
-	if nums[rightIndex] > target {
-		return rightIndex + 2
+
+	if nums[midIdx] > target {
+		return midIdx
 	} else {
-		return rightIndex + 1
+		return midIdx + 1
 	}
 }
 
