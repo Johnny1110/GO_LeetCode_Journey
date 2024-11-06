@@ -80,3 +80,9 @@ board[i][j] is a digit 1-9 or '.'.
 <br>
 
 ## Thinking
+
+First, I want check all the rows and columns (a total of 18 iterations).
+I initialize a HashMap when checking each row or column, where the keys are "0" to "9," and the values represent the count of each number's occurrences.
+After counting all elements in a row or column, I check the map. If any value in the map is greater than 1, I return false.
+
+After finishing the row and column checks, I use the same approach to check all of the 3x3 sub-box matrices.
