@@ -42,6 +42,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/11/02: Find First and Last Position of Element in Sorted Array ([problem link](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/))([solution](find_first_and_last_position_of_element_in_sorted_array))
 * 2024/11/05: Search Insert Position ([problem link](https://leetcode.com/problems/search-insert-position/description/))([solution](search_insert_position))
 * 2024/11/06: Valid Sudoku ([problem link](https://leetcode.com/problems/valid-sudoku/))([solution](valid_sudoku))
+* 2024/11/09: Sudoku Solver ([problem link](https://leetcode.com/problems/sudoku-solver/description/))([solution](sudoku_solver))
 
 <br>
 <br>
