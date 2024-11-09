@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/search_insert_position"
+import "go_leetcode_journey/valid_sudoku"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -32,5 +32,6 @@ func main() {
 	//search_in_rotated_sorted_array.Go()
 	//search_in_rotated_sorted_array_refactor.Go()
 	//find_first_and_last_position_of_element_in_sorted_array.Go()
-	search_insert_position.Go()
+	//search_insert_position.Go()
+	valid_sudoku.Go()
 }

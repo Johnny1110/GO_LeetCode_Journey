@@ -104,3 +104,42 @@ Yes, your approach is on the right track! Validating Sudoku by checking each row
 * Combined Loops: If you’re open to combining all checks in one pass, you could track rows, columns, and sub-boxes simultaneously. This might save a bit of time, though it could make the code slightly more complex.
 
 Overall, your approach is solid, and with these small adjustments, it can be even more efficient. Great work!
+
+<br>
+
+[Guide](https://skyyen999.gitbooks.io/-leetcode-with-javascript/content/questions/36md.html)
+
+<br>
+
+Create: 
+
+* 9 cells number occurrences set
+* 9 rows sets number occurrences set
+* 9 3x3 sub-box sets number occurrences set
+
+```
+cellSet = [][]
+rowSet = [][]
+subBoxSet = [][]
+```
+
+<br>
+
+subBox index:
+
+![S__12492809.jpg](imgs/subbox.jpg)
+
+<br>
+
+I need a func to calculate subbox index:
+
+![subbox2.jpg](imgs/subbox2.jpg)
+
+```go
+func calculateSubBoxIdx(x, y int) int {
+
+}
+```
+
+
+
