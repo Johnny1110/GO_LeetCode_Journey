@@ -137,7 +137,11 @@ I need a func to calculate subbox index:
 
 ```go
 func calculateSubBoxIdx(x, y int) int {
-
+    // Minimize x, y
+    x = x / 3
+    y = y / 3
+    // calculate seq num
+    return x*3 + y
 }
 ```
 

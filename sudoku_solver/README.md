@@ -89,3 +89,50 @@ It is guaranteed that the input board has only one solution.
 
 ## Thinking
 
+The point is to understand how to utilize backtracking to solve this problem, but I have no clue how to relate this problem to a backtracking approach.
+
+I asked Chat-GPT for some hint, and I got this:
+
+The Sudoku Solver is well-suited for a backtracking algorithm, which systematically searches for a solution by exploring all possibilities.
+
+Step-by-Step Thought Process:
+
+1. Iterate Through the Grid
+
+   * Loop over all cells in the grid.
+   * Identify the empty cells ('.') where you need to place numbers.
+
+2. Try Numbers (1-9)
+
+   * For each empty cell, attempt to place each digit from 1 to 9.
+   * Check if placing a particular number in the cell is valid:
+     * Does it already exist in the current row?
+     * Does it already exist in the current column? 
+     * Does it already exist in the corresponding 3x3 sub-box?
+
+3. Validate Placement
+   * If the placement is valid, recursively attempt to solve the board with the updated state.
+
+4. Backtrack When Necessary
+
+   * If no number from 1 to 9 works for the current empty cell:
+     * Undo the last placement (backtrack).
+     * Try the next possibility for the previous cell.
+
+5. Base Case
+
+   * When all cells are filled, and the board is valid, you've found the solution.
+
+
+### Example Walkthrough
+
+Consider an empty cell at position (row, col):
+
+* Try placing 1.
+* Check if 1 is already in the row, column, or 3x3 box.
+* If valid, proceed to the next empty cell.
+* If no number works, backtrack.
+
+<br>
+
+Now I need to think about how to design the backtracking structure.
