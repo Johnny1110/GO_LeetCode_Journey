@@ -136,3 +136,67 @@ Consider an empty cell at position (row, col):
 <br>
 
 Now I need to think about how to design the backtracking structure.
+
+<br>
+
+After 3 hrs trying, I finally realized that is too hard to solve this problem by myself.
+I decided to follow up Chat-GPT's tutorial, and try it again after code review.
+
+Chat-GPT answer:
+
+```go
+
+// solveSudoku solves the Sudoku puzzle in-place using backtracking.
+func solveSudoku(board [][]byte) {
+	// Backtracking function to solve the board
+	var backtrack func() bool
+
+	backtrack = func() bool {
+
+		for i := 0; i < 9; i++ { // Iterate over rows
+			for j := 0; j < 9; j++ { // Iterate over columns
+
+				if board[i][j] == '.' { // Find the first empty cell
+
+					for num := byte('1'); num <= byte('9'); num++ { // Try placing numbers 1 to 9
+
+						if isValid(board, i, j, num) { // Check if the number is valid
+							board[i][j] = num // Place the number
+							if backtrack() {  // Recur to solve the rest of the board
+								return true
+							}
+							// Backtrack: Remove the number if it leads to an invalid solution
+							board[i][j] = '.'
+						}
+					}
+
+					return false // If no number can be placed, return false
+				}
+			}
+		}
+		return true // If all cells are filled correctly, return true
+	}
+
+	backtrack() // Start backtracking
+}
+
+// isValid checks if placing a number in a specific cell is valid.
+func isValid(board [][]byte, row, col int, num byte) bool {
+	subBoxRowStart := (row / 3) * 3 // Starting row index of the 3x3 sub-box
+	subBoxColStart := (col / 3) * 3 // Starting column index of the 3x3 sub-box
+
+	// Check if the number already exists in the current row, column, or 3x3 sub-box
+	for i := 0; i < 9; i++ {
+		if board[row][i] == num { // Check row
+			return false
+		}
+		if board[i][col] == num { // Check column
+			return false
+		}
+		if board[subBoxRowStart+(i/3)][subBoxColStart+(i%3)] == num { // Check 3x3 sub-box
+			return false
+		}
+	}
+	return true // The number is valid
+}
+```
