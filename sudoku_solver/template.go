@@ -4,6 +4,7 @@ import "fmt"
 
 // solveSudoku solves the Sudoku puzzle in-place using backtracking.
 func solveSudoku(board [][]byte) {
+	// Backtracking function to solve the board
 	// TODO
 }
 
