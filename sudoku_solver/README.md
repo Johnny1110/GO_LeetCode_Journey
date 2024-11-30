@@ -200,3 +200,15 @@ func isValid(board [][]byte, row, col int, num byte) bool {
 	return true // The number is valid
 }
 ```
+
+<br>
+
+I drew a blueprint for backtracking Sudoku Solver like follows:
+
+![1](imgs/1.jpg)
+
+<br>
+
+I solved this problem by that way, but avg runtime is too long (188ms).
+
+I gonna find a better approach to solve this problem next week.
