@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/sudoku_solver/sudoku_solver_enhancement"
+import "go_leetcode_journey/count_and_say"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -35,5 +35,6 @@ func main() {
 	//search_insert_position.Go()
 	//valid_sudoku.Go()
 	//sudoku_solver.Go()
-	sudoku_solver_enhancement.Go()
+	//sudoku_solver_enhancement.Go()
+	count_and_say.Go()
 }
