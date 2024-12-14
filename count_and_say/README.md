@@ -96,3 +96,14 @@ __Follow up: Could you solve it iteratively?__
 ## Thinking
 
 <br>
+
+This is how I solve countAndSay(4) by manual:
+
+![1](imgs/S__13303810.jpg)
+
+definitely gonna try it out with dynamic programming first.
+
+Let's having some fun with DP ~
+
+<br>
+
