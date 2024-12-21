@@ -73,3 +73,18 @@ All elements of candidates are distinct.
 
 ## Thinking
 
+God.. I suck at Backtracking, but I will try my best.
+
+![S__13459459.jpg](imgs/S__13459459.jpg)
+
+<br>
+
+After I tried by my own, I still can not figure it out, so I asked ChatGPT.
+
+I draw a new logic flow again:
+
+![S__13467652.jpg](imgs/S__13467652.jpg)
+
+<br>
+
+I will try again next week.
