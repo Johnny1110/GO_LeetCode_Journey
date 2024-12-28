@@ -45,6 +45,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/11/09: Sudoku Solver ([problem link](https://leetcode.com/problems/sudoku-solver/description/))([solution](sudoku_solver)) -> enhancement [here](sudoku_solver/sudoku_solver_enhancement)
 * 2024/12/14: Count and Say ([problem link](https://leetcode.com/problems/count-and-say/description/))([solution](count_and_say))
 * 2024/12/21: Combination Sum ([problem link](https://leetcode.com/problems/combination-sum/description/))([solution](combination_sum))
+* 2024/12/28: Combination Sum II (https://leetcode.com/problems/combination-sum-ii/description/))([solution](combination_sum_II))
 
 <br>
 <br>
