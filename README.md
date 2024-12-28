@@ -46,6 +46,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/12/14: Count and Say ([problem link](https://leetcode.com/problems/count-and-say/description/))([solution](count_and_say))
 * 2024/12/21: Combination Sum ([problem link](https://leetcode.com/problems/combination-sum/description/))([solution](combination_sum))
 * 2024/12/28: Combination Sum II ([problem link](https://leetcode.com/problems/combination-sum-ii/description/))([solution](combination_sum_II))
+* 2024/12/28: First Missing Positive ([problem link](https://leetcode.com/problems/first-missing-positive/description/))([solution](first_missing_positive))
 
 <br>
 <br>
