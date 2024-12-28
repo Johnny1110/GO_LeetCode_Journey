@@ -1,4 +1,4 @@
-package combination_sum
+package combination_sum_self_try
 
 import "fmt"
 
@@ -34,26 +34,27 @@ func (queue *NumQueue) clear() {
 }
 
 func combinationSum(candidates []int, target int) [][]int {
-	results := make([][]int, 0)
-	queue := &NumQueue{}
-	backtracking(target, queue, 0, candidates, &results)
-	return results
+	result := make([][]int, 0)
+	theQueue := &NumQueue{}
+	backtracking(candidates, target, 0, theQueue, &result)
+	return result
 }
 
-func backtracking(target int, queue *NumQueue, idx int, candidates []int, results *[][]int) {
+func backtracking(candidates []int, target int, idx int, queue *NumQueue, result *[][]int) {
 
-	if queue.sum == target {
-		*results = append(*results, queue.clone())
-		return
-	}
-
+	// stop point 1. if total sum is grater then target -> just return
 	if queue.sum > target {
 		return
 	}
+	// stop point 2. if total sum is equals to target -> add to result then return
+	if queue.sum == target {
+		*result = append(*result, queue.clone())
+	}
 
 	for i := idx; i < len(candidates); i++ {
+		// backtracking standard flow (add one element and go next layer then rollback)
 		queue.push(candidates[i])
-		backtracking(target, queue, i, candidates, results)
+		backtracking(candidates, target, i, queue, result)
 		queue.pop()
 	}
 }

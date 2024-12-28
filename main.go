@@ -1,6 +1,8 @@
 package main
 
-import "go_leetcode_journey/combination_sum"
+import (
+	"go_leetcode_journey/combination_sum/combination_sum_self_try"
+)
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -37,5 +39,5 @@ func main() {
 	//sudoku_solver.Go()
 	//sudoku_solver_enhancement.Go()
 	//count_and_say.Go()
-	combination_sum.Go()
+	combination_sum_self_try.Go()
 }
