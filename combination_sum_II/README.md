@@ -256,7 +256,7 @@ func backtracking(candidates []int, target int, idx int, queue *NumQueue, result
 
 		// Stop early if the current number exceeds the remaining target
 		if queue.sum+candidates[i] > target {
-			break
+			return
 		}
 
 		queue.push(candidates[i])

@@ -1,6 +1,9 @@
 package combination_sum_II
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 type NumQueue struct {
 	container []int
@@ -31,7 +34,7 @@ func (queue *NumQueue) copy() []int {
 func combinationSum2(candidates []int, target int) [][]int {
 	result := make([][]int, 0)
 	queue := &NumQueue{}
-	candidates = orderAsc(candidates)
+	sort.Ints(candidates)
 	backtracking(candidates, target, 0, queue, &result)
 	return result
 }
