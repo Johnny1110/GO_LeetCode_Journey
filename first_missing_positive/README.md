@@ -101,7 +101,72 @@ I know it not a good approach to solve this problem. let me ask CHAT-GPT for a h
 
 <br>
 
+### Data Cleaning:
+
+Ignore irrelevant values (e.g., negatives, zeros, and numbers greater than
+𝑛
+n, the size of the array).
+
+### Place Elements Where They Belong:
+
+Use a cyclic sort or in-place placement. The idea is to rearrange the array so that `nums[i]=i+1` whenever possible.
+
+### Identify the Gap:
+
+After rearrangement, scan the array for the first mismatch (where `num[i] != i+1`)
+
+The index `i+1` represents the first missing positive integer.
+
+### Fallback Case:
+
+If all numbers are correctly placed, the missing integer is `n+1`.
 
 
+<br>
+<br>
 
+## Think it again: 
 
+__The most important thing is the answer must greater than 0 and lower than `len(nums)`.
+
+```
+ans > 0 && ans < len(nums)
+```
+
+And the second thing we need to rearrange the input `nums[]`
+
+we focus on the number between `0` to `len(nums)`. if we find a number which is in a wrong position, place it in right way.
+
+<br>
+
+For Example:
+
+we got a int array nums: `[-50, 0, 1, 3, 5, 1000]`
+
+the `len(num)` is 6, so we focus on the num 0~6, is this case we got :
+
+```go
+1, 3, 5
+```
+
+let's try to rearrange, put em in the right position:
+
+`[1, 0, 3, -50, 5, 1000]`
+
+now `[1, 3, 5]` all in the right position, `nums[0]`, `nums[2]`, `nums[4]`
+
+<br>
+
+then let iterate that nums with idx i in range (0 ~ 5).
+
+if nums[i] != i+1 then answer is i+1 like:
+
+```go
+nums[i] = nums[0] = 1
+1 == i+1 => pass
+
+num[i+1] = nums[1] = 0
+0 != i+1+1 => return i+1+1 = 2
+
+final aswer is 2.
+```
