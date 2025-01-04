@@ -170,3 +170,31 @@ num[i+1] = nums[1] = 0
 
 final aswer is 2.
 ```
+
+<br>
+
+final answer:
+
+```go
+package main 
+
+func firstMissingPositive(nums []int) int {
+	n := len(nums)
+	for i := 0; i < len(nums); i++ {
+		// ⬇ if number not in where it should be (nums[nums[i]-1]) .
+		for nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i]-1] {
+			// Why using for ? because we swapped nums[i] to where it should be, then we got a new number in nums[i],
+			// we got to check new number again. until not match up with above judgmental.
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
+
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != i+1 {
+			return i + 1
+		}
+	}
+
+	return n + 1
+}
+```
