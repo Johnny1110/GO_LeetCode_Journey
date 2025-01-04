@@ -67,4 +67,41 @@ Constraints:
 
 ## Thinking
 
+<br>
+
+I just implement it roughly:
+
+```go
+func firstMissingPositive(nums []int) int {
+	nums = append(nums, 0)
+	sort.Ints(nums)
+	for i := 0; i < len(nums)-1; i++ {
+		expectNext := nums[i] + 1
+		if expectNext < nums[i+1] && expectNext > 0 {
+			return expectNext
+		}
+	}
+	return nums[len(nums)-1] + 1
+}
+```
+
+<br>
+
+I know it not a good approach to solve this problem. let me ask CHAT-GPT for a help.
+
+### Problem-Solving Process
+
+* Understand the Problem: What are the inputs and expected outputs? Are there any constraints (e.g., time/space complexity)?
+
+* Explore Examples: Work through small examples to find patterns or properties.
+
+* Plan a Strategy: Use the patterns identified to outline a logical approach before coding.
+
+* Evaluate Efficiency: Check if your solution meets the constraints and optimize if needed.
+
+<br>
+
+
+
+
 

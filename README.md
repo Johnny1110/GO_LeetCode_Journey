@@ -66,3 +66,9 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/07/24: About `[1, 2, 3]` Permutations ([solution](bonus/permutation))
 * 2024/10/11: Generate Map Node: PreOrder, PostOrder, LevelOrder ([solution](bonus/map_node_prder))
 * 2024/11/16: Hanota ([solution](bonus/hanota))
+
+<br>
+
+## Basic
+
+* Learning about Time Complexity, Space complexity ([link](https://www.bilibili.com/video/BV14j411f7DJ/?spm_id_from=333.337.search-card.all.click&vd_source=9780a181ac9f1fee5f680f255ee5bc73))
