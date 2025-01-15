@@ -52,7 +52,7 @@ weekly leetcode with golang. Making progress step by step.
 ### Year.2025
 
 * 2025/01/04: First Missing Positive ([problem link](https://leetcode.com/problems/first-missing-positive/description/))([solution](first_missing_positive))
-* 2025/01/11: Trapping Rain Water 👈([problem link](https://leetcode.com/problems/trapping-rain-water/description/))([solution](trapping_rain_water))
+* 2025/01/11: Trapping Rain Water 👈 ([problem link](https://leetcode.com/problems/trapping-rain-water/description/))([solution](trapping_rain_water))
 
 <br>
 <br>
@@ -66,7 +66,7 @@ weekly leetcode with golang. Making progress step by step.
 * 2024/07/19: Algorithm of the shortest route between two subway stations (Taipei MRT) ([solution](bonus/taipei_mrt))
 * 2024/07/24: About `[1, 2, 3]` Permutations ([solution](bonus/permutation))
 * 2024/10/11: Generate Map Node: PreOrder, PostOrder, LevelOrder ([solution](bonus/map_node_prder))
-* 2024/11/16: Hanota ⏳([solution](bonus/hanota))
+* 2024/11/16: Hanota ⏳ ([solution](bonus/hanota))
 * 2025/01/15 next greater element ([solution](bonus/next_greater_element))
 
 <br>
