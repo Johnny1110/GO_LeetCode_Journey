@@ -32,3 +32,10 @@ Monotonic Stack/Queue
 
 ## Thinking
 
+### what is Monotonic Stack/Queue ?
+
+The Monotonic Stack/Queue is a type of stack or queue with an additional restriction: it maintains elements in either increasing or decreasing order.
+
+Like a Increasing Monotonic Stack only allows pushing elements that is bigger then the last pushed element, and vice versa for a decreasing Monotonic Stack.
+
+And it allows to pop elements to maintain the order. (e.g., popping smaller element to keep that monotonic restriction)
