@@ -96,3 +96,39 @@ func (s *Stack) Size() int {
   * If peek number is lower than iterate number, pop the mono-stack, and loop it again.
 
 continuous unit iterate is done.
+
+<br>
+
+## Final Answer
+
+<br>
+
+```go
+package next_greater_element
+
+func nextGreaterElement(input []int) []int {
+
+	monoStack := Stack{}
+	answer := make([]int, len(input))
+
+	for i := len(input) - 1; i >= 0; i-- {
+
+		for !monoStack.IsEmpty() && input[i] >= monoStack.Peek() {
+			monoStack.Pop()
+		}
+
+		if monoStack.IsEmpty() {
+			answer[i] = -1
+		} else {
+			answer[i] = monoStack.Peek()
+		}
+
+		monoStack.Push(input[i])
+	}
+
+	return answer
+}
+```
+
+
+
