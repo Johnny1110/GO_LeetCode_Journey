@@ -55,7 +55,8 @@ n == height.length
 * Two Pointers
 * Dynamic Programming
 * Stack
-* Monotonic Stack [Link](https://www.bilibili.com/video/BV1eA411M7Xt/?spm_id_from=333.337.search-card.all.click)
+* Monotonic Stack [Link-1](https://www.bilibili.com/video/BV1eA411M7Xt/?spm_id_from=333.337.search-card.all.click)
+    [Link-2](https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98%E7%B3%BB%E5%88%97-monotonic-stack-queue-5ad1c35a3dfe)
 
 <br>
 
