@@ -2,6 +2,7 @@ package common
 
 import (
 	"fmt"
+	"reflect"
 )
 
 const (
@@ -42,5 +43,11 @@ func Assert_answer(input any, expect any) {
 }
 
 func assert(input any, expect any) bool {
+	// Check if both input and expect are slices of integers
+	if reflect.TypeOf(input) == reflect.TypeOf([]int{}) && reflect.TypeOf(expect) == reflect.TypeOf([]int{}) {
+		// Use reflect.DeepEqual to compare slices
+		return reflect.DeepEqual(input, expect)
+	}
+
 	return input == expect
 }
