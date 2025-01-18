@@ -88,8 +88,11 @@ To solve "Trapping Rain Water," start by considering these hints:
 2. Approaches to Explore:
 
 * Brute Force: Iterate through each bar, calculate the tallest bar on its left and right, and compute the water trapped. This is straightforward but not optimal.
+ 
 * Dynamic Programming: Precompute arrays for the tallest bar to the left (leftMax) and the tallest bar to the right (rightMax) for every position. Use these arrays to calculate the water trapped efficiently.
+ 
 * Two-Pointer Technique: Use two pointers, one starting at the left end and the other at the right end. Keep track of the maximum height encountered from each side and calculate trapped water as you converge.
+
 * Consider Edge Cases: Handle scenarios with no bars or insufficient bars to trap water.
 
 <br>
@@ -114,3 +117,82 @@ A left bar with height of 2, a right bar with height of 3.
 so  `(3-2) - 1 = 1` is the amount of water that will be trapped above a bar.
 
 <br>
+
+Alright! let's gear it up.
+
+1. First of all, using Dynamic Programming (DP) to calculate tallest bar on each sides for every position.
+   ![2.jpg](imgs/2.jpg)
+
+2. calculate the result by using DP results.
+
+<br>
+
+```golang
+
+type BarInfo struct {
+	tallestLeftBarHeight  int
+	tallestRightBarHeight int
+	targetBarHeight       int
+}
+
+func trap(inputs []int) int {
+	result := 0
+	allPositionBarInfos := make([]BarInfo, 0)
+
+	// Init first position
+	allPositionBarInfos = append(allPositionBarInfos, initFirstBar(inputs))
+
+	for i := 1; i < len(inputs); i++ {
+		currentBar := BarInfo{}
+		currentBar.targetBarHeight = inputs[i]
+		previousBar := allPositionBarInfos[i-1]
+		currentBar.tallestLeftBarHeight = max(previousBar.tallestLeftBarHeight, previousBar.targetBarHeight)
+		currentBar.tallestRightBarHeight = max(previousBar.tallestRightBarHeight, currentBar.targetBarHeight)
+
+		if currentBar.tallestRightBarHeight == currentBar.targetBarHeight {
+			tallestRight := findTallestRight(inputs, i+1)
+			currentBar.tallestRightBarHeight = tallestRight
+		}
+
+		allPositionBarInfos = append(allPositionBarInfos, currentBar)
+
+		smallestSideBar := min(currentBar.tallestLeftBarHeight, currentBar.tallestRightBarHeight)
+		waiter := smallestSideBar - currentBar.targetBarHeight
+		if waiter > 0 {
+			result += waiter
+		}
+
+	}
+
+	return result
+}
+
+func findTallestRight(inputs []int, idx int) int {
+	maxNum := 0
+	for i := idx; i < len(inputs); i++ {
+		maxNum = max(maxNum, inputs[i])
+	}
+	return maxNum
+}
+
+func initFirstBar(inputs []int) BarInfo {
+	firstBar := BarInfo{}
+	firstBar.targetBarHeight = inputs[0]
+	firstBar.tallestLeftBarHeight = 0
+
+	for i := 1; i < len(inputs); i++ {
+		if inputs[i] > firstBar.tallestRightBarHeight {
+			firstBar.tallestRightBarHeight = inputs[i]
+		}
+	}
+
+	return firstBar
+}
+```
+
+
+<br>
+
+I passed test case, but it costs a huge runtime, about 307ms and memory 9.88MB also.
+
+Let's revamp it next week.

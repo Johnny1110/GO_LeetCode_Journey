@@ -1,23 +1,67 @@
 package trapping_rain_water
 
-import "go_leetcode_journey/common"
+import (
+	"go_leetcode_journey/common"
+)
 
-func trap(height []int) int {
-	ans := towPointersSolution(height)
-	return ans
+type BarInfo struct {
+	tallestLeftBarHeight  int
+	tallestRightBarHeight int
+	targetBarHeight       int
 }
 
-func towPointersSolution(height []int) int {
-	pointerA := 0
-	pointerB := 1
+func trap(inputs []int) int {
 	result := 0
+	allPositionBarInfos := make([]BarInfo, 0)
 
-	for pointerB < len(height) {
-		if height[pointerB] >= height[pointerA] {
+	// Init first position
+	allPositionBarInfos = append(allPositionBarInfos, initFirstBar(inputs))
+
+	for i := 1; i < len(inputs); i++ {
+		currentBar := BarInfo{}
+		currentBar.targetBarHeight = inputs[i]
+		previousBar := allPositionBarInfos[i-1]
+		currentBar.tallestLeftBarHeight = max(previousBar.tallestLeftBarHeight, previousBar.targetBarHeight)
+		currentBar.tallestRightBarHeight = max(previousBar.tallestRightBarHeight, currentBar.targetBarHeight)
+
+		if currentBar.tallestRightBarHeight == currentBar.targetBarHeight {
+			tallestRight := findTallestRight(inputs, i+1)
+			currentBar.tallestRightBarHeight = tallestRight
 		}
+
+		allPositionBarInfos = append(allPositionBarInfos, currentBar)
+
+		smallestSideBar := min(currentBar.tallestLeftBarHeight, currentBar.tallestRightBarHeight)
+		waiter := smallestSideBar - currentBar.targetBarHeight
+		if waiter > 0 {
+			result += waiter
+		}
+
 	}
 
 	return result
+}
+
+func findTallestRight(inputs []int, idx int) int {
+	maxNum := 0
+	for i := idx; i < len(inputs); i++ {
+		maxNum = max(maxNum, inputs[i])
+	}
+	return maxNum
+}
+
+func initFirstBar(inputs []int) BarInfo {
+	firstBar := BarInfo{}
+	firstBar.targetBarHeight = inputs[0]
+	firstBar.tallestLeftBarHeight = 0
+
+	for i := 1; i < len(inputs); i++ {
+		if inputs[i] > firstBar.tallestRightBarHeight {
+			firstBar.tallestRightBarHeight = inputs[i]
+		}
+	}
+
+	return firstBar
 }
 
 // Go call this func in main.go
