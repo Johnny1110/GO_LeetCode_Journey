@@ -62,3 +62,55 @@ n == height.length
 
 ## Thinking
 
+I can only think about using 2 pointers to solve this problem.
+
+### 2 Pointers:
+
+* PointerA point at the first non-zero position, pointerB move to next position that is equals or higher than the number pointerA point at.
+* Calculate the volume between pointerA and pointerB.
+* Moving Pointer A to PointerB's position and do it again unit pointerB reached the end of the array.
+
+<br>
+
+### 2025/01/18: 
+
+Actually It's not that easy like what I said above.
+I brainstorm like 1~2 hour and still have no clue.
+
+Let's ask chat-gpt for a hint:
+
+### Chat-GPT hint:
+
+To solve "Trapping Rain Water," start by considering these hints:
+
+1. Key Insight: The amount of water trapped above a bar is determined by the minimum height of the tallest bars to its left and right, minus the height of the bar itself.
+
+2. Approaches to Explore:
+
+* Brute Force: Iterate through each bar, calculate the tallest bar on its left and right, and compute the water trapped. This is straightforward but not optimal.
+* Dynamic Programming: Precompute arrays for the tallest bar to the left (leftMax) and the tallest bar to the right (rightMax) for every position. Use these arrays to calculate the water trapped efficiently.
+* Two-Pointer Technique: Use two pointers, one starting at the left end and the other at the right end. Keep track of the maximum height encountered from each side and calculate trapped water as you converge.
+* Consider Edge Cases: Handle scenarios with no bars or insufficient bars to trap water.
+
+<br>
+
+Choose one of these methods based on the balance of clarity and efficiency you're aiming for. Let me know if you'd like further elaboration on any of these approaches!
+
+<br>
+
+Now I understand the Key Insight. 
+
+I drew a picture:
+
+![1.jpg](imgs/1.jpg)
+
+If I want to know how many water will be trapped above a bar. using 2 pointers spreading to both sides.
+find tallest bar on both side. 
+
+I find tallest bar on each side, as shown where I drew the circles.
+
+A left bar with height of 2, a right bar with height of 3.
+
+so  `(3-2) - 1 = 1` is the amount of water that will be trapped above a bar.
+
+<br>

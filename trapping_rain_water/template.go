@@ -3,8 +3,21 @@ package trapping_rain_water
 import "go_leetcode_journey/common"
 
 func trap(height []int) int {
-	// TODO: impl
-	return 0
+	ans := towPointersSolution(height)
+	return ans
+}
+
+func towPointersSolution(height []int) int {
+	pointerA := 0
+	pointerB := 1
+	result := 0
+
+	for pointerB < len(height) {
+		if height[pointerB] >= height[pointerA] {
+		}
+	}
+
+	return result
 }
 
 // Go call this func in main.go
