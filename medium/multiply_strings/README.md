@@ -53,3 +53,18 @@ Both num1 and num2 do not contain any leading zero, except the number 0 itself.
 
 ## Thinking
 
+The problem said: You must not use any built-in BigInteger library or convert the inputs to integer directly.
+
+By simulation approach we can split input to int array like:
+
+```
+number1 := "123"
+number2 := "456"
+
+
+number1Array := int[]{1, 2, 3}
+number2Array := int[]{4, 5, 6}
+```
+
+Then we can calculate those 2 array like manual multiply.
+
