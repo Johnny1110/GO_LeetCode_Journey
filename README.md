@@ -53,7 +53,7 @@ weekly leetcode with golang. Making progress step by step.
 
 * 2025/01/04: First Missing Positive ([problem link](https://leetcode.com/problems/first-missing-positive/description/))([solution](first_missing_positive))
 * 2025/01/11: Trapping Rain Water ([problem link](https://leetcode.com/problems/trapping-rain-water/description/))([solution](trapping_rain_water))
-* * 2025/01/25: Multiply Strings 👈 ([problem link](https://leetcode.com/problems/multiply-strings/description/))([solution](medium/multiply_strings))
+* 2025/01/25: Multiply Strings 👈 ([problem link](https://leetcode.com/problems/multiply-strings/description/))([solution](medium/multiply_strings))
 
 <br>
 <br>
