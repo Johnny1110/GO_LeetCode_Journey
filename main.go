@@ -1,6 +1,8 @@
 package main
 
-import "go_leetcode_journey/trapping_rain_water"
+import (
+	trapping_rain_water_optimize "go_leetcode_journey/trapping_rain_water/optimize"
+)
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -40,6 +42,7 @@ func main() {
 	//combination_sum_self_try.Go()
 	//combination_sum_II_revamp.Go()
 	//first_missing_positive.Go()
-	trapping_rain_water.Go()
+	//trapping_rain_water.Go()
+	trapping_rain_water_optimize.Go()
 	//next_greater_element.Go()
 }
