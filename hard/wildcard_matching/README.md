@@ -62,7 +62,7 @@ p contains only lowercase English letters, '?' or '*'.
 
 * String
 * Dynamic Programming
-* Greedy
+* [Greedy](https://www.bilibili.com/video/BV18V411b74c/?spm_id_from=333.337.search-card.all.click&vd_source=9780a181ac9f1fee5f680f255ee5bc73)
 * Recursion
 
 <br>
