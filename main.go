@@ -1,6 +1,6 @@
 package main
 
-import multiply_strings_revamp "go_leetcode_journey/medium/multiply_strings/revamp"
+import multiply_strings_revamp_2 "go_leetcode_journey/medium/multiply_strings/revamp_2"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -44,5 +44,6 @@ func main() {
 	//trapping_rain_water_optimize.Go()
 	//next_greater_element.Go()
 	//multiply_strings.Go()
-	multiply_strings_revamp.Go()
+	//multiply_strings_revamp.Go()
+	multiply_strings_revamp_2.Go()
 }
