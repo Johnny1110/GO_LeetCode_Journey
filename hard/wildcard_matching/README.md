@@ -71,11 +71,9 @@ p contains only lowercase English letters, '?' or '*'.
 
 | Approach  | Pros  | Cons  |
 |---|---|---|
-| Recursion  | Simple, intuitive  | 	Slow (exponential) without memoization  |
-| Dynamic Programming  | Efficient, optimal	  | Uses extra space O(nm)
-|
-| Greedy  | Fastest, O(n + m)	  |  Harder to implement correctly
-|
+| Recursion  | Simple, intuitive  | 	Slow (exponential) without memoization |
+| Dynamic Programming  | Efficient, optimal	  | Uses extra space O(nm)|
+| Greedy  | Fastest, O(n + m)	  |  Harder to implement correctly|
 
 I gonna try with DP first, then I will go with Greedy.
 
