@@ -9,5 +9,13 @@ func isMatch(s string, p string) bool {
 
 // Go call this func in main.go
 func Go() {
-	common.Assert_answer(isMatch("input", "input"), true)
+	common.Assert_answer(isMatch("aa", "a"), false)
+	common.Assert_answer(isMatch("a", "a"), true)
+	common.Assert_answer(isMatch("aa", "a?"), true)
+	common.Assert_answer(isMatch("aa", "a*"), true)
+	common.Assert_answer(isMatch("aaaaab", "a*b"), true)
+	common.Assert_answer(isMatch("aaaaabbbbb", "a*b"), false)
+	common.Assert_answer(isMatch("aaaaabbbbb", "a*b*"), true)
+	common.Assert_answer(isMatch("aabb", "a?b*"), true)
+	common.Assert_answer(isMatch("aabb", "a?b"), false)
 }
