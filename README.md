@@ -57,6 +57,10 @@ weekly leetcode with golang. Making progress step by step.
 * 2025/01/25: Wildcard Matching [HARD] 👈 ([problem link](https://leetcode.com/problems/wildcard-matching/description/))([solution](hard/wildcard_matching))
 
 <br>
+
+__Golang Leetcode Journey stop right here, immigrate to Rust language. [here](https://github.com/Johnny1110/Rust_LeetCode_Journey)__
+
+<br>
 <br>
 <br>
 <br>
