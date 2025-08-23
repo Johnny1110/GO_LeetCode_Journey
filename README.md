@@ -54,8 +54,9 @@ weekly leetcode with golang. Making progress step by step.
 * 2025/01/04: First Missing Positive ([problem link](https://leetcode.com/problems/first-missing-positive/description/))([solution](first_missing_positive))
 * 2025/01/11: Trapping Rain Water ([problem link](https://leetcode.com/problems/trapping-rain-water/description/))([solution](trapping_rain_water))
 * 2025/01/25: Multiply Strings [MEDIUM] ([problem link](https://leetcode.com/problems/multiply-strings/description/))([solution](medium/multiply_strings))
-* 2025/01/25: Wildcard Matching [HARD] 👈 ([problem link](https://leetcode.com/problems/wildcard-matching/description/))([solution](hard/wildcard_matching))
-
+* 2025/01/25: Wildcard Matching [HARD] ([problem link](https://leetcode.com/problems/wildcard-matching/description/))([solution](hard/wildcard_matching))
+* 2025/08/23: Zigzag Conversion [Medium] 👈([problem link](https://leetcode.com/problems/zigzag-conversion/description/))([solution](medium/zigzag_conversion))
+ 
 <br>
 
 __Golang Leetcode Journey stop right here, immigrate to Rust language. [here](https://github.com/Johnny1110/Rust_LeetCode_Journey)__

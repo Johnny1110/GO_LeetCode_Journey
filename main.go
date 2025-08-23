@@ -1,6 +1,6 @@
 package main
 
-import "go_leetcode_journey/hard/wildcard_matching"
+import "go_leetcode_journey/medium/zigzag_conversion"
 
 func main() {
 	//longest_palindromic_substring.Go()
@@ -46,5 +46,6 @@ func main() {
 	//multiply_strings.Go()
 	//multiply_strings_revamp.Go()
 	//multiply_strings_revamp_2.Go()
-	wildcard_matching.Go()
+	//wildcard_matching.Go()
+	zigzag_conversion.Go()
 }
