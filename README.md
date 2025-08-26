@@ -55,7 +55,8 @@ weekly leetcode with golang. Making progress step by step.
 * 2025/01/11: Trapping Rain Water ([problem link](https://leetcode.com/problems/trapping-rain-water/description/))([solution](trapping_rain_water))
 * 2025/01/25: Multiply Strings [MEDIUM] ([problem link](https://leetcode.com/problems/multiply-strings/description/))([solution](medium/multiply_strings))
 * 2025/01/25: Wildcard Matching [HARD] ([problem link](https://leetcode.com/problems/wildcard-matching/description/))([solution](hard/wildcard_matching))
-* 2025/08/23: Zigzag Conversion [Medium] 👈([problem link](https://leetcode.com/problems/zigzag-conversion/description/))([solution](medium/zigzag_conversion))
+* 2025/08/23: Zigzag Conversion [Medium] ([problem link](https://leetcode.com/problems/zigzag-conversion/description/))([solution](medium/zigzag_conversion))
+* 2025/08/26: Insert Interval [Medium] 👈([problem link](https://leetcode.com/problems/insert-interval/))([solution](medium/insert_interval))
  
 <br>
 
