@@ -57,8 +57,10 @@ weekly leetcode with golang. Making progress step by step.
 * 2025/01/25: Wildcard Matching [HARD] ([problem link](https://leetcode.com/problems/wildcard-matching/description/))([solution](hard/wildcard_matching))
 * 2025/08/23: Zigzag Conversion [Medium] ([problem link](https://leetcode.com/problems/zigzag-conversion/description/))([solution](medium/zigzag_conversion))
 * 2025/08/26: Insert Interval [Medium] ([problem link](https://leetcode.com/problems/insert-interval/))([solution](medium/insert_interval))
-* 2025/08/30: Length of Last Word [Easy] 👈([problem link](https://leetcode.com/problems/length-of-last-word/description/))([solution](easy/length_of_last_word))
- 
+* 2025/08/30: Length of Last Word [Easy] ([problem link](https://leetcode.com/problems/length-of-last-word/description/))([solution](easy/length_of_last_word))
+* 2025/08/30: Spiral Matrix II [Medium] 👈([problem link](https://leetcode.com/problems/spiral-matrix-ii/description/))([solution](medium/spiral_matrix_ii))
+* 2025/08/30: Permutation Sequence [Hard]  👈([problem link](https://leetcode.com/problems/permutation-sequence/description/))([solution](hard/permutation_sequence))
+
 <br>
 
 __Golang Leetcode Journey stop right here, immigrate to Rust language. [here](https://github.com/Johnny1110/Rust_LeetCode_Journey)__
