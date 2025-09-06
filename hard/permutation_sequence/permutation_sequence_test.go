@@ -46,6 +46,7 @@ func Test_upgradeKIdx(t *testing.T) {
 
 func Test_findIdx(t *testing.T) {
 	used := []bool{false, false, true, false}
-	assert.Equal(t, 1, findIdx(used, 0))
-	assert.Equal(t, 3, findIdx(used, 1))
+	assert.Equal(t, 1, findIdxAndMarkUsed(used, 0))
+	used = []bool{false, false, true, false}
+	assert.Equal(t, 3, findIdxAndMarkUsed(used, 1))
 }

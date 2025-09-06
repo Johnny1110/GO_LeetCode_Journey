@@ -30,13 +30,12 @@ func collect(used []bool, kIdx int, n int, result *[]int) {
 	targetGp := chooseGpIdx(kIdx, eachGpCount)
 
 	// 3. put int into result.
-	target := findIdx(used, targetGp)
+	target := findIdxAndMarkUsed(used, targetGp)
 	//fmt.Println("========================================")
 	//fmt.Println("n:", n, "eachGpCount:", eachGpCount, "kIdx:", kIdx)
 	//fmt.Println("used:", used, "targetGp:", targetGp)
 	//fmt.Println("find target:", target)
 	*result = append(*result, target)
-	used[target] = true
 
 	// 4. upgrade kIdx and n
 	kIdx = upgradeKIdx(kIdx, eachGpCount)
@@ -69,13 +68,14 @@ func upgradeKIdx(kIdx, eachGpCount int) int {
 	return kIdx % eachGpCount
 }
 
-func findIdx(used []bool, idx int) int {
+func findIdxAndMarkUsed(used []bool, idx int) int {
 	count := 0
 	// used[0] is not include.
 	for i := 1; i < len(used); i++ {
 		if !used[i] {
 			count++
 			if idx == count-1 {
+				used[i] = true
 				return i
 			}
 		}
