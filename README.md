@@ -81,7 +81,8 @@ __Golang Leetcode Journey stop right here, immigrate to Rust language. [here](ht
 * 2024/07/24: About `[1, 2, 3]` Permutations ([solution](bonus/permutation))
 * 2024/10/11: Generate Map Node: PreOrder, PostOrder, LevelOrder ([solution](bonus/map_node_prder))
 * 2024/11/16: Hanota ⏳ ([solution](bonus/hanota))
-* 2025/01/15 next greater element ([solution](bonus/next_greater_element))
+* 2025/01/15: next greater element ([solution](bonus/next_greater_element))
+* 2025/09/08: Design Pattern: Composite and Iterator (bonus/composite_and_iterator)
 
 <br>
 
