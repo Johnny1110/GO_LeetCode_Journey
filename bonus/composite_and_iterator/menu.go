@@ -8,6 +8,10 @@ type Menu struct {
 	description    string
 }
 
+func (m *Menu) createIterator() Iterator {
+	return NewCompositeIterator(NewMenuComponentIterator(m.menuComponents))
+}
+
 func (m *Menu) add(component MenuComponent) {
 	m.menuComponents = append(m.menuComponents, component)
 }
@@ -41,7 +45,7 @@ func (m *Menu) getPrice() float32 {
 }
 
 func (m *Menu) isVegetarian() bool {
-	panic("unsupported operation")
+	return false
 }
 
 func (m *Menu) print() {

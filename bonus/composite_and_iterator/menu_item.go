@@ -9,6 +9,10 @@ type MenuItem struct {
 	price       float32
 }
 
+func (m *MenuItem) createIterator() Iterator {
+	return NewMenuComponentIterator([]MenuComponent{})
+}
+
 func (m *MenuItem) add(component MenuComponent) {
 	panic("unsupported operation")
 }

@@ -9,4 +9,12 @@ type MenuComponent interface {
 	getPrice() float32
 	isVegetarian() bool
 	print()
+
+	createIterator() Iterator
+}
+
+type Iterator interface {
+	hasNext() bool
+	next() interface{}
+	remove()
 }

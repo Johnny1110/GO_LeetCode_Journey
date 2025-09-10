@@ -1,26 +1,38 @@
 package composite_and_iterator
 
+import "fmt"
+
 type Waitress struct {
-	allMenus []MenuComponent
+	allMenus MenuComponent
 }
 
 func NewWaitress() *Waitress {
 	return &Waitress{
-		allMenus: make([]MenuComponent, 0),
+		allMenus: NewMenu("Super Waitress", "I'm a waitress."),
 	}
 }
 
 func (w *Waitress) AddMenu(m MenuComponent) {
-	w.allMenus = append(w.allMenus, m)
+	w.allMenus.add(m)
 }
 
 func (w *Waitress) PrintVegetarianMenu() {
-	// TODO: implement iterator
-	panic("implement me")
+	it := w.allMenus.createIterator()
+	fmt.Println("\n 🥦 Vegetarian Menu:")
+	for it.hasNext() {
+		m := it.next()
+
+		switch v := m.(type) {
+		case *MenuItem:
+			if v.isVegetarian() {
+				v.print()
+			}
+		default:
+			continue
+		}
+	}
 }
 
 func (w *Waitress) PrintMenus() {
-	for _, m := range w.allMenus {
-		m.print()
-	}
+	w.allMenus.print()
 }
