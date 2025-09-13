@@ -63,7 +63,8 @@ weekly leetcode with golang. Making progress step by step.
 * 2025/09/06: Rotate List [Medium] ([problem link](https://leetcode.com/problems/rotate-list/))([solution](medium/rotate_list))
 * 2025/09/06: Reverse Integer [Medium] ([problem link](https://leetcode.com/problems/reverse-integer/description/))([solution](medium/reverse_integer))
 * 2025/09/06: Unique Paths [Medium] ([problem link](https://leetcode.com/problems/unique-paths/description/))([solution](medium/unique_paths))
-* 2025/09/13: Unique Paths II [Medium]  👈([problem link](https://leetcode.com/problems/unique-paths-ii/))([solution](medium/unique_paths_ii))
+* 2025/09/13: Unique Paths II [Medium] ([problem link](https://leetcode.com/problems/unique-paths-ii/))([solution](medium/unique_paths_ii))
+* 2025/09/13: Minimum Path Sum [Medium]  👈([problem link](https://leetcode.com/problems/minimum-path-sum/description/))([solution](medium/minimum_path_sum))
 
 <br>
 
