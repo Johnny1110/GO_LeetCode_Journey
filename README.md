@@ -62,7 +62,8 @@ weekly leetcode with golang. Making progress step by step.
 * 2025/08/30: Permutation Sequence [Hard] ([problem link](https://leetcode.com/problems/permutation-sequence/description/))([solution](hard/permutation_sequence))
 * 2025/09/06: Rotate List [Medium] ([problem link](https://leetcode.com/problems/rotate-list/))([solution](medium/rotate_list))
 * 2025/09/06: Reverse Integer [Medium] ([problem link](https://leetcode.com/problems/reverse-integer/description/))([solution](medium/reverse_integer))
-* 2025/09/06: Unique Paths [Medium]  👈([problem link](https://leetcode.com/problems/unique-paths/description/))([solution](medium/unique_paths))
+* 2025/09/06: Unique Paths [Medium] ([problem link](https://leetcode.com/problems/unique-paths/description/))([solution](medium/unique_paths))
+* 2025/09/13: Unique Paths II [Medium]  👈([problem link](https://leetcode.com/problems/unique-paths-ii/))([solution](medium/unique_paths_ii))
 
 <br>
 
