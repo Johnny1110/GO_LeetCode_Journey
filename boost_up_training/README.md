@@ -23,7 +23,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 數組題是基礎，幾乎所有複雜數據結構都建立在數組之上。這些題目涵蓋了雙指針、滑動窗口、前綴和等核心技巧。
 
-* Two Sum (#1) - 理解 HashMap 空間換時間的權衡
+* Two Sum [(#1)](array_and_string/two_sum) - 理解 HashMap 空間換時間的權衡
 * Best Time to Buy and Sell Stock (#121) - 動態規劃入門，理解狀態轉移
 * Contains Duplicate (#217) - Set 的應用
 * Product of Array Except Self (#238) - 前綴積的思想
