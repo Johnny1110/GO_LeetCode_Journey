@@ -20,3 +20,11 @@ func Test_2(t *testing.T) {
 	res := productExceptSelf(nums)
 	assert.Equal(t, []int{0, 0, 9, 0, 0}, res)
 }
+
+func Test_3(t *testing.T) {
+	//Input: nums = [5, 6]
+	//	Output: [6, 5]
+	nums := []int{5, 6}
+	res := productExceptSelf(nums)
+	assert.Equal(t, []int{6, 5}, res)
+}
