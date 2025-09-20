@@ -25,7 +25,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 * Two Sum [(#1)](array_and_string/two_sum) - 理解 HashMap 空間換時間的權衡
 * Best Time to Buy and Sell Stock [(#121)](array_and_string/best_time_to_buy_and_sell_stock) - 動態規劃入門，理解狀態轉移
-* Contains Duplicate (#217) - Set 的應用
+* Contains Duplicate [(#217)](array_and_string/contains_duplicate) - Set 的應用
 * Product of Array Except Self (#238) - 前綴積的思想
 * Maximum Subarray (#53) - Kadane 算法，動態規劃優化
 * 3Sum (#15) - 雙指針技巧的經典應用
