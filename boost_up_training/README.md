@@ -30,7 +30,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 * Maximum Subarray [(#53)](array_and_string/maximum_subarray) - Kadane 算法，動態規劃優化
 * 3Sum [(#15)](array_and_string/three_sum) - 雙指針技巧的經典應用
 * Container With Most Water [(#11)](array_and_string/container_with_most_water) - 雙指針的貪心思想
-* Sliding Window Maximum (#239) - 單調隊列的應用
+* Sliding Window Maximum [(#239)](array_and_string/sliding_window_maximum) - 單調隊列的應用
 
 <br>
 
