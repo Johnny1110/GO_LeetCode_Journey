@@ -29,7 +29,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 * Product of Array Except Self [(#238)](array_and_string/product_of_array_except_self) - 前綴積的思想
 * Maximum Subarray [(#53)](array_and_string/maximum_subarray) - Kadane 算法，動態規劃優化
 * 3Sum [(#15)](array_and_string/three_sum) - 雙指針技巧的經典應用
-* Container With Most Water (#11) - 雙指針的貪心思想
+* Container With Most Water [(#11)](array_and_string/container_with_most_water) - 雙指針的貪心思想
 * Sliding Window Maximum (#239) - 單調隊列的應用
 
 <br>
