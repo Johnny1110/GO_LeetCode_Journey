@@ -43,7 +43,7 @@ I think if every node's next is not null, that means it is a cycle.
 <br>
 <br>
 
-Claude AI:
+## Claude AI:
 
 **What Actually Defines a Cycle**
 
@@ -65,7 +65,7 @@ Claude AI:
 
 <br>
 
-**Approach 2: Floyd's Cycle Detection (Two Pointers - "Tortoise and Hare")**
+**Approach 2: Floyd's Cycle Detection (Two Pointers - "Tortoise and Hare")** (背下來的解法)
 
 This is the elegant solution worth understanding deeply:
 
