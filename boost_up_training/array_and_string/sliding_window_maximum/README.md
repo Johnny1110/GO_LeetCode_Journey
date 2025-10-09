@@ -14,7 +14,8 @@ link: https://leetcode.com/problems/sliding-window-maximum/description/
 
 <br>
 
-I think that one is pretty easy. just using 2 pointer. and I gonna init a temp to store the sum value of that k size window.
+I think that one is pretty easy. just using 2 pointer. and I gonna init a temp to store the sum value of that k size
+window.
 
 Each time moving both pointerA & B forward, add `nums[pointerB]` and also reduce `nums[pointerA-1]`
 
@@ -27,36 +28,36 @@ Let's try this out.
 
 ```go
 func maxSlidingWindow(nums []int, k int) []int {
-	// k is window size, and we need calculate the first sum value of window.
-	result := make([]int, len(nums)-k+1)
+// k is window size, and we need calculate the first sum value of window.
+result := make([]int, len(nums)-k+1)
 
-	windowSum := 0
-	for i := 0; i < k; i++ {
-		windowSum += nums[i]
-	}
-	result[0] = windowSum
+windowSum := 0
+for i := 0; i < k; i++ {
+windowSum += nums[i]
+}
+result[0] = windowSum
 
-	// make 2 pointers
-	pointerA := 1
-	pointerB := k
+// make 2 pointers
+pointerA := 1
+pointerB := k
 
-	for pointerB < len(nums) {
-		// current val = previous val + pointerB - previous pointerA
-		windowSum = windowSum + nums[pointerB] - abs(nums[pointerA-1])
-		result[pointerA] = max(windowSum, result[pointerA-1])
-		pointerA++
-		pointerB++
-	}
+for pointerB < len(nums) {
+// current val = previous val + pointerB - previous pointerA
+windowSum = windowSum + nums[pointerB] - abs(nums[pointerA-1])
+result[pointerA] = max(windowSum, result[pointerA-1])
+pointerA++
+pointerB++
+}
 
-	return result
+return result
 }
 
 func abs(val int) int {
-	if val < 0 {
-		return -val
-	} else {
-		return val
-	}
+if val < 0 {
+return -val
+} else {
+return val
+}
 }
 ```
 
@@ -114,7 +115,8 @@ The answer is NO! Why? Because:
 * The 3 came AFTER the 1
 * So the 3 will stay in the window at least as long as the 1
 
-This means the 1 can NEVER be the maximum of any future window. Once a larger element comes after a smaller one (within the window), the smaller one becomes useless.
+This means the 1 can NEVER be the maximum of any future window. Once a larger element comes after a smaller one (within
+the window), the smaller one becomes useless.
 
 <br>
 <br>
@@ -123,18 +125,20 @@ This means the 1 can NEVER be the maximum of any future window. Once a larger el
 
 Should we keep [3, 2] or just [3]?
 
-We SHOULD keep both! Why? Because when 3 slides out of the window, 2 might become the maximum. The 2 is smaller but came later, so it might be useful in the future.
+We SHOULD keep both! Why? Because when 3 slides out of the window, 2 might become the maximum. The 2 is smaller but came
+later, so it might be useful in the future.
 
 <br>
 
-**The pattern emerges: [Monotonic Decreasing Queue(單調序列)](https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98%E7%B3%BB%E5%88%97-monotonic-stack-queue-5ad1c35a3dfe)**
+**The pattern
+emerges: [Monotonic Decreasing Queue(單調序列)](https://medium.com/%E6%8A%80%E8%A1%93%E7%AD%86%E8%A8%98/%E6%BC%94%E7%AE%97%E6%B3%95%E7%AD%86%E8%A8%98%E7%B3%BB%E5%88%97-monotonic-stack-queue-5ad1c35a3dfe)
+**
 
 What we want to maintain is a monotonically decreasing sequence of elements (actually their indices) where:
 
 * The front has the largest element (our current maximum)
 * Each element is smaller than the previous one
 * But importantly, they appear in order of their position in the array
-
 
 <br>
 <br>
@@ -319,8 +323,140 @@ But that can not make me satisfy, I need to do it again and find a better way to
 
 ## Revamp
 
-// TODO
-
-```java
+The problem is right here:
 
 ```
+private void validateWindowRange(int latestIndex) {
+    while (!this.container.isEmpty() && this.container.getFirst() < minimumIndex) {
+        this.container.removeFirst();  // !!!
+    }
+}
+```
+
+When I remove first element, the rest element all need to shift left by one position. That's O(n) where n is the size of
+the list.
+
+<br>
+
+I need a data structure that supports:
+
+* Remove from front - O(1)
+* Remove from back - O(1)
+* Access front - O(1)
+* Access back - O(1)
+* Add to back - O(1)
+
+That's a typical deque data structure.
+
+<br>
+
+Java provides `java.util.Deque` interface with implementations like:
+
+* ArrayDeque - backed by a circular array
+* LinkedList - backed by a doubly-linked list
+
+Both support O(1) operations at both ends.
+
+Replace ArrayList<Integer> with Deque<Integer> (use ArrayDeque implementation):
+
+```java
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        SWMMonoDeque deque = new SWMMonoDeque(nums, k);
+        deque.initialize();
+
+        for (int i = k; i < nums.length; i++) {
+            deque.removeExpiredAndAdd(i);
+        }
+
+        return deque.getResult();
+    }
+
+    public static class SWMMonoDeque {
+
+        private final Deque<Integer> container;
+        private final int[] nums;
+        private final int windowSize;
+
+        private final List<Integer> result;
+
+        public SWMMonoDeque(int[] nums, int windowSize) {
+            this.nums = nums;
+            this.container = new ArrayDeque<>();
+            this.windowSize = windowSize;
+            this.result = new ArrayList<>();
+        }
+
+
+        public void removeExpiredAndAdd(int element) {
+            // clean left expired elements
+            validateWindowRange(element);
+            // add the new element and also clean the right smaller elements
+            add(element);
+            // put the current window best(max) result into the result list
+            this.result.add(this.peek());
+        }
+
+        public int[] getResult() {
+            return result.stream().mapToInt(Integer::intValue).toArray();
+        }
+
+        /**
+         * Add element:
+         * 1. if the new element is equals or greater than the last element in the container, remove the last element
+         * 2. repeat step 1 until the new element is less than the last element in the container
+         * 3. add the new element into the container
+         *
+         * @param element the index of nums array
+         */
+        public void add(int element) {
+            while (!this.container.isEmpty() && nums[element] >= nums[this.container.peekLast()]) {
+                container.removeLast();
+            }
+            container.addLast(element);
+        }
+
+        /**
+         * Get the first element in the container, which is the maximum value in the current window
+         *
+         * @return current window best(max) result.
+         */
+        public int peek() {
+            if (this.container.isEmpty()) {
+                return -1;
+            } else {
+                return this.nums[this.container.peekFirst()];
+            }
+        }
+
+        /**
+         * check the first element in the container, if it is out of the window range, remove it
+         */
+        private void validateWindowRange(int latestIndex) {
+            int minimumIndex = latestIndex - this.windowSize + 1;
+            // if the first element is lower than the minimum index, remove it
+            while (!this.container.isEmpty() && this.container.peekFirst() < minimumIndex) {
+                this.container.removeFirst();
+            }
+        }
+
+        /**
+         * init first window
+         */
+        public void initialize() {
+            for (int i = 0; i < this.windowSize; i++) {
+                this.add(i);
+            }
+            this.result.add(this.peek());
+        }
+    }
+}
+```
+
+I revamp container with `ArrayDeque`, and this is what we got:
+
+![2.png](imgs/2.png)
+
+<br>
+
+Not bad actually, at least we make 2 times faster than before.
