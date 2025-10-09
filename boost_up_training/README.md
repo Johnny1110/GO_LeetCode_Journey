@@ -38,7 +38,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 鏈表題主要考察指針操作和邊界處理。快慢指針是檢測環和找中點的標準方法。
 
-* Reverse Linked List (#206) - 遞歸與迭代的對比
+* Reverse Linked List [(#206)](linked_list/reverse_linked_list) - 遞歸與迭代的對比
 * Merge Two Sorted Lists (#21) - 歸併的基礎
 * Linked List Cycle (#141) - 快慢指針（Floyd's Algorithm）
 * Remove Nth Node From End (#19) - 雙指針技巧
