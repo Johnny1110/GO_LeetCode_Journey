@@ -40,7 +40,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 * Reverse Linked List [(#206)](linked_list/reverse_linked_list) - 遞歸與迭代的對比
 * Merge Two Sorted Lists [(#21)](linked_list/merge_two_sorted_lists) - 歸併的基礎
-* Linked List Cycle (#141) - 快慢指針（Floyd's Algorithm）
+* Linked List Cycle [(#141)](linked_list/linked_list_cycle) - 快慢指針（Floyd's Algorithm）
 * Remove Nth Node From End (#19) - 雙指針技巧
 * Reorder List (#143) - 綜合應用
 
