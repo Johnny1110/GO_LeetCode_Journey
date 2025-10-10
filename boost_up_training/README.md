@@ -42,7 +42,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 * Merge Two Sorted Lists [(#21)](linked_list/merge_two_sorted_lists) - 歸併的基礎
 * Linked List Cycle [(#141)](linked_list/linked_list_cycle) - 快慢指針（Floyd's Cycle Detection Algorithm）
 * Remove Nth Node From End [(#19)](linked_list/remove_nth_node_from_end) - 雙指針技巧
-* Reorder List (#143) - 綜合應用
+* Reorder List [(#143)](linked_list/reorder_list) - 綜合應用
 
 
 <br>
