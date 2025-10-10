@@ -1,4 +1,4 @@
-# Linked List Cycle
+# 141. Linked List Cycle
 
 <br>
 
@@ -93,8 +93,94 @@ Theory:
 <br>
 <br>
 
-## Coding
+## Coding - Floyd's Cycle Detection
 
-```java
+```go
+// ListNode Definition for singly-linked list.
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
 
+func hasCycle(head *ListNode) bool {
+	// using floyd's cycle detection.
+	if head == nil || head.Next == nil {
+		return false
+	}
+
+	slowPointer := head
+	fastPointer := head.Next
+
+	for {
+		// slow pointer forward 1 step.
+		slowPointer = slowPointer.Next
+		// fast pointer forward 2 step.
+		if fastPointer.Next == nil {
+			return false
+		} else {
+			fastPointer = fastPointer.Next.Next
+		}
+
+		if slowPointer == fastPointer {
+			// 2 pointer are both pointing to the same node -> cycle confirmed.
+			return true
+		}
+
+		if fastPointer == nil {
+			// faster pointer reaching the end -> not a cycle.
+			return false
+		}
+	}
+}
 ```
+
+<br>
+
+I'm using the Floyd's Cycle Detection Approach, and the result is:
+
+![1.png](imgs/1.png)
+
+<br>
+
+I admit, Floyd's Cycle Detection is elegant, but it will take more times than using HashSet.
+
+I think using set could be faster, but it will take more memory using.
+
+let's try that out.
+
+<br>
+
+## Coding - Using Set
+
+```go
+// ListNode Definition for singly-linked list.
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func hasCycle(head *ListNode) bool {
+	seenNodes := make(map[*ListNode]interface{})
+
+	for head != nil {
+		if _, seen := seenNodes[head]; seen {
+			return true
+		} else {
+			seenNodes[head] = nil
+			head = head.Next
+		}
+	}
+
+	return false
+}
+```
+
+<br>
+
+result:
+
+![2.png](imgs/2.png)
+
+<br>
+
+It takes 12ms, not good at all. The Floyd's Approach is way better.
