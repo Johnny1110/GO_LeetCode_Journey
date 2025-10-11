@@ -213,5 +213,121 @@ Option B: Find middle + reverse half (O(1) space)
 ### Coding
 
 ```go
+func reorderList(head *ListNode) {
+	if head == nil || head.Next == nil {
+		return
+	}
 
+	// 1. using 2 pointer to find the middle.
+	pointerA := head // slow-pointer.
+	pointerB := head // fast-pointer.
+
+	// ex: 1 - 2 - 3 [4 - 5]  === A: 3, B: 5
+	// ex: 1 - 2  [3 - 4]      === A: 2, B: 4
+	// pointerA: fist list's tail
+	// pointerB: second list's tail
+	for pointerB.Next != nil {
+		if pointerB.Next.Next != nil {
+			pointerB = pointerB.Next.Next // move 2 step.
+			pointerA = pointerA.Next      // pointer-A move 1 step.
+		} else {
+			pointerB = pointerB.Next // move 1 more step.
+		}
+	}
+
+	// 2. reverse the sec half linked-list.(from pointerB to pointerA)
+	secondListHead := pointerB
+	pointerB.Next = pointerA.Next
+	pointerA.Next = nil // cut the list from the middle.
+
+	currentPointer := secondListHead.Next
+	nextPointer := secondListHead.Next.Next
+
+	for currentPointer.Next != secondListHead {
+		tmp := nextPointer.Next
+		nextPointer.Next = currentPointer
+		currentPointer = nextPointer
+		nextPointer = tmp
+	}
+	currentPointer.Next = nil
+
+	pointerA = head
+	pointerB = secondListHead
+	
+	// 3. merge both linked-list and return. (first list's length will equal or 1 bigger than sec list)
+	for pointerA != nil && pointerB != nil {
+		currentA := pointerA
+		currentB := pointerB
+
+		pointerA = pointerA.Next
+		pointerB = pointerB.Next
+
+		currentA.Next = currentB
+		currentB.Next = pointerA
+	}
+}
 ```
+
+finished!
+
+And let me ask AI for improvement.
+
+<br>
+
+```go
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func reorderList(head *ListNode) {
+	if head == nil || head.Next == nil {
+		return
+	}
+
+	// 1. using 2 pointer to find the middle.
+	slow, fast := head, head
+	for slow.Next != nil && fast.Next != nil && fast.Next.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+	// slow will be pointing at the middle.
+	// cut second list:
+	secHead := slow.Next
+	slow.Next = nil
+	// now we got head, and sec head. ex: [1, 2, 3] and [4, 5]
+
+	// 2. reverse the sec half linked-list.(using secHead)
+	prev := secHead
+	curr := secHead.Next
+	prev.Next = nil // secHead will be the tail of reversed linked-list
+	for curr != nil {
+		next := curr.Next // save next
+		curr.Next = prev  // reverse link
+		prev = curr       // move prev forward
+		curr = next       // move curr forward
+	}
+	// prev is the revered-linked-list new head
+	revSecHead := prev
+
+	// 3. merge both linked-list and return. (first list's length will equal or 1 bigger than sec list)
+	mergeTwoList(head, revSecHead)
+}
+
+func mergeTwoList(head1 *ListNode, head2 *ListNode) {
+	for head1 != nil && head2 != nil {
+		// 1. store current 2 pointer.
+		currA, currB := head1, head2
+		// 2. move both pointer forward.
+		head1 = head1.Next
+		head2 = head2.Next
+		// 3. rebuild link
+		currA.Next = currB
+		currB.Next = head1
+	}
+}
+```
+
+This is perfection!
+
+![3.png](imgs/3.png)

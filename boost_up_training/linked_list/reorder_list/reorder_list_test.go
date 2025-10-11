@@ -1,7 +1,6 @@
 package reorder_list
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -88,25 +87,4 @@ func Test_3(t *testing.T) {
 	}
 
 	assert.Equal(t, []int{1, 6, 2, 5, 3, 4}, resultValues)
-}
-
-func Test_Stack(t *testing.T) {
-	stack := NewListNodeStack()
-
-	node1 := &ListNode{1, nil}
-	node2 := &ListNode{2, nil}
-	node3 := &ListNode{3, nil}
-	node4 := &ListNode{4, nil}
-	node5 := &ListNode{5, nil}
-
-	stack.Push(node1)
-	stack.Push(node2)
-	stack.Push(node3)
-	stack.Push(node4)
-	stack.Push(node5)
-
-	for !stack.isEmpty() {
-		val, _ := stack.Pop()
-		fmt.Println("val:", val)
-	}
 }
