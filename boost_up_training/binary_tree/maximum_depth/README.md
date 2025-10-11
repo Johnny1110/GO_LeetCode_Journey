@@ -59,3 +59,47 @@ That will be a `DFS` (Depth-First Search)
 <br>
 
 ## Coding
+
+```go
+func maxDepth(root *TreeNode) int {
+	return recursiveCalculateDepth(root, 0)
+}
+
+func recursiveCalculateDepth(root *TreeNode, currentDepth int) int {
+	if root == nil {
+		return currentDepth
+	}
+
+	currentDepth++
+
+	maxLeft := recursiveCalculateDepth(root.Left, currentDepth)
+	maxRight := recursiveCalculateDepth(root.Right, currentDepth)
+	return max(maxLeft, maxRight)
+}
+```
+
+I did like above, and the result is:
+
+![1.png](imgs/1.png)
+
+<br>
+
+Unfortunately, I'm using Top-Bottom Approach, I may try using Bottom-Top Approach.
+
+<br>
+<br>
+
+```go
+func maxDepth(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+
+	a := maxDepth(root.Left)
+	b := maxDepth(root.Right)
+
+	return 1 + max(a, b)
+}
+```
+
+![2.png](imgs/2.png)
