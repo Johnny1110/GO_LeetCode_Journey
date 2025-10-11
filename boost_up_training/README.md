@@ -51,7 +51,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 樹的遞歸是理解分治思想的關鍵。這些題目覆蓋了 DFS、BFS、樹形 DP 等核心概念。
 
-* Maximum Depth (#104) - DFS 基礎
+* Maximum Depth [(#104)](binary_tree/maximum_depth) - DFS 基礎
 * Same Tree (#100) - 遞歸思維
 * Invert Binary Tree (#226) - 理解樹的對稱性
 * Binary Tree Level Order Traversal (#102) - BFS 應用
