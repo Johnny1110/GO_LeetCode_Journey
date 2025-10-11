@@ -12,6 +12,11 @@ link: https://leetcode.com/problems/invert-binary-tree/description/
 
 ## Thinking
 
+**Topic**
+
+* DFS
+* BFS
+
 <br>
 <br>
 
