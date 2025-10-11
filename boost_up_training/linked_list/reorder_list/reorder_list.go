@@ -53,7 +53,6 @@ func reorderList(head *ListNode) {
 	pointerB, _ := stack.Pop() // tail
 
 	for (pointerA != pointerB) && (pointerA.Next != pointerB) {
-		fmt.Println("pointerA:", pointerA, "pointerB:", pointerB)
 		if stack.isEmpty() {
 			break
 		}

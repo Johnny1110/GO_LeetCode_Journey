@@ -140,10 +140,77 @@ But I don't think this is a good way to solve this problem, because I feel like 
 I should revamp this.
 
 <br>
+<br>
+
+### Claude AI:
+
+**The Optimal O(1) Space Approach**
+
+Theory: Break the problem into 3 steps:
+
+* Find the middle (slow/fast pointer)
+* Reverse the second half (in-place pointer manipulation)
+* Merge two halves (interleave/交錯)
+
+<br>
+
+### Step 1: Find Middle
+
+```
+1 → 2 → 3 → 4 → 5
+        ↑
+      middle
+```
+
+Using slow/fast pointers (slow moves 1, fast moves 2), when fast reaches end, slow is at middle.
+
+<br>
+
+### Step 2: Reverse Second Half
+
+```
+Before: 3 → 4 → 5
+After:  3 ← 4 ← 5
+        ↓
+       null
+```
+
+This is the classic "reverse linked list" pattern—changing direction of pointers in-place.
+
+<br>
+
+### Step 3: Merge
+
+```
+List 1: 1 → 2 → 3
+List 2: 5 → 4
+
+Result: 1 → 5 → 2 → 4 → 3
+```
+
+Alternate picking from each list.
+
+<br>
+<br>
+
+### Tips
+
+**The Pattern to Remember** 
+
+Many linked list problems have this pattern:
+
+```
+"I need to access from both ends"
+    ↓
+Option A: Store in auxiliary structure (O(n) space)
+Option B: Find middle + reverse half (O(1) space)
+```
+
+<br>
 
 ## Revamp
 
-<br>
+### Coding
 
 ```go
 
