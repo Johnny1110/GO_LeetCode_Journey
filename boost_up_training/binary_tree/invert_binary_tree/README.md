@@ -23,5 +23,32 @@ link: https://leetcode.com/problems/invert-binary-tree/description/
 ## Coding
 
 ```go
+func invertTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return root
+	}
+	perform(root)
+	return root
+}
 
+func perform(root *TreeNode) {
+	if root == nil {
+		return
+	}
+
+	leftNode := root.Left
+	rightNode := root.Right
+
+	root.Left = rightNode
+	root.Right = leftNode
+
+	perform(leftNode)
+	perform(rightNode)
+}
 ```
+
+<br>
+
+## Result
+
+![1.png](imgs/1.png)

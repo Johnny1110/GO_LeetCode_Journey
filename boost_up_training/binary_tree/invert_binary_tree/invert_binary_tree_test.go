@@ -1,6 +1,7 @@
 package invert_binary_tree
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -28,6 +29,8 @@ func Test_1(t *testing.T) {
 	// expect
 	expectTest1 := mockTestExpect_1()
 	resultTest1 := invertTree(root)
+
+	debug(resultTest1)
 
 	isSame := isSameTree(expectTest1, resultTest1)
 
@@ -72,4 +75,18 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 	}
 
 	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+}
+
+func debug(root *TreeNode) {
+	if root == nil {
+		return
+	}
+
+	fmt.Println("node:", root.Val)
+	fmt.Println("left:", root.Left)
+	fmt.Println("right:", root.Right)
+	fmt.Println("---------------------------------------------------")
+
+	debug(root.Left)
+	debug(root.Right)
 }

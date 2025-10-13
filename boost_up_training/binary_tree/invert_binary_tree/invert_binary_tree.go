@@ -8,6 +8,24 @@ type TreeNode struct {
 }
 
 func invertTree(root *TreeNode) *TreeNode {
-	// TODO
+	if root == nil {
+		return root
+	}
+	perform(root)
 	return root
+}
+
+func perform(root *TreeNode) {
+	if root == nil {
+		return
+	}
+
+	leftNode := root.Left
+	rightNode := root.Right
+
+	root.Left = rightNode
+	root.Right = leftNode
+
+	perform(leftNode)
+	perform(rightNode)
 }
