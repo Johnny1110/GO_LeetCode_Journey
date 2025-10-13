@@ -57,6 +57,5 @@ func perform(queue *Queue) [][]int {
 
 	fmt.Println("found node:", node.Val)
 
-	// continue.
 	return perform(queue)
 }
