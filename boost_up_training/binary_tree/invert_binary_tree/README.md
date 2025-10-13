@@ -52,3 +52,23 @@ func perform(root *TreeNode) {
 ## Result
 
 ![1.png](imgs/1.png)
+
+<br>
+<br>
+
+## Revamp
+
+start swap from the bottom.
+
+```go
+func perform(root *TreeNode) {
+	if root == nil {
+		return
+	}
+
+	perform(root.Left)
+	perform(root.Right)
+
+	root.Left, root.Right = root.Right, root.Left
+}
+```

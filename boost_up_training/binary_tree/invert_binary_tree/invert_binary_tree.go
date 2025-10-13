@@ -20,12 +20,8 @@ func perform(root *TreeNode) {
 		return
 	}
 
-	leftNode := root.Left
-	rightNode := root.Right
+	perform(root.Left)
+	perform(root.Right)
 
-	root.Left = rightNode
-	root.Right = leftNode
-
-	perform(leftNode)
-	perform(rightNode)
+	root.Left, root.Right = root.Right, root.Left
 }
