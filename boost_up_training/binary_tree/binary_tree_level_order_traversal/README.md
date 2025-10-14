@@ -53,9 +53,215 @@ I think I can try like make a queue to do like.
 
 Now we know how to iterate through the tree structure by each layer. but we still have no clue how to identify the different layer.
 
+<br>
+
+1. In a standard BFS, all nodes mix together
+2. A queue only knows "first in, first out" (it has no concept of levels)
+3. When I pop node 2's children (4, 5) and node 3's children (6, 7), they're all just in the queue together
+
+```
+      1          <- Level 0
+     / \
+    2   3        <- Level 1
+   / \ / \
+  4  5 6  7      <- Level 2
+```
+
+<br>
+
+## Claude AI Solutions
+
+> The key insight: At any moment, the queue contains nodes from at most 2 consecutive levels.
+
+Before processing nodes, count how many nodes are currently in the queue - that's exactly one complete level.
+
+<br>
+
+## Thinking - 2
+
+I think we can do more pop node action from each recursive call.
+
+like if there are 3 layers, we should call levelOrder function 3 times only.
+
+collect current layer result into that `[][]int`.
+
+Then how do we know about how many nodes we should pop from that queue.
+
+* Get current queue size at first, that the amount we should pop by current recursive call.
+
+<br>
+
+let try it out.
 
 
 <br>
 <br>
 
 ## Coding
+
+```go
+// Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+type Queue struct {
+	container []*TreeNode
+}
+
+func NewQueue() *Queue {
+	return &Queue{
+		container: make([]*TreeNode, 0),
+	}
+}
+
+func (q *Queue) Push(node *TreeNode) {
+	q.container = append(q.container, node)
+}
+
+func (q *Queue) Pop() (*TreeNode, bool) {
+	if len(q.container) == 0 {
+		return nil, false
+	}
+	node := q.container[0]
+	q.container = q.container[1:]
+	return node, true
+}
+
+func (q *Queue) Size() int {
+	return len(q.container)
+}
+
+func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return [][]int{}
+	}
+	queue := NewQueue()
+	// init, put head into queue.
+	queue.Push(root)
+	level := [][]int{}
+	perform(queue, &level)
+
+	return level
+}
+
+func perform(queue *Queue, result *[][]int) {
+	currentSize := queue.Size()
+	if currentSize == 0 {
+		return
+	}
+
+	currentLayer := []int{}
+
+	for range currentSize {
+		node, ok := queue.Pop()
+		if !ok {
+			panic("invalid queue size")
+		}
+
+		currentLayer = append(currentLayer, node.Val)
+		if node.Left != nil {
+			queue.Push(node.Left)
+		}
+		if node.Right != nil {
+			queue.Push(node.Right)
+		}
+	}
+
+	*result = append(*result, currentLayer)
+	perform(queue, result)
+}
+```
+
+<br>
+
+result:
+
+![1.png](imgs/1.png)
+
+<br>
+
+the performance is poor...
+
+<br>
+
+## Revamp
+
+<br>
+
+Same idea, just remove unnecessary recursive call. instead, using 2 nested loop in one function.
+
+<br>
+
+```go
+// Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+type Queue struct {
+	container []*TreeNode
+}
+
+func NewQueue() *Queue {
+	return &Queue{
+		container: make([]*TreeNode, 0),
+	}
+}
+
+func (q *Queue) Push(node *TreeNode) {
+	q.container = append(q.container, node)
+}
+
+func (q *Queue) Pop() (*TreeNode, bool) {
+	if len(q.container) == 0 {
+		return nil, false
+	}
+	node := q.container[0]
+	q.container = q.container[1:]
+	return node, true
+}
+
+func (q *Queue) Size() int {
+	return len(q.container)
+}
+
+func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return [][]int{}
+	}
+	queue := NewQueue()
+	// init, put head into queue.
+	queue.Push(root)
+	level := [][]int{}
+    
+	// using 2 nested loop.
+	for queue.Size() > 0 {
+		currentSize := queue.Size()
+		currentLayer := []int{}
+		for range currentSize {
+			if node, ok := queue.Pop(); ok {
+				currentLayer = append(currentLayer, node.Val)
+				// put next layer's node into queue.
+				if node.Left != nil {
+					queue.Push(node.Left)
+				}
+				if node.Right != nil {
+					queue.Push(node.Right)
+				}
+			} else {
+				panic("queue is empty")
+			}
+		}
+		level = append(level, currentLayer)
+	}
+
+	return level
+}
+```
+
+![2.png](imgs/2.png)

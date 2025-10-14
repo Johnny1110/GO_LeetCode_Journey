@@ -1,7 +1,5 @@
 package binary_tree_level_order_traversal
 
-import "fmt"
-
 // Definition for a binary tree node.
 type TreeNode struct {
 	Val   int
@@ -32,30 +30,38 @@ func (q *Queue) Pop() (*TreeNode, bool) {
 	return node, true
 }
 
+func (q *Queue) Size() int {
+	return len(q.container)
+}
+
 func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return [][]int{}
+	}
 	queue := NewQueue()
 	// init, put head into queue.
 	queue.Push(root)
-	return perform(queue)
-}
+	level := [][]int{}
 
-func perform(queue *Queue) [][]int {
-	// pop node
-	node, ok := queue.Pop()
-	if !ok {
-		// reach the end.
-		return nil
+	for queue.Size() > 0 {
+		currentSize := queue.Size()
+		currentLayer := []int{}
+		for range currentSize {
+			if node, ok := queue.Pop(); ok {
+				currentLayer = append(currentLayer, node.Val)
+				// put next layer's node into queue.
+				if node.Left != nil {
+					queue.Push(node.Left)
+				}
+				if node.Right != nil {
+					queue.Push(node.Right)
+				}
+			} else {
+				panic("queue is empty")
+			}
+		}
+		level = append(level, currentLayer)
 	}
 
-	// push next 2 node into queue.
-	if node.Left != nil {
-		queue.Push(node.Left)
-	}
-	if node.Right != nil {
-		queue.Push(node.Right)
-	}
-
-	fmt.Println("found node:", node.Val)
-
-	return perform(queue)
+	return level
 }

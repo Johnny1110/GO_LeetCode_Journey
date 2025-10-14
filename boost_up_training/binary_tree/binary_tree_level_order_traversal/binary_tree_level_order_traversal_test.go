@@ -30,3 +30,27 @@ func Test_1(t *testing.T) {
 
 	assert.Equal(t, expect, result)
 }
+
+func Test_2(t *testing.T) {
+	// Input: root = [1]
+	// Output: [[1]]
+
+	nodeA1 := &TreeNode{Val: 1}
+
+	result := levelOrder(nodeA1)
+	expect := [][]int{
+		{1},
+	}
+
+	assert.Equal(t, expect, result)
+}
+
+func Test_3(t *testing.T) {
+	// Input: root = []
+	// Output: []
+
+	result := levelOrder(nil)
+	expect := [][]int{}
+
+	assert.Equal(t, expect, result)
+}
