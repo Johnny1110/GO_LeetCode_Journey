@@ -8,5 +8,19 @@ type TreeNode struct {
 }
 
 func isValidBST(root *TreeNode) bool {
-	return false
+	if root == nil {
+		return true
+	}
+
+	rootVal := root.Val
+
+	if root.Left != nil && root.Left.Val >= rootVal {
+		return false
+	}
+
+	if root.Right != nil && root.Right.Val <= rootVal {
+		return false
+	}
+
+	return isValidBST(root.Left) && isValidBST(root.Right)
 }
