@@ -56,8 +56,8 @@ Campaign: 2025/09/20 ~ UNKNOWN
 * Invert Binary Tree [(#226)](binary_tree/invert_binary_tree) - 理解樹的對稱性
 * Binary Tree Level Order Traversal [(#102)](binary_tree/binary_tree_level_order_traversal) - BFS 應用
 * Validate BST [(#98)](binary_tree/validate_bst) - 中序遍歷的性質
-* Lowest Common Ancestor (#236) - 遞歸返回值的設計
-* Serialize and Deserialize (#297) - 樹的編碼思想
+* Lowest Common Ancestor (LCA) [(#236)](binary_tree/lowest_common_ancestor) - 遞歸返回值的設計
+* Serialize and Deserialize [(#297)](binary_tree/serialize_and_deserialize) - 樹的編碼思想
 * Binary Tree Maximum Path Sum (#124) - 樹形 DP
 
 
