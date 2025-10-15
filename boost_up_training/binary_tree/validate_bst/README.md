@@ -90,7 +90,117 @@ As you traverse down the tree, each node inherits constraints from all its ances
 ## Coding
 
 ```go
+// Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+type Side int8
+
+const (
+	NONE Side = iota
+	LEFT
+	RIGHT
+)
+
 func isValidBST(root *TreeNode) bool {
-    
+	return perform(root, -1, NONE)
+}
+
+func perform(node *TreeNode, parentVal int, side Side) bool {
+	if node == nil {
+		return true
+	}
+
+	switch side {
+	case NONE:
+		if node.Left != nil {
+			if node.Left.Val >= node.Val {
+				return false
+			}
+		}
+
+		if node.Right != nil {
+			if node.Right.Val <= node.Val {
+				return false
+			}
+		}
+
+		break
+
+	case LEFT:
+
+		if node.Left != nil {
+			if node.Left.Val >= node.Val {
+				return false
+			}
+		}
+
+		if node.Right != nil {
+			if node.Right.Val <= node.Val || node.Right.Val >= parentVal {
+				return false
+			}
+		}
+
+		break
+	case RIGHT:
+
+		if node.Left != nil {
+			if node.Left.Val <= parentVal || node.Left.Val >= node.Val {
+				return false
+			}
+		}
+
+		if node.Right != nil {
+			if node.Right.Val <= node.Val {
+				return false
+			}
+		}
+
+		break
+	}
+
+	return perform(node.Left, node.Val, LEFT) && perform(node.Right, node.Val, RIGHT)
 }
 ```
+
+<br>
+
+I tried my best but I'm failed. 
+
+
+I think I made this too complex, if there is a func which gonna tell me input node is valid or not.
+The func signature will be like this:
+
+```go
+func perform(node *TreeNode, min, max int) bool
+```
+
+input node value should between `min` and `max`.
+
+then recursive call `perform(node.Left) && perform(node.Right)`.
+
+<br>
+
+```go
+func isValidBST(root *TreeNode) bool {
+	return perform(root, math.MinInt64, math.MaxInt64)
+}
+
+func perform(node *TreeNode, min, max int) bool {
+	if node == nil {
+		return true
+	}
+
+	if node.Val >= max || node.Val <= min {
+		return false
+	}
+
+	return perform(node.Left, min, node.Val) && perform(node.Right, node.Val, max)
+}
+```
+
+
+![1.png](imgs/1.png)
