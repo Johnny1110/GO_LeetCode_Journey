@@ -15,7 +15,9 @@ Campaign: 2025/09/20 ~ UNKNOWN
 <br>
 <br>
 
-## 新手村學院 Category
+## 新手村學院 (Apprentice → Graduate) Category
+
+透過標準算法題目建立扎實的理論基礎，從學徒 (Apprentice) 朝向畢業生 (Graduate) 邁進。
 
 <br>
 <br>
@@ -138,7 +140,25 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 <br>
 <br>
 
-## Redo 20-30% of the hardest problem
+## Redo 20-30% of the hardest problem (Graduate → Junior Engineer)
+
+將所有心目中覺得有難度的題目整理在這裡並重做一次
+
+* 所有已知解題方法都要試過一次
+* 整理為什麼覺得難的原因
+* 趁離開新手村前，誠實的把自己得弱項補足並強化，必須以完全準備好的狀態挑戰下一個階段副本
+
+<br>
+
+題目：
+
+* 3Sum [(#15)](array_and_string/three_sum) - 雙指針技巧的經典應用
+* Sliding Window Maximum [(#239)](array_and_string/sliding_window_maximum) - 單調隊列的應用
+* Reorder List [(#143)](linked_list/reorder_list) - 綜合應用
+* Validate BST [(#98)](binary_tree/validate_bst) - 中序遍歷的性質
+* Lowest Common Ancestor (LCA) [(#236)](binary_tree/lowest_common_ancestor) - 遞歸返回值的設計
+* Serialize and Deserialize [(#297)](binary_tree/serialize_and_deserialize) - 樹的編碼思想
+* Binary Tree Maximum Path Sum (#124) - 樹形 DP
 
 > 鞏固完每一個專項的技能後，就可以開始真正開始探索未知領域，進行更有挑戰性的任務
 > 等級評鑑升級：畢業生 -> 初級工程師
@@ -152,11 +172,24 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 <br>
 
 
-## NeetCode-150 (most frequently asked interview problems)-> [link](https://neetcode.io/practice?tab=neetcode150)
+## NeetCode-150 (Junior → Mid Engineer)
+
+<br>
+
+NeetCode-150 is most frequently asked interview problems
+
+* Test pattern recognition without hints
+* Track which categories still trip you up
+* __If you struggle with >30% of a category, go back and review fundamentals__
+
+<br>
+
+[link](https://neetcode.io/practice?tab=neetcode150)
 
 <br>
 
 > 完成了 NeetCode-150 挑制挑戰之後，已經完全具備挑戰矽谷副本實力。不過還缺少將算法應用於實戰的經驗。接下來需要更多的實戰訓練。
+> 這個階段完成後，需要匹配 FAANG 的工作來證明自己的實力以達到目標
 > 等級評鑑升級： 初級工程師 -> 中級工程師
 
 <br>
@@ -167,13 +200,17 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 <br>
 <br>
 
-## Classic: System Design + Algorithms
+## Classic: System Design + Algorithms (Mid → Senior Engineer)
+
+Critical insight: This phase is about combining knowledge:
+
 
 * Design Twitter Feed (Heap + Timeline algorithms)
 * Rate Limiter (Sliding Window + Token Bucket)
 * Consistent Hashing (Design + Implementation)
 
-> 完成了系統設計與算法結合的實戰科研後，實力應該已經提升到一個非常強悍的等級了。接下來就是需要挑戰進階到神王等級。
+> 完成了系統設計與算法結合的實戰科研後，實力應該已經提升到一個非常強悍的等級了。可以開始挑戰開發區塊鏈專案或者任何分布式應用。
+> 接下來就是需要挑戰進階到神王等級。
 > 等級評鑑升級： 中級工程師 -> 高級工程師
 
 <br>
@@ -184,13 +221,19 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 <br>
 <br>
 
-## Niche algorithms
+## Niche algorithms  (Senior → Computer Scientist)
+
+__Don't rush here!!!__
+
+This level is for when you want to contribute to databases, compilers, or system-level projects
+
+<br>
 
 * Union-Find (Disjoint Set)
 * Segment Trees 
 * Trie variations (Suffix Array, Aho-Corasick)
 * Advanced Graph (Dijkstra, Bellman-Ford, Floyd-Warshall)
-* Red-Black Tree implement
+* Red-Black Tree implement (Truly understand self-balancing trees)
 
 
 > 完成了 Niche Algorithms，實力已經到了一個恐怖的地步，正式成神。可以進出全世界最高級的開源項目參與研發。
