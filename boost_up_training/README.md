@@ -119,3 +119,51 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * LRU Cache (#146) - 哈希表 + 雙向鏈表
 * Trie/Prefix Tree (#208) - 字典樹
 * Design Add and Search Words (#211) - Trie + DFS
+
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+
+## Redo 20-30% of the hardest problem
+
+<br>
+<br>
+
+## NeetCode-150 (most frequently asked interview problems)-> [link](https://neetcode.io/practice?tab=neetcode150)
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
+## Classic: System Design + Algorithms
+
+* Design Twitter Feed (Heap + Timeline algorithms)
+* Rate Limiter (Sliding Window + Token Bucket)
+* Consistent Hashing (Design + Implementation)
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
+## Niche algorithms
+
+* Union-Find (Disjoint Set)
+* Segment Trees 
+* Trie variations (Suffix Array, Aho-Corasick)
+* Advanced Graph (Dijkstra, Bellman-Ford, Floyd-Warshall)
+* Red-Black Tree implement
