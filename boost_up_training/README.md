@@ -176,6 +176,12 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 <br>
 
+Target: Lending FAANG
+
+![FAANG.png](imgs/FAANG.png)
+
+<br>
+
 NeetCode-150 is most frequently asked interview problems
 
 * Test pattern recognition without hints
