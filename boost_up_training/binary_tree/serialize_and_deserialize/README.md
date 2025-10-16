@@ -20,6 +20,81 @@ link: https://leetcode.com/problems/serialize-and-deserialize-binary-tree/descri
 
 ## Thinking
 
+I saw many example by previous tree problems, there always show me the example by an Array like:
+
+```go
+[3, 5, 1, null, null, 7, 11]
+```
+
+I'm thinking about should I use this data structure to serialize tree?
+
+<br>
+<br>
+
+## Claude AI Suggests
+
+There are 2 solution to implement tree serialize and deserialize
+
+* Preorder (DFS) with null markers
+* Level-order (BFS)
+
+<br>
+
+### Preorder (DFS) with null markers
+
+```
+     1
+   /   \
+  2     3
+   \   /
+    4 5
+
+→ "1,2,null,4,null,null,3,5,null,null,null"
+```
+
+**Pros:** Simpler to implement recursively, natural for DFS
+**Cons:** More nulls stored, looks longer
+
+* Recursive thinking with implicit state (call stack)
+* How tree structure maps to linear sequences
+* The elegant symmetry between serialize/deserialize
+
+Core skill: Understanding how recursion "automatically" handles tree traversal
+
+<br>
+<br>
+
+### Level-order (BFS)
+
+```
+     1
+   /   \
+  2     3
+   \   /
+    4 5
+
+→ [1, 2, 3, null, 4, 5]
+```
+
+**Pros:** Compact, intuitive visualization
+**Cons:** You need to track positions carefully, handle nulls for missing children
+
+* Explicit state management with queues
+* Parent-child index relationships
+* Handling "layers" of a tree
+
+Core skill: Thinking iteratively about tree structure, managing position tracking
+
+<br>
+<br>
+
+
+## Thinking - Preorder (DFS) with null markers
+
+<br>
+
+Let me implement DFS Preorder first.
+
 <br>
 <br>
 
