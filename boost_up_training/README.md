@@ -15,11 +15,12 @@ Campaign: 2025/09/20 ~ UNKNOWN
 <br>
 <br>
 
-## Category
+## 新手村學院 Category
 
 <br>
+<br>
 
-### （Array & String）
+### （Array & String）-> 等級：學徒-1
 
 數組題是基礎，幾乎所有複雜數據結構都建立在數組之上。這些題目涵蓋了雙指針、滑動窗口、前綴和等核心技巧。
 
@@ -34,7 +35,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 <br>
 
-### 鏈表（Linked List）
+### 鏈表（Linked List）-> 等級：學徒-2
 
 鏈表題主要考察指針操作和邊界處理。快慢指針是檢測環和找中點的標準方法。
 
@@ -47,7 +48,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 <br>
 
-### 二叉樹（Binary Tree）
+### 二叉樹（Binary Tree）-> 等級：學徒-3
 
 樹的遞歸是理解分治思想的關鍵。這些題目覆蓋了 DFS、BFS、樹形 DP 等核心概念。
 
@@ -63,7 +64,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 <br>
 
-### 動態規劃（Dynamic Programming）
+### 動態規劃（Dynamic Programming）-> 等級：學徒-4
 
 DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」和「重疊子問題」是關鍵。
 
@@ -77,7 +78,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 <br>
 
-### 圖（Graph）
+### 圖（Graph）-> 等級：學徒-5
 
 圖算法是高級面試的重點，理解 BFS（最短路徑）和 DFS（連通性）的適用場景至關重要。
 
@@ -93,7 +94,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 <br>
 
-### 堆/優先隊列（Heap）
+### 堆/優先隊列（Heap）-> 等級：學徒-6
 
 <br>
 
@@ -104,7 +105,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 <br>
 
-### 回溯（Backtracking）
+### 回溯（Backtracking）-> 等級：學徒-7
 
 * Subsets (#78) - 子集生成
 * Permutations (#46) - 全排列
@@ -114,12 +115,18 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 <br>
 
-### 高級數據結構
+### 高級數據結構 -> 等級：學徒-8
 
 * LRU Cache (#146) - 哈希表 + 雙向鏈表
 * Trie/Prefix Tree (#208) - 字典樹
 * Design Add and Search Words (#211) - Trie + DFS
 
+
+<br>
+<br>
+
+> 完成到這裡就已經具備離開新手村學院的實力了，初步具備可稱為略懂算法的工程師。
+> 等級評鑑升級：學徒 -> 畢業生
 
 <br>
 <br>
@@ -133,10 +140,24 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 ## Redo 20-30% of the hardest problem
 
+> 鞏固完每一個專項的技能後，就可以開始真正開始探索未知領域，進行更有挑戰性的任務
+> 等級評鑑升級：畢業生 -> 初級工程師
+
 <br>
 <br>
 
+---
+
+<br>
+<br>
+
+
 ## NeetCode-150 (most frequently asked interview problems)-> [link](https://neetcode.io/practice?tab=neetcode150)
+
+<br>
+
+> 完成了 NeetCode-150 挑制挑戰之後，已經完全具備挑戰矽谷副本實力。不過還缺少將算法應用於實戰的經驗。接下來需要更多的實戰訓練。
+> 等級評鑑升級： 初級工程師 -> 中級工程師
 
 <br>
 <br>
@@ -151,6 +172,9 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Design Twitter Feed (Heap + Timeline algorithms)
 * Rate Limiter (Sliding Window + Token Bucket)
 * Consistent Hashing (Design + Implementation)
+
+> 完成了系統設計與算法結合的實戰科研後，實力應該已經提升到一個非常強悍的等級了。接下來就是需要挑戰進階到神王等級。
+> 等級評鑑升級： 中級工程師 -> 高級工程師
 
 <br>
 <br>
@@ -167,3 +191,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Trie variations (Suffix Array, Aho-Corasick)
 * Advanced Graph (Dijkstra, Bellman-Ford, Floyd-Warshall)
 * Red-Black Tree implement
+
+
+> 完成了 Niche Algorithms，實力已經到了一個恐怖的地步，正式成神。可以進出全世界最高級的開源項目參與研發。
+> 等級評鑑升級： 高級工程師 -> 電腦科學家
