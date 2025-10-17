@@ -123,6 +123,18 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Trie/Prefix Tree (#208) - 字典樹
 * Design Add and Search Words (#211) - Trie + DFS
 
+<br>
+
+### Bitmap 補充
+
+* Missing Number (#268) - 理解基本 bitmap 標記
+* Single Number (#136) - 學習 bit 操作
+* Find All Disappeared (#448) - 練習範圍內去重
+* Find Duplicate (#287) - 多種解法比較
+* Single Number II (#137) - 深入理解位操作
+* First Missing Positive (#41) - 空間優化技巧
+
+
 
 <br>
 <br>
