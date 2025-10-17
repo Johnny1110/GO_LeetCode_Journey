@@ -112,7 +112,7 @@ Nah, let me do it simple first. just convert to string and connect with `,`
 <br>
 <br>
 
-## Coding
+## Coding - Preorder (DFS)
 
 ```go
 import (
@@ -259,3 +259,364 @@ func (this *Codec) deserialize(data string) *TreeNode {
 <br>
 <br>
 
+Preorder with DFS are done, now we should try with another approach.
+
+<br>
+<br>
+
+## Thinking - Level-order (BFS)
+
+Unlike preorder where recursion naturally "consumes" values in order, BFS requires explicit position tracking.
+
+* Preorder (DFS): Uses call stack implicitly
+* Level-Order (BFS): Uses queue explicitly
+
+<br>
+
+* Process level by level.
+* Need to track parent-child relationships EXPLICITLY
+* How do I know which node is whose child?
+
+example:
+
+```
+     1
+   /   \
+  2     3
+ / \
+4   5
+```
+
+The order BFS visit will be like:
+
+```
+[1, 2, 3, 4, 5, nil, nil]
+```
+
+<br>
+<br>
+
+I did whole BFS solution like:
+
+```go
+// Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+// ==========================================================
+
+type Codec struct {
+}
+
+func Constructor() Codec {
+	return Codec{}
+}
+
+// Serializes a tree to a single string.
+func (this *Codec) serialize(root *TreeNode) string {
+	queue := NewNodeQueue()
+	queue.Push(root)
+
+	result := []string{}
+
+	for queue.Size() != 0 {
+		node, _ := queue.Pop()
+
+		if node == nil {
+			result = append(result, "nil")
+		} else {
+			result = append(result, strconv.Itoa(node.Val))
+			queue.Push(node.Left)
+			queue.Push(node.Right)
+		}
+	}
+
+	return strings.Join(result, ",")
+}
+
+// Deserializes your encoded data to tree.
+func (this *Codec) deserialize(data string) *TreeNode {
+	strVals := strings.Split(data, ",")
+
+	if len(strVals) == 0 || strVals[0] == "nil" {
+		return nil
+	}
+
+	rootVal, _ := strconv.Atoi(strVals[0])
+	idx := 1
+
+	root := &TreeNode{
+		Val: rootVal,
+	}
+
+	queue := NewNodeQueue()
+	queue.Push(root)
+
+	for queue.Size() != 0 {
+		node, _ := queue.Pop()
+		if node == nil {
+			idx++
+			continue
+		}
+
+		// handle left
+		if idx < len(strVals) {
+			strLeftVal := strVals[idx]
+			idx++
+
+			if strLeftVal != "nil" {
+				leftVal, _ := strconv.Atoi(strLeftVal)
+				node.Left = &TreeNode{
+					Val: leftVal,
+				}
+			}
+		}
+
+		// handle right
+		if idx < len(strVals) {
+			strRightVal := strVals[idx]
+			idx++
+
+			if strRightVal != "nil" {
+				rightVal, _ := strconv.Atoi(strRightVal)
+				node.Right = &TreeNode{
+					Val: rightVal,
+				}
+			}
+		}
+
+		queue.Push(node.Left)
+		queue.Push(node.Right)
+	}
+
+	return root
+}
+
+// --------------------------------------------------------------------------
+
+type NodeQueue struct {
+	container []*TreeNode
+}
+
+func NewNodeQueue() *NodeQueue {
+	return &NodeQueue{
+		container: make([]*TreeNode, 0),
+	}
+}
+
+func (this *NodeQueue) Push(node *TreeNode) {
+	this.container = append(this.container, node)
+}
+
+func (this *NodeQueue) Pop() (*TreeNode, bool) {
+	if len(this.container) == 0 {
+		return nil, false
+	}
+	node := this.container[0]
+	this.container = this.container[1:]
+	return node, true
+}
+
+func (this *NodeQueue) Size() int {
+	return len(this.container)
+}
+```
+
+<br>
+
+but I found some problem:
+
+```go
+for queue.Size() != 0 {
+    node, _ := queue.Pop()
+    if node == nil {
+        idx++  // ← Why increment idx here?
+        continue
+    }
+    
+    // ... process left and right ...
+    
+    queue.Push(node.Left)   // ← pushing nil nodes
+    queue.Push(node.Right)
+}
+```
+
+**The Problem:**
+
+When I process a nil node from the queue, I did `idx++` and `continue`. But why **skip values**?
+
+Let's trace through an example to see the bug:
+
+```go
+Tree:    
+	
+   1
+ /   \
+2     3
+
+Serialized: "1,2,3,nil,nil,nil,nil"
+
+Deserialization trace:
+1. Pop root(1), idx=1
+    - Left: strVals[1]="2", create node(2), idx=2
+    - Right: strVals[2]="3", create node(3), idx=3
+    - Push node(2) and node(3) to queue
+
+2. Pop node(2), idx=3
+    - Left: strVals[3]="nil", don't create, idx=4
+    - Right: strVals[4]="nil", don't create, idx=5
+    - Push nil and nil to queue  ← Here's the issue!
+
+3. Pop nil, idx=5
+    - You do idx++ → idx=6  ← WHY? What value are you skipping?
+    - continue
+
+4. Pop nil, idx=6
+    - You do idx++ → idx=7  ← Out of bounds!
+```
+
+<br>
+
+fix, final version:
+
+```go
+// Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+// ==========================================================
+
+type Codec struct {
+}
+
+func Constructor() Codec {
+	return Codec{}
+}
+
+// Serializes a tree to a single string.
+func (this *Codec) serialize(root *TreeNode) string {
+	queue := NewNodeQueue()
+	queue.Push(root)
+
+	result := []string{}
+
+	for queue.Size() != 0 {
+		node, _ := queue.Pop()
+
+		if node == nil {
+			result = append(result, "nil")
+		} else {
+			result = append(result, strconv.Itoa(node.Val))
+			queue.Push(node.Left)
+			queue.Push(node.Right)
+		}
+	}
+
+	return strings.Join(result, ",")
+}
+
+// Deserializes your encoded data to tree.
+func (this *Codec) deserialize(data string) *TreeNode {
+	strVals := strings.Split(data, ",")
+
+	if len(strVals) == 0 || strVals[0] == "nil" {
+		return nil
+	}
+
+	rootVal, _ := strconv.Atoi(strVals[0])
+	idx := 1
+
+	root := &TreeNode{
+		Val: rootVal,
+	}
+
+	queue := NewNodeQueue()
+	queue.Push(root)
+
+	for queue.Size() != 0 {
+		node, _ := queue.Pop()
+		if node == nil {
+			continue
+		}
+
+		// handle left
+		if idx < len(strVals) {
+			strLeftVal := strVals[idx]
+			idx++
+
+			if strLeftVal != "nil" {
+				leftVal, _ := strconv.Atoi(strLeftVal)
+				node.Left = &TreeNode{
+					Val: leftVal,
+				}
+				queue.Push(node.Left)
+			}
+		}
+
+		// handle right
+		if idx < len(strVals) {
+			strRightVal := strVals[idx]
+			idx++
+
+			if strRightVal != "nil" {
+				rightVal, _ := strconv.Atoi(strRightVal)
+				node.Right = &TreeNode{
+					Val: rightVal,
+				}
+				queue.Push(node.Right)
+			}
+		}
+	}
+
+	return root
+}
+
+// --------------------------------------------------------------------------
+
+type NodeQueue struct {
+	container []*TreeNode
+}
+
+func NewNodeQueue() *NodeQueue {
+	return &NodeQueue{
+		container: make([]*TreeNode, 0),
+	}
+}
+
+func (this *NodeQueue) Push(node *TreeNode) {
+	this.container = append(this.container, node)
+}
+
+func (this *NodeQueue) Pop() (*TreeNode, bool) {
+	if len(this.container) == 0 {
+		return nil, false
+	}
+	node := this.container[0]
+	this.container = this.container[1:]
+	return node, true
+}
+
+func (this *NodeQueue) Size() int {
+	return len(this.container)
+}
+```
+
+<br>
+
+result:
+
+![2.png](imgs/2.png)
+
+<br>
+<br>
+
+### DFS vs BFS - Core Difference
+
+
+![3.png](imgs/3.png)

@@ -1,7 +1,6 @@
 package serialize_and_deserialize
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -24,47 +23,107 @@ func Constructor() Codec {
 
 // Serializes a tree to a single string.
 func (this *Codec) serialize(root *TreeNode) string {
+	queue := NewNodeQueue()
+	queue.Push(root)
 
-	if root == nil {
-		return "nil"
+	result := []string{}
+
+	for queue.Size() != 0 {
+		node, _ := queue.Pop()
+
+		if node == nil {
+			result = append(result, "nil")
+		} else {
+			result = append(result, strconv.Itoa(node.Val))
+			queue.Push(node.Left)
+			queue.Push(node.Right)
+		}
 	}
 
-	val := root.Val
-
-	left := this.serialize(root.Left)
-	right := this.serialize(root.Right)
-
-	return fmt.Sprintf("%d,%s,%s", val, left, right)
+	return strings.Join(result, ",")
 }
 
 // Deserializes your encoded data to tree.
 func (this *Codec) deserialize(data string) *TreeNode {
-	// split strVals from data
 	strVals := strings.Split(data, ",")
-	idx := 0
 
-	// make a build func
-	var build func() *TreeNode
-	build = func() *TreeNode {
-		if idx >= len(strVals) || strVals[idx] == "nil" {
-			idx++
-			return nil
+	if len(strVals) == 0 || strVals[0] == "nil" {
+		return nil
+	}
+
+	rootVal, _ := strconv.Atoi(strVals[0])
+	idx := 1
+
+	root := &TreeNode{
+		Val: rootVal,
+	}
+
+	queue := NewNodeQueue()
+	queue.Push(root)
+
+	for queue.Size() != 0 {
+		node, _ := queue.Pop()
+		if node == nil {
+			continue
 		}
 
-		val, _ := strconv.Atoi(strVals[idx])
-		idx++
+		// handle left
+		if idx < len(strVals) {
+			strLeftVal := strVals[idx]
+			idx++
 
-		left := build()
-		right := build()
+			if strLeftVal != "nil" {
+				leftVal, _ := strconv.Atoi(strLeftVal)
+				node.Left = &TreeNode{
+					Val: leftVal,
+				}
+				queue.Push(node.Left)
+			}
+		}
 
-		return &TreeNode{
-			Val:   val,
-			Left:  left,
-			Right: right,
+		// handle right
+		if idx < len(strVals) {
+			strRightVal := strVals[idx]
+			idx++
+
+			if strRightVal != "nil" {
+				rightVal, _ := strconv.Atoi(strRightVal)
+				node.Right = &TreeNode{
+					Val: rightVal,
+				}
+				queue.Push(node.Right)
+			}
 		}
 	}
 
-	return build()
+	return root
 }
 
 // --------------------------------------------------------------------------
+
+type NodeQueue struct {
+	container []*TreeNode
+}
+
+func NewNodeQueue() *NodeQueue {
+	return &NodeQueue{
+		container: make([]*TreeNode, 0),
+	}
+}
+
+func (this *NodeQueue) Push(node *TreeNode) {
+	this.container = append(this.container, node)
+}
+
+func (this *NodeQueue) Pop() (*TreeNode, bool) {
+	if len(this.container) == 0 {
+		return nil, false
+	}
+	node := this.container[0]
+	this.container = this.container[1:]
+	return node, true
+}
+
+func (this *NodeQueue) Size() int {
+	return len(this.container)
+}
