@@ -1,6 +1,7 @@
 package serialize_and_deserialize
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -31,9 +32,28 @@ func Test_1(t *testing.T) {
 	codec := Constructor()
 
 	str := codec.serialize(node3)
+
+	fmt.Println("serialize:", str)
+
 	root := codec.deserialize(str)
 
 	assert.True(t, isSameTree(root, node3))
+}
+
+func Test_serialize(t *testing.T) {
+	node1 := &TreeNode{Val: 1}
+	node2 := &TreeNode{Val: 2}
+	node3 := &TreeNode{Val: 3}
+	node4 := &TreeNode{Val: 4}
+
+	node1.Left = node2
+	node1.Right = node3
+
+	node2.Left = node4
+
+	codec := Constructor()
+	str := codec.serialize(node1)
+	fmt.Println("serialize:", str)
 }
 
 func isSameTree(p *TreeNode, q *TreeNode) bool {
