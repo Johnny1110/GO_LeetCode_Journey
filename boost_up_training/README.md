@@ -70,7 +70,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」和「重疊子問題」是關鍵。
 
-* Climbing Stairs (#70) - DP 入門
+* Climbing Stairs [(#70)](dynamic_programming/climbing_stairs) - DP 入門
 * House Robber (#198) - 狀態定義
 * Coin Change (#322) - 完全背包問題
 * Longest Increasing Subsequence (#300) - 經典 DP
