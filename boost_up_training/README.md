@@ -71,7 +71,7 @@ Campaign: 2025/09/20 ~ UNKNOWN
 DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」和「重疊子問題」是關鍵。
 
 * Climbing Stairs [(#70)](dynamic_programming/climbing_stairs) - DP 入門
-* House Robber (#198) - 狀態定義
+* House Robber [(#198)](dynamic_programming/house_robber) - 狀態定義
 * Coin Change (#322) - 完全背包問題
 * Longest Increasing Subsequence (#300) - 經典 DP
 * Word Break (#139) - DP + 字符串
@@ -170,7 +170,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Validate BST [(#98)](binary_tree/validate_bst) - 中序遍歷的性質
 * Lowest Common Ancestor (LCA) [(#236)](binary_tree/lowest_common_ancestor) - 遞歸返回值的設計
 * Serialize and Deserialize [(#297)](binary_tree/serialize_and_deserialize) - 樹的編碼思想
-* Binary Tree Maximum Path Sum (#124) - 樹形 DP
+* Binary Tree Maximum Path Sum [(#124)](binary_tree/binary_tree_maximum_path_sum) - 樹形 DP
 
 > 鞏固完每一個專項的技能後，就可以開始真正開始探索未知領域，進行更有挑戰性的任務
 > 等級評鑑升級：畢業生 -> 初級工程師
