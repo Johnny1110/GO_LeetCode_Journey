@@ -72,7 +72,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 * Climbing Stairs [(#70)](dynamic_programming/climbing_stairs) - DP 入門
 * House Robber [(#198)](dynamic_programming/house_robber) - 狀態定義
-* Coin Change (#322) - 完全背包問題
+* Coin Change [(#322)](dynamic_programming/coin_change) - 完全背包問題
 * Longest Increasing Subsequence (#300) - 經典 DP
 * Word Break (#139) - DP + 字符串
 * Edit Distance (#72) - 二維 DP
