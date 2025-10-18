@@ -188,3 +188,45 @@ I solved this problem but seems like it's still need to optimize.
 
 ## Thinking - Optimize
 
+I just removed some redundant code:
+
+
+<br>
+
+```go
+func maxPathSum(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+
+	_, sumMax := perform(root)
+	return sumMax
+}
+
+// perform return 2 int
+// 1. int: the value that could be extended by parent node.
+// 2. int: current maximum value.
+func perform(node *TreeNode) (int, int) {
+	if node == nil {
+		return 0, math.MinInt
+	}
+
+	// goes left:
+	leftExtVal, leftMax := perform(node.Left)
+	// goes right:
+	rightExtVal, rightMax := perform(node.Right)
+
+	currentExtVal := max(node.Val, leftExtVal+node.Val, rightExtVal+node.Val)
+	currentV := node.Val + leftExtVal + rightExtVal
+
+	currentMax := max(currentExtVal, leftMax, rightMax, currentV, node.Val)
+
+	return currentExtVal, currentMax
+}
+```
+
+<br>
+
+result:
+
+![2.png](imgs/2.png)
