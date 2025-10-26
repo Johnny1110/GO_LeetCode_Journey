@@ -1,4 +1,4 @@
-# Coin Change
+# 322. Coin Change
 
 <br>
 
@@ -74,8 +74,115 @@ dp[i][w] = max(dp[i-1][w], dp[i][w-weight[i]] + value[i])
 <br>
 <br>
 
+## Define DP
+
+<br>
+
+The most difficult part of DP problem is define the DP array.
+
+**Problem**
+
+* What is the minimum number of coins needed to make up the amount?
+* If we want to know how to make up the 11, we should know how to make up 10, 9, 8, 7 ...
+
+Based above thinking, we can define the dp:
+
+__dp[i] = the minimum number of coins need to make up the amount `i`.__
+
+<br>
+<br>
+
+## Define State Transform Function
+
+<br>
+
+Now we defined dp, we should define state transform function.
+
+* If `i > coin`: we can use that coin
+* After we count that coin in: `remainingAmount -= coin`
+* Now the `remainingAmount` must lower than `i`, so it will be already accumulate before (in DP array).
+* We should try chose every coin's SCENARIO can adopt the minimum result and put it into `dp[i]`
+
+<br>
+<br>
+
 ## Coding
 
 ```go
+func coinChange(coins []int, amount int) int {
+	if amount < 0 {
+		return -1
+	}
 
+	// 1. define the dp
+	dp := make([]int, amount+1)
+	// 2. init dp
+	dp[0] = 0
+
+	for i := 1; i < len(dp); i++ {
+		// i is current amount, for each every coin:
+		possibleResult := math.MaxInt
+		for _, coin := range coins {
+			if coin <= i {
+				// that coin is able to adopt:
+				remainAmt := i - coin
+				if dp[remainAmt] == -1 {
+					// means current coin is not able to be adopted.
+					continue
+				} else {
+					possibleResult = min(dp[remainAmt]+1, possibleResult)
+				}
+			}
+		}
+
+		if possibleResult != math.MaxInt {
+			dp[i] = possibleResult
+		} else {
+			dp[i] = -1
+		}
+	}
+
+	return dp[amount]
+}
 ```
+
+<br>
+
+![1.png](imgs/1.png)
+
+I think I need refine this.
+
+```go
+func coinChange(coins []int, amount int) int {
+	if amount < 0 {
+		return -1
+	}
+
+	// 1. define the dp:
+	dp := make([]int, amount+1)
+	// 2. init dp:
+	for i := 1; i <= amount; i++ {
+		dp[i] = amount + 1 // init with a impossible number
+	}
+
+	// 3. state transform:
+	for i := 1; i < len(dp); i++ {
+		// i is current amount, for each every coin:
+		for _, coin := range coins {
+			remaining := i - coin
+			if coin <= i {
+				dp[i] = min(dp[remaining]+1, dp[i])
+			}
+		}
+	}
+
+	if dp[amount] >= amount+1 {
+		return -1
+	}
+	return dp[amount]
+}
+```
+
+<br>
+
+![2.png](imgs/2.png)

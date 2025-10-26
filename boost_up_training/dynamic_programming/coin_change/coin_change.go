@@ -1,11 +1,30 @@
 package coin_change
 
-import "sort"
-
 func coinChange(coins []int, amount int) int {
+	if amount < 0 {
+		return -1
+	}
 
-	// order coins desc.
-	sort.Slice(coins, func(i, j int) bool { return coins[i] > coins[j] })
+	// 1. define the dp:
+	dp := make([]int, amount+1)
+	// 2. init dp:
+	for i := 1; i <= amount; i++ {
+		dp[i] = amount + 1 // init with a impossible number
+	}
 
-	return 0
+	// 3. state transform:
+	for i := 1; i < len(dp); i++ {
+		// i is current amount, for each every coin:
+		for _, coin := range coins {
+			remaining := i - coin
+			if coin <= i {
+				dp[i] = min(dp[remaining]+1, dp[i])
+			}
+		}
+	}
+
+	if dp[amount] >= amount+1 {
+		return -1
+	}
+	return dp[amount]
 }
