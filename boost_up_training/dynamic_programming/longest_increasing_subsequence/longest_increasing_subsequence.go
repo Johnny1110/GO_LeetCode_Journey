@@ -1,24 +1,42 @@
 package longest_increasing_subsequence
 
 func lengthOfLIS(nums []int) int {
-	// define DP
-	dp := make([]int, len(nums))
-	finalMaxVal := 1
+	if len(nums) == 0 {
+		return 0
+	}
 
-	for i := 0; i < len(nums); i++ {
-		dp[i] = 1
-		currVal := nums[i]
+	// init tails
+	tails := []int{}
 
-		for j := 0; j < i; j++ {
-			if currVal > nums[j] {
-				dp[i] = max(dp[j]+1, dp[i])
-
-				if dp[i] > finalMaxVal {
-					finalMaxVal = dp[i]
-				}
-			}
+	// using binary-search to find tails element who is bigger than num.
+	for _, num := range nums {
+		idx := binarySearchIdx(&tails, num) // idx is where we can replace or append
+		if idx == len(tails) {
+			tails = append(tails, num)
+		} else {
+			tails[idx] = num
 		}
 	}
 
-	return finalMaxVal
+	return len(tails)
+}
+
+// binarySearchIdx find first element's idx bigger than num.
+func binarySearchIdx(tailsPtn *[]int, num int) int {
+	tails := *tailsPtn
+	left, right := 0, len(tails)-1
+
+	for left <= right {
+		midIdx := (left + right) / 2
+		midVal := tails[midIdx]
+		if midVal > num {
+			right = midIdx - 1
+		} else if midVal < num {
+			left = midIdx + 1
+		} else {
+			return midIdx
+		}
+	}
+
+	return left
 }
