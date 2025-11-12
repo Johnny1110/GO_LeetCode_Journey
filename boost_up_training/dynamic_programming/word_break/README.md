@@ -148,3 +148,27 @@ Performance is poor, Just as I expected. I'm using too much for loop, although I
 
 ## Revamp
 
+### The Key Insight for Optimization
+
+Instead of checking all possible starting positions, we should only check word lengths that actually exist in our dictionary.
+
+Think about it this way:
+
+* if wordDict only contaions words of length `3, 5, 7`
+* Why would I check substrings of length `1, 2, 4, 6` ?
+
+<br>
+
+### Hint for Optimization
+
+1. Pre-process the dict to find the minimum and maximum word lengths.
+2. __Reverse inner loop direction__ - instead of iterating `j` from `0` to `currentDPIdx`, iterate backwards from `currentDPIdx`.
+3. __Only check valid word lengths__ - skip lengths that don't exist in our dict.
+
+<br>
+
+### Coding - V2
+
+```go
+
+```
