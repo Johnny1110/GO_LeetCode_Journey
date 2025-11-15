@@ -18,3 +18,7 @@ func Test_1(t *testing.T) {
 func Test_2(t *testing.T) {
 	assert.Equal(t, 5, minDistance("intention", "execution"))
 }
+
+func Test_3(t *testing.T) {
+	assert.Equal(t, 2, minDistance("cat", "cu"))
+}

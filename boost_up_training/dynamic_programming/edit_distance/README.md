@@ -98,10 +98,17 @@ init DP:
 
 <br>
 
-<br>
-<br>
+Define Transform Formula:
 
+example: "cat" to "cu"
 
+* If both chars matched: `word1[i-1] == word2[j-1]`: 
+  * `dp[i][j] = dp[i-1][j-1]` No operation needed, The cost is the same as dp[i-1][j-1] like "ca" to "cu" = 0 + 1 = 1
+
+* If both chars mismatch: `word1[i-1] != word2[j-1]` choose one of the operations:
+  * Replace: `dp[i][j] = dp[i-1][j-1] + 1` (step of "ca" to "c" add 1 replace step)
+  * Insert:  `dp[i][j] = dp[i][j-1] + 1` (step of "cat" to "c" add 1 insert step)
+  * Delete:  `dp[i][j] = dp[i-1][j] + 1` (step of "ca" to "cu" and +1 delete step)
 
 <br>
 <br>
