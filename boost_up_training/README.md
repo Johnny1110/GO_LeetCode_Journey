@@ -75,7 +75,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Coin Change [(#322)](dynamic_programming/coin_change) - 完全背包問題
 * Longest Increasing Subsequence [(#300)](dynamic_programming/longest_increasing_subsequence) - 經典 DP
 * Word Break [(#139)](dynamic_programming/word_break) - DP + 字符串
-* Edit Distance (#72) - 二維 DP
+* Edit Distance [(#72)](dynamic_programming/edit_distance) - 二維 DP
 * Unique Paths (#62) - 路徑計數
 
 <br>
