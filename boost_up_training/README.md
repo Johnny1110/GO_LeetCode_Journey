@@ -76,7 +76,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Longest Increasing Subsequence [(#300)](dynamic_programming/longest_increasing_subsequence) - 經典 DP
 * Word Break [(#139)](dynamic_programming/word_break) - DP + 字符串
 * Edit Distance [(#72)](dynamic_programming/edit_distance) - 二維 DP
-* Unique Paths (#62) - 路徑計數
+* Unique Paths [(#62)](dynamic_programming/unique_paths) - 路徑計數
 
 <br>
 
@@ -171,6 +171,10 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Lowest Common Ancestor (LCA) [(#236)](binary_tree/lowest_common_ancestor) - 遞歸返回值的設計
 * Serialize and Deserialize [(#297)](binary_tree/serialize_and_deserialize) - 樹的編碼思想
 * Binary Tree Maximum Path Sum [(#124)](binary_tree/binary_tree_maximum_path_sum) - 樹形 DP
+* Coin Change [(#322)](dynamic_programming/coin_change) - 完全背包問題
+* Longest Increasing Subsequence [(#300)](dynamic_programming/longest_increasing_subsequence) - 經典 DP
+* Word Break [(#139)](dynamic_programming/word_break) - DP + 字符串
+* Edit Distance [(#72)](dynamic_programming/edit_distance) - 二維 DP
 
 > 鞏固完每一個專項的技能後，就可以開始真正開始探索未知領域，進行更有挑戰性的任務
 > 等級評鑑升級：畢業生 -> 初級工程師
