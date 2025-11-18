@@ -110,7 +110,31 @@ When you see a grid problem, ask yourself:
 <br>
 <br>
 
-## Coding
+## Coding - DFS
+
+<br>
+
+1. I want to create a 2D bool array as "visited" land mark array.
+2. Iterate through the map:
+   * If the node is a __land cell__ `&&` __not been visited__:
+     * Start DFS recursive call to explore all the connected component from current node, mark al of them as "visited" (in 2D bool array).
+     * After the explore call is over, count the discovered island + 1.
+   * If the node is __water cell__ `||` __been visited__:
+     * Skip to next cell.
+* Return the discovered island count as result.
+
+<br>
+
+```go
+func numIslands(grid [][]byte) int {
+    
+}
+```
+
+<br>
+<br>
+
+## Coding - BFS
 
 ```go
 func numIslands(grid [][]byte) int {
