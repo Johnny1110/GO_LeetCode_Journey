@@ -1,6 +1,7 @@
 package number_of_islands
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -15,13 +16,15 @@ func Test_1(t *testing.T) {
 	//Output: 1
 
 	grid := [][]byte{
-		{1, 1, 1, 1, 0},
-		{1, 1, 0, 1, 0},
-		{1, 1, 0, 0, 0},
-		{0, 0, 0, 0, 0},
+		{'1', '1', '1', '1', '0'},
+		{'1', '1', '0', '1', '0'},
+		{'1', '1', '0', '0', '0'},
+		{'0', '0', '0', '0', '0'},
 	}
 
-	assert.Equal(t, 1, numIslands(grid))
+	result := numIslands(grid)
+	fmt.Println("result:", result)
+	assert.Equal(t, 1, result)
 }
 
 func Test_2(t *testing.T) {
@@ -34,11 +37,13 @@ func Test_2(t *testing.T) {
 	//Output: 3
 
 	grid := [][]byte{
-		{1, 1, 0, 0, 0},
-		{1, 1, 0, 0, 0},
-		{0, 0, 1, 0, 0},
-		{0, 0, 0, 1, 1},
+		{'1', '1', '0', '0', '0'},
+		{'1', '1', '0', '0', '0'},
+		{'0', '0', '1', '0', '0'},
+		{'0', '0', '0', '1', '1'},
 	}
 
-	assert.Equal(t, 3, numIslands(grid))
+	result := numIslands(grid)
+	fmt.Println("result:", result)
+	assert.Equal(t, 3, result)
 }
