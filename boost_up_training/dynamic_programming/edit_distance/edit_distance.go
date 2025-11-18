@@ -1,9 +1,7 @@
 package edit_distance
 
-import "fmt"
-
 func minDistance(word1 string, word2 string) int {
-	// 1. define 2D array:
+	// 1. define a 2D array:
 	dp := make([][]int, len(word2)+1)
 	for i := range dp {
 		dp[i] = make([]int, len(word1)+1)
@@ -16,8 +14,6 @@ func minDistance(word1 string, word2 string) int {
 		}
 	}
 
-	fmt.Println("after init dp:", dp)
-
 	for i := 1; i < len(dp); i++ {
 		w2Idx := i - 1
 
@@ -26,24 +22,21 @@ func minDistance(word1 string, word2 string) int {
 
 			if word1[w1Idx] == word2[w2Idx] {
 				// both are matched:
-				dp[i][j] = dp[i-1][j-1] + 1
+				dp[i][j] = dp[i-1][j-1]
 			} else {
 				// both are not matched.
 
 				// 1. try replace:
 				replaceCnt := dp[i-1][j-1]
 				// 2. try insert:
-				insertCnt := dp[i][j-1]
+				insertCnt := dp[i-1][j]
 				// 3. try delete:
-				deleteCnt := dp[i-1][j]
+				deleteCnt := dp[i][j-1]
 
 				dp[i][j] = min(replaceCnt, insertCnt, deleteCnt) + 1
 			}
-
 		}
 	}
 
-	fmt.Println("dp:", dp)
-
-	return dp[len(word1)][len(word2)]
+	return dp[len(word2)][len(word1)]
 }
