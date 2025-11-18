@@ -84,7 +84,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 圖算法是高級面試的重點，理解 BFS（最短路徑）和 DFS（連通性）的適用場景至關重要。
 
-* Number of Islands (#200) - DFS/BFS 基礎
+* Number of Islands [(#200)](graph/number_of_islands) - DFS/BFS 基礎
 * Clone Graph (#133) - 圖的遍歷與複製
 * Course Schedule (#207) - 拓撲排序
 * Pacific Atlantic Water Flow (#417) - 多源 BFS
