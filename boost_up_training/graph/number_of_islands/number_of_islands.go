@@ -1,74 +1,44 @@
 package number_of_islands
 
-type Context struct {
-	visited   [][]bool
-	grid      [][]byte
-	maxRowCnt int
-	maxColCnt int
-	landCnt   int
-}
-
-func (c *Context) findOne() {
-	c.landCnt++
-}
-
-func (c *Context) markAsVisited(i int, j int) {
-	c.visited[i][j] = true
-}
-
-func newContext(grid [][]byte) *Context {
-	visited := make([][]bool, len(grid))
-	for i := range visited {
-		visited[i] = make([]bool, len(grid[i]))
-	}
-	return &Context{
-		visited:   visited,
-		grid:      grid,
-		maxRowCnt: len(grid) - 1,
-		maxColCnt: len(grid[0]) - 1,
-		landCnt:   0,
-	}
-}
-
 func numIslands(grid [][]byte) int {
-	context := newContext(grid)
+	if len(grid) == 0 {
+		return 0
+	}
 
-	// Iterate through the map:
-	for i := 0; i < len(grid); i++ {
-		for j := 0; j < len(grid[i]); j++ {
+	rows, cols := len(grid), len(grid[0])
+	visited := make([][]bool, rows)
+	for i := range visited {
+		visited[i] = make([]bool, cols)
+	}
 
-			if grid[i][j] == '1' && !context.visited[i][j] {
-				// perform DFS recursive explore >>>
-				exploreIsland(context, i, j)
-				// <<< perform DFS recursive explore
-				context.findOne()
-			} else {
-				continue
+	// define DFS func
+	var dfs func(row, col int)
+	dfs = func(row, col int) {
+		// combined boundary check
+		if row < 0 || row >= rows || col < 0 || col >= cols ||
+			visited[row][col] || grid[row][col] != '1' {
+			return
+		}
+
+		visited[row][col] = true
+
+		// explore all 4 directions
+		dfs(row+1, col)
+		dfs(row-1, col)
+		dfs(row, col-1)
+		dfs(row, col+1)
+	}
+
+	// perform
+	islands := 0
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+			if grid[i][j] == '1' && !visited[i][j] {
+				dfs(i, j)
+				islands++
 			}
 		}
 	}
 
-	return context.landCnt
-}
-
-func exploreIsland(context *Context, i, j int) {
-	if i < 0 || i > context.maxRowCnt || j < 0 || j > context.maxColCnt {
-		// reached the edge of grid, just return.
-		return
-	}
-
-	if context.grid[i][j] == '0' || context.visited[i][j] {
-		// return if reach the water cell or already visited.
-		return
-	}
-
-	context.markAsVisited(i, j)
-	// up
-	exploreIsland(context, i-1, j)
-	// down
-	exploreIsland(context, i+1, j)
-	// left
-	exploreIsland(context, i, j-1)
-	// right
-	exploreIsland(context, i, j+1)
+	return islands
 }
