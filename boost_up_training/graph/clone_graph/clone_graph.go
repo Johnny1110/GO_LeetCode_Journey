@@ -5,6 +5,25 @@ type Node struct {
 	Neighbors []*Node
 }
 
+type Queue []*Node
+
+func (q *Queue) Push(n *Node) {
+	*q = append(*q, n)
+}
+
+func (q *Queue) Pop() (*Node, bool) {
+	if len(*q) == 0 {
+		return nil, false
+	}
+	n := (*q)[0]
+	*q = (*q)[1:]
+	return n, true
+}
+
+func (q *Queue) Empty() bool {
+	return len(*q) == 0
+}
+
 func cloneGraph(node *Node) *Node {
 	if node == nil {
 		return node
@@ -13,31 +32,26 @@ func cloneGraph(node *Node) *Node {
 	// 1. create a map for store existing cloneNode
 	// origin node -> clone node
 	cloneMap := map[*Node]*Node{}
+	queue := &Queue{}
+	queue.Push(node)
 
-	var dfs func(*Node) *Node
-	dfs = func(originNode *Node) *Node {
-		cloneNode, ok := cloneMap[originNode]
-		if ok { // already cloned.
-			return cloneNode
-		} else { // not clone yet.
-			// do clone, Neighbors is empty at first.
-			cloneNode = &Node{
-				Val:       originNode.Val,
-				Neighbors: make([]*Node, len(originNode.Neighbors)),
+	// 2. create head node's clone by manual.
+	cloneMap[node] = &Node{Val: node.Val}
+
+	for !queue.Empty() {
+		currentNode, _ := queue.Pop()
+
+		for _, neighbor := range currentNode.Neighbors {
+			if _, exists := cloneMap[neighbor]; !exists {
+				// first-time to see neighbor
+				cloneMap[neighbor] = &Node{Val: neighbor.Val}
+				queue.Push(neighbor)
 			}
 
-			// put clone node into cloneMap.
-			cloneMap[originNode] = cloneNode
-
-			// process Neighbors
-			for i, neighbor := range originNode.Neighbors {
-				cloneNeighbor := dfs(neighbor)
-				cloneNode.Neighbors[i] = cloneNeighbor
-			}
-
-			return cloneNode
+			cloneMap[currentNode].Neighbors = append(cloneMap[currentNode].Neighbors, cloneMap[neighbor])
 		}
+
 	}
 
-	return dfs(node)
+	return cloneMap[node]
 }
