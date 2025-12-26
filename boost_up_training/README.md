@@ -86,7 +86,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 
 * Number of Islands [(#200)](graph/number_of_islands) - DFS/BFS 基礎
 * Clone Graph [(#133)](graph/clone_graph) - 圖的遍歷與複製
-* Course Schedule (#207) - 拓撲排序
+* Course Schedule [(#207)](graph/course_schedule) - 拓撲排序
 * Pacific Atlantic Water Flow (#417) - 多源 BFS
 * Word Ladder (#127) - BFS 最短路徑
 * Alien Dictionary (#269) - 拓撲排序應用
