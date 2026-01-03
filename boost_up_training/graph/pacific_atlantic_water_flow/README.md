@@ -195,8 +195,132 @@ func pacificAtlantic(heights [][]int) [][]int {
 
 ## Coding - BFS
 
+In BFS, the queue holds **cells waiting to be processed**.
+
+Each cell is identified by its position: `(row, col)`.
+
+So each element in the queue is a pair of integers: `[row, col]`.
+
+example:
+
+```
+queue = [
+    [0, 0],   // cell at row 0, col 0
+    [0, 1],   // cell at row 0, col 1
+    [1, 0],   // cell at row 1, col 0
+    ...
+]
+```
+
+<br>
+
 ```go
 func pacificAtlantic(heights [][]int) [][]int {
-    
+	// Step-1. create data structure to mark which cell can flow water to target Pacific or target Atlantic.
+	pacific := make([][]bool, len(heights))
+	for i := range pacific {
+		pacific[i] = make([]bool, len(heights[i]))
+	}
+
+	atlantic := make([][]bool, len(heights))
+	for i := range atlantic {
+		atlantic[i] = make([]bool, len(heights[i]))
+	}
+
+	rowLen := len(heights)
+	colLen := len(heights[0])
+
+	// Step 2: BFS function, startCells represent cells that waiting for process.
+	bfs := func(startCells [][]int, reachable [][]bool) {
+		queue := startCells // initialize with edge cells
+
+		for len(queue) > 0 {
+			// pop from front
+			cell := queue[0]
+			queue = queue[1:]
+			row := cell[0]
+			col := cell[1]
+
+			reachable[row][col] = true
+
+			currentHeight := heights[row][col]
+			// check 4 neighbors
+			// if valid and height >= current, add to queue and mark
+
+			// check up:
+			upRow := row - 1
+			if (upRow >= 0 && upRow < rowLen) && (col >= 0 && col < colLen) && !reachable[upRow][col] {
+				upHeight := heights[upRow][col]
+				if upHeight >= currentHeight {
+					queue = append(queue, []int{upRow, col})
+				}
+			}
+
+			// check down:
+			downRow := row + 1
+			if (downRow >= 0 && downRow < rowLen) && (col >= 0 && col < colLen) && !reachable[downRow][col] {
+				downHeight := heights[downRow][col]
+				if downHeight >= currentHeight {
+					queue = append(queue, []int{downRow, col})
+				}
+			}
+
+			// check left:
+			leftCol := col - 1
+			if (row >= 0 && row < rowLen) && (leftCol >= 0 && leftCol < colLen) && !reachable[row][leftCol] {
+				leftHeight := heights[row][leftCol]
+				if leftHeight >= currentHeight {
+					queue = append(queue, []int{row, leftCol})
+				}
+			}
+
+			// check right:
+			rightCol := col + 1
+			if (row >= 0 && row < rowLen) && (rightCol >= 0 && rightCol < colLen) && !reachable[row][rightCol] {
+				rightHeight := heights[row][rightCol]
+				if rightHeight >= currentHeight {
+					queue = append(queue, []int{row, rightCol})
+				}
+			}
+		}
+	}
+
+	// Step 3: Collect starting cells for each ocean (all the edge cells)
+	startCellsForPacific := [][]int{}
+	for i := range rowLen {
+		startCellsForPacific = append(startCellsForPacific, []int{i, 0})
+	}
+	for i := 1; i < colLen; i++ {
+		startCellsForPacific = append(startCellsForPacific, []int{0, i})
+	}
+
+	startCellsForAtlantic := [][]int{}
+	for i := range rowLen {
+		startCellsForAtlantic = append(startCellsForAtlantic, []int{i, colLen - 1})
+	}
+	for i := 0; i < colLen-1; i++ {
+		startCellsForAtlantic = append(startCellsForAtlantic, []int{rowLen - 1, i})
+	}
+
+	// Step 4: Call bfs for pacific, then atlantic
+	bfs(startCellsForPacific, pacific)
+	bfs(startCellsForAtlantic, atlantic)
+
+	// Step 5: Find intersection
+	result := [][]int{}
+
+	for i := range rowLen {
+		for j := range colLen {
+			if atlantic[i][j] && pacific[i][j] {
+				result = append(result, []int{i, j})
+			}
+		}
+	}
+
+	return result
 }
 ```
+
+<br>
+
+![2.png](imgs/2.png)
