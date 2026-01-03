@@ -1,0 +1,38 @@
+# 127. Word Ladder
+
+<br>
+
+---
+
+<br>
+
+link: https://leetcode.com/problems/word-ladder/description/
+
+<br>
+<br>
+
+## Thinking
+
+### Topics:
+
+* Hash Table
+* String
+* Breadth-First Search
+
+<br>
+
+### Constraints
+
+```
+1 <= beginWord.length <= 10
+endWord.length == beginWord.length
+1 <= wordList.length <= 5000
+wordList[i].length == beginWord.length
+beginWord, endWord, and wordList[i] consist of lowercase English letters.
+beginWord != endWord
+All the words in wordList are unique.
+```
+
+<br>
+
+### Deconstruct the Problem
