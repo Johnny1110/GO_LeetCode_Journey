@@ -102,7 +102,7 @@ we can using a queue (BFS) and a list to collect the result answer.
   * queue: ["r", "n"], result: ["h", "e"]
   * pop "r" and push "r"'s pointer node into queue, then push "r" into result
   * queue: ["n", "f"], result: ["h", "e", "r"]
-*  round-4:
+* round-4:
   * queue: ["n", "f"], result: ["h", "e", "r"]
   * pop "n" and push "n"'s pointer node into queue, then push "n" into result
   * queue: ["f"], result: ["h", "e", "r", "n"]
