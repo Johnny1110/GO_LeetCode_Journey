@@ -149,3 +149,74 @@ for len(queue) > 0 {
 
 #### Given a word like "hot", how do you efficiently find all valid transformations in wordList?
 
+How about that, we can make a set as `wordSet` to put all words in to it ar first. and also, we may need a data structure like this:
+
+```go
+// key: letter index, value: a rune list for all possible letter char.
+var indexLettersMap map[int]map[rune]bool
+```
+
+<br>
+
+after we init this indexLettersMap, it will be like:
+
+```
+key    -    value
+0           [c, d, h, l]
+1           [o]
+2           [g, t]
+```
+
+<br>
+
+when it comes to first word: "hit", we can try to change index-0, index-1, index-2 of it.
+
+* change index-0 could be: cit, oit, git
+
+  none of them exists in wordSet so skip index-0
+
+* change index-1 could only be: hot
+
+  hot exists in wordSet so we hot could be considered into it.
+
+* change index-2 could be: hig, hit
+
+  none of them exists in wordSet so skip index-2
+
+Am I on the right track?
+
+<br>
+
+#### Claude AI feedback
+
+* Question 1: What's the worst case for your indexLettersMap?
+
+  If wordList is large and diverse, each position might have... how many unique letters?
+
+* Question 2: What's the overhead?
+  
+  * You need O(N × L) time to build indexLettersMap
+  * You need extra space for the map
+
+* Question 3: Compare the two approaches asymptotically:
+
+  * Your approach: L × (unique letters at each position)
+  * Simple approach: L × 26
+
+When wordList is large, does your optimization save much?
+
+
+My Suggestion
+
+Your optimization is valid and shows good thinking! But for this problem, the simpler approach (try all 26 letters) is often preferred because:
+
+* 26 is a small constant
+* Simpler code, fewer bugs
+* The asymptotic complexity is the same: O(L × 26) = O(L)
+
+The real key insight you already have: Use a wordSet (hash set) for O(1) lookup!
+
+<br>
+<br>
+
+## Coding
