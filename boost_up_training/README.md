@@ -89,10 +89,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Course Schedule [(#207)](graph/course_schedule) - 拓撲排序
 * Pacific Atlantic Water Flow [(#417)](graph/pacific_atlantic_water_flow) - 多源 BFS
 * Word Ladder [(#127)](graph/word_ladder) - BFS 最短路徑
-* Alien Dictionary (#269) - 拓撲排序應用
-
-<br>
-
+* Alien Dictionary [(#269)](graph/alien_dictionary) - 拓撲排序應用
 
 <br>
 
