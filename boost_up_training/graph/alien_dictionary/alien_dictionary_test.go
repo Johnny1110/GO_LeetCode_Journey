@@ -1,6 +1,29 @@
 package alien_dictionary
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
+
+func Test_figureOutABRelationship(t *testing.T) {
+	a, b, ok, _ := figureOutABRelationship("ABC", "ABD")
+	assert.True(t, ok)
+	assert.Equal(t, a, uint8('C'))
+	assert.Equal(t, b, uint8('D'))
+
+	a, b, ok, _ = figureOutABRelationship("AB", "ACD")
+	assert.True(t, ok)
+	assert.Equal(t, a, uint8('B'))
+	assert.Equal(t, b, uint8('C'))
+
+	a, b, ok, _ = figureOutABRelationship("BC", "ZX")
+	assert.True(t, ok)
+	assert.Equal(t, a, uint8('B'))
+	assert.Equal(t, b, uint8('Z'))
+
+	a, b, ok, _ = figureOutABRelationship("AB", "ABD")
+	assert.False(t, ok)
+}
 
 func TestForeignDictionary(t *testing.T) {
 	tests := []struct {
@@ -41,7 +64,7 @@ func TestForeignDictionary(t *testing.T) {
 		{
 			name:     "complex ordering",
 			words:    []string{"ac", "ab", "zc", "zb"},
-			expected: "acbz",
+			expected: "aczb",
 		},
 		{
 			name:     "same length words",
@@ -100,6 +123,11 @@ func TestForeignDictionaryEdgeCases(t *testing.T) {
 			name:     "valid prefix ordering",
 			words:    []string{"ab", "abc"},
 			expected: "",
+		},
+		{
+			name:     "single word",
+			words:    []string{"z"},
+			expected: "z",
 		},
 	}
 
