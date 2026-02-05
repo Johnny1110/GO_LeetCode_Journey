@@ -176,6 +176,93 @@ Based on this corrected understanding:
 
 <br>
 
+#### Sum up
+
+First pass: collect all unique letters from all words
+Second pass: compare adjacent words to build edges
+
+We're using Kahn's algorithm (BFS Approach) to solve this problem.
+
+So the first step is creating that **Directed Graph**
+
+We need a `LetterNode` to represent each letter and their `inDegree` count and out-degree `*LetterNode` list.
+
+We also need a `map[uint8]LetterNode` to let us have a letterNodesIndex.
+
+<br>
+
+Iterate through the input `["hrn","hrf","er","enn","rfnn"]`:
+
+1. Compare "hrn","hrf":
+
+   * create 'h' node, it will be the first in-degree 0 node
+   * create 'n' and 'f' nodes, 'n' pointing to 'f' and f's inDegree++
+
+2. Compare "hrf", "er":
+
+    * create 'e' node, 'h' pointing to 'e', e's inDegree++
+
+3. and so on...
+
+<br>
+
+Finally, we can get a Directed Graph, iterate through letterNodesIndex to find all 0 inDegree (h) and put em into BFS Queue. (maybe this could be improved)
+
+<br>
+
+#### BFS process
+
+round-1:
+
+```
+queue: [h]
+tSort: []
+
+pop 'h' add it into tSort, h pointing to e, e's inDegree--, and e's inDegree is 0, put it into queue
+```
+
+round-2:
+
+```go
+queue: [e]
+tSort: [h]
+
+pop 'e' add it into tSort, e pointing to r, r's inDegree--, and r's inDegree is 0, put it into queue
+```
+
+round-3:
+
+```go
+queue: [r]
+tSort: [h, e]
+
+pop 'r' add it into tSort, r pointing to n, n's inDegree--, and n's inDegree is 0, put it into queue
+```
+
+round-4:
+
+```go
+queue: [n]
+tSort: [h, e, r]
+
+pop 'n' add it into tSort, n pointing to f, f's inDegree--, and f's inDegree is 0, put it into queue
+```
+
+round-4:
+
+```go
+queue: [f]
+tSort: [h, e, r, n]
+
+pop 'f' add it into tSort, f pointing to nothing
+
+FINAL:
+queue: []
+tSort: [h, e, r, n, f]
+```
+
+<br>
+
 ---
 
 <br>

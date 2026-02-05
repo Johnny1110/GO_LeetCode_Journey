@@ -91,6 +91,8 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Word Ladder [(#127)](graph/word_ladder) - BFS 最短路徑
 * Alien Dictionary [(#269)](graph/alien_dictionary) - 拓撲排序應用
 
+> Graph Theory: [link](graph/theory)
+
 <br>
 
 ### 堆/優先隊列（Heap）-> 等級：學徒-6
