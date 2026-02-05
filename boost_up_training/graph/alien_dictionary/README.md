@@ -411,3 +411,11 @@ func figureOutABRelationship(w1 string, w2 string) (uint8, uint8, bool, bool) {
 <br>
 
 This is a leetcode premium level problem, so there is no Result. 
+
+<br>
+<br>
+
+## Final
+
+When it comes to Topological Sorting, we can always using BFS (Queue) which contains all 0-in-degree node.
+if we want to eliminate a 0-in-degree we should also check it's outEdges, all pointing node's in-degree should - 1.
