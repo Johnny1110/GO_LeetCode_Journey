@@ -15,6 +15,13 @@ Campaign: 2025/09/20 ~ UNKNOWN
 <br>
 <br>
 
+## 行前須知
+
+開啟旅程前，需要看一下我們這次學習算法的核心概念
+
+#### [Complexity Analysis 101](common/complexity)
+
+
 ## 新手村學院 (Apprentice → Graduate) Category
 
 透過標準算法題目建立扎實的理論基礎，從學徒 (Apprentice) 朝向畢業生 (Graduate) 邁進。
