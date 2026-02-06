@@ -1,6 +1,8 @@
 package kth_largest_element
 
-import _ "container/heap"
+import (
+	"container/heap"
+)
 
 type IntHeap []int
 
@@ -30,7 +32,15 @@ func (h *IntHeap) Pop() any {
 }
 
 func findKthLargest(nums []int, k int) int {
+	H := IntHeap(make([]int, 0))
 
-	// TODO
-	return 0
+	for _, num := range nums {
+		heap.Push(&H, num)
+		if H.Len() > k {
+			heap.Pop(&H)
+		}
+	}
+
+	// Kth Largest element will sit on the top.
+	return H[0]
 }
