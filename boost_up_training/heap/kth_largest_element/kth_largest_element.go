@@ -1,29 +1,25 @@
 package kth_largest_element
 
-import (
-	"container/heap"
-)
+type IntMinHeap []int
 
-type IntHeap []int
-
-func (h IntHeap) Len() int {
+func (h IntMinHeap) Len() int {
 	return len(h)
 }
 
-func (h IntHeap) Less(i, j int) bool {
+func (h IntMinHeap) Less(i, j int) bool {
 	// min-heap: smaller value = higher priority
 	return h[i] < h[j]
 }
 
-func (h IntHeap) Swap(i, j int) {
+func (h IntMinHeap) Swap(i, j int) {
 	h[i], h[j] = h[j], h[i]
 }
 
-func (h *IntHeap) Push(x any) {
+func (h *IntMinHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-func (h *IntHeap) Pop() any {
+func (h *IntMinHeap) Pop() any {
 	old := *h
 	n := len(old)
 	x := old[n-1]     // grab last element
@@ -32,15 +28,15 @@ func (h *IntHeap) Pop() any {
 }
 
 func findKthLargest(nums []int, k int) int {
-	H := IntHeap(make([]int, 0))
+	H := NewIntHeap(true)
 
 	for _, num := range nums {
-		heap.Push(&H, num)
+		H.Push(num)
 		if H.Len() > k {
-			heap.Pop(&H)
+			H.Pop()
 		}
 	}
 
 	// Kth Largest element will sit on the top.
-	return H[0]
+	return H.Peek()
 }

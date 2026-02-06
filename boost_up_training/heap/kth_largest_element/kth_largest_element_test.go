@@ -74,7 +74,7 @@ func TestFindKthLargest(t *testing.T) {
 }
 
 func Test_Heap(t *testing.T) {
-	h := &IntHeap{3, 1, 4, 1, 5}
+	h := &IntMinHeap{3, 1, 4, 1, 5}
 	heap.Init(h) // heapify!
 
 	heap.Push(h, 9)
