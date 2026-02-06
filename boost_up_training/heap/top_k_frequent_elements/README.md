@@ -104,3 +104,39 @@ Result:
 
 ## Thinking Enhancement
 
+> What's the maximum possible frequency any number can have?
+
+If the array has N elements, the max frequency is... N!
+
+So we can create N+1 buckets, where bucket[freq] holds all numbers with that frequency.
+
+
+### Visualizing It
+
+```
+nums = [1, 1, 1, 2, 2, 3], k = 2
+
+Step 1: Build freqMap
+{1: 3, 2: 2, 3: 1}
+
+Step 2: Build buckets (index = frequency)
+bucket[0] = []
+bucket[1] = [3]      ← frequency 1
+bucket[2] = [2]      ← frequency 2
+bucket[3] = [1]      ← frequency 3
+bucket[4] = []
+bucket[5] = []
+bucket[6] = []
+
+Step 3: Walk backwards, collect K elements
+bucket[3] → [1]      ← got 1 element
+bucket[2] → [2]      ← got 2 elements, done!
+
+Result: [1, 2]
+```
+
+## Coding - Bucket Sort
+
+```go
+
+```
