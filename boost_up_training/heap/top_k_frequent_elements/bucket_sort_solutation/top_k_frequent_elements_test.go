@@ -1,4 +1,4 @@
-package top_k_frequent_elements
+package bucket_sort_solutation
 
 import (
 	"reflect"
@@ -66,28 +66,28 @@ func TestTopKFrequent(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result := topKFrequent(tt.nums, tt.k)
-			
+
 			// Check if result length is correct
 			if len(result) != tt.k {
 				t.Errorf("Expected length %d, got %d", tt.k, len(result))
 				return
 			}
-			
+
 			// For cases where order doesn't matter or multiple valid answers exist,
 			// we need to check if the result is valid rather than exact match
 			if isValidTopK(tt.nums, result, tt.k) {
 				return
 			}
-			
+
 			// For deterministic cases, check exact match (sorted)
 			sortedResult := make([]int, len(result))
 			copy(sortedResult, result)
 			sort.Ints(sortedResult)
-			
+
 			sortedExpected := make([]int, len(tt.expected))
 			copy(sortedExpected, tt.expected)
 			sort.Ints(sortedExpected)
-			
+
 			if !reflect.DeepEqual(sortedResult, sortedExpected) {
 				t.Errorf("Expected %v, got %v", tt.expected, result)
 			}
@@ -102,32 +102,32 @@ func isValidTopK(nums []int, result []int, k int) bool {
 	for _, num := range nums {
 		freq[num]++
 	}
-	
+
 	// Get frequencies of result elements
 	resultFreqs := make([]int, len(result))
 	for i, num := range result {
 		resultFreqs[i] = freq[num]
 	}
-	
+
 	// Check if all result elements have frequencies >= minimum frequency of top k
 	allFreqs := make([]int, 0, len(freq))
 	for _, f := range freq {
 		allFreqs = append(allFreqs, f)
 	}
 	sort.Sort(sort.Reverse(sort.IntSlice(allFreqs)))
-	
+
 	if len(allFreqs) < k {
 		return false
 	}
-	
+
 	minTopKFreq := allFreqs[k-1]
-	
+
 	for _, f := range resultFreqs {
 		if f < minTopKFreq {
 			return false
 		}
 	}
-	
+
 	return true
 }
 
@@ -155,7 +155,7 @@ func TestTopKFrequentEdgeCases(t *testing.T) {
 			if len(result) != tt.k {
 				t.Errorf("Expected length %d, got %d", tt.k, len(result))
 			}
-			
+
 			if !isValidTopK(tt.nums, result, tt.k) {
 				t.Errorf("Result %v is not a valid top %d frequent elements for input %v", result, tt.k, tt.nums)
 			}
@@ -169,7 +169,7 @@ func BenchmarkTopKFrequent(b *testing.B) {
 	for i := 0; i < 1000; i++ {
 		nums[i] = i % 100 // Create frequency distribution
 	}
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		topKFrequent(nums, 10)
