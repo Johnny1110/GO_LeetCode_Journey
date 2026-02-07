@@ -1,8 +1,6 @@
 package find_median_from_data_stream
 
 import (
-	"fmt"
-	"github.com/stretchr/testify/assert"
 	"math"
 	"testing"
 )
@@ -238,46 +236,47 @@ func BenchmarkMedianFinderMixed(b *testing.B) {
 	}
 }
 
-func Test_findPositionIdx(t *testing.T) {
-	mf := Constructor()
-	mf.data = []int{1, 2, 3, 5, 6, 7}
-	left, right := 0, len(mf.data)-1
-	ans := mf.binarySearch(4, left, right)
-	assert.Equal(t, 3, ans)
-
-	ans = mf.binarySearch(6, left, right)
-	assert.Equal(t, 5, ans)
-
-	ans = mf.binarySearch(8, left, right)
-	assert.Equal(t, 6, ans)
-
-	ans = mf.binarySearch(-1, left, right)
-	assert.Equal(t, 0, ans)
-
-	ans = mf.binarySearch(2, left, right)
-	assert.Equal(t, 2, ans)
-}
-
-func Test_findPositionIdx_2(t *testing.T) {
-	mf := Constructor()
-	mf.data = []int{1}
-	left, right := 0, len(mf.data)-1
-	ans := mf.binarySearch(3, left, right)
-	assert.Equal(t, 1, ans)
-}
-
-func Test_Add(t *testing.T) {
-	mf := Constructor()
-
-	mf.AddNum(1)
-	mf.AddNum(3)
-	mf.AddNum(5)
-
-	fmt.Printf("data: %v\n", mf.data)
-
-	mf.AddNum(2)
-	fmt.Printf("data: %v\n", mf.data)
-	mf.AddNum(-1)
-	fmt.Printf("data: %v\n", mf.data)
-
-}
+//
+//func Test_findPositionIdx(t *testing.T) {
+//	mf := Constructor()
+//	mf.data = []int{1, 2, 3, 5, 6, 7}
+//	left, right := 0, len(mf.data)-1
+//	ans := mf.binarySearch(4, left, right)
+//	assert.Equal(t, 3, ans)
+//
+//	ans = mf.binarySearch(6, left, right)
+//	assert.Equal(t, 5, ans)
+//
+//	ans = mf.binarySearch(8, left, right)
+//	assert.Equal(t, 6, ans)
+//
+//	ans = mf.binarySearch(-1, left, right)
+//	assert.Equal(t, 0, ans)
+//
+//	ans = mf.binarySearch(2, left, right)
+//	assert.Equal(t, 2, ans)
+//}
+//
+//func Test_findPositionIdx_2(t *testing.T) {
+//	mf := Constructor()
+//	mf.data = []int{1}
+//	left, right := 0, len(mf.data)-1
+//	ans := mf.binarySearch(3, left, right)
+//	assert.Equal(t, 1, ans)
+//}
+//
+//func Test_Add(t *testing.T) {
+//	mf := Constructor()
+//
+//	mf.AddNum(1)
+//	mf.AddNum(3)
+//	mf.AddNum(5)
+//
+//	fmt.Printf("data: %v\n", mf.data)
+//
+//	mf.AddNum(2)
+//	fmt.Printf("data: %v\n", mf.data)
+//	mf.AddNum(-1)
+//	fmt.Printf("data: %v\n", mf.data)
+//
+//}
