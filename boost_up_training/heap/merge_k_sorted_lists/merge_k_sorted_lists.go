@@ -1,12 +1,77 @@
 package merge_k_sorted_lists
 
+import (
+	"container/heap"
+)
+
 // ListNode Go Definition for singly-linked list.
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
+// define Heap
+type NodeHeap []*ListNode
+
+func (h NodeHeap) Len() int {
+	return len(h)
+}
+
+func (h NodeHeap) Swap(i, j int) {
+	h[i], h[j] = h[j], h[i]
+}
+
+// Less min heap, i's priority > j ?
+func (h NodeHeap) Less(i, j int) bool {
+	return h[i].Val < h[j].Val
+}
+
+func (h *NodeHeap) Push(x interface{}) {
+	*h = append(*h, x.(*ListNode))
+}
+
+func (h *NodeHeap) Pop() interface{} {
+	old := *h
+	ret := old[h.Len()-1]
+	*h = old[:h.Len()-1]
+	return ret
+}
+
 func mergeKLists(lists []*ListNode) *ListNode {
-	// TODO
-	return nil
+	if len(lists) == 0 {
+		return nil
+	}
+
+	dummyHead := &ListNode{}
+
+	// init heap
+	H := NodeHeap(make([]*ListNode, 0))
+	for _, head := range lists {
+		if head != nil {
+			heap.Push(&H, head)
+		}
+	}
+
+	if H.Len() == 0 {
+		return nil
+	}
+
+	// pop first to link the dummy head
+	currentPointer := heap.Pop(&H).(*ListNode)
+
+	dummyHead.Next = currentPointer
+	if currentPointer.Next != nil {
+		heap.Push(&H, currentPointer.Next)
+	}
+
+	for H.Len() != 0 {
+		node := heap.Pop(&H).(*ListNode)
+		currentPointer.Next = node
+		currentPointer = node
+		if node.Next != nil {
+			heap.Push(&H, node.Next)
+		}
+	}
+
+	return dummyHead.Next
 }
