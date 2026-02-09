@@ -109,7 +109,7 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 * Kth Largest Element [(#215)](heap/kth_largest_element) - 快速選擇 vs 堆 [(Quick Sort)](heap/kth_largest_element/quick_sort)
 * Top K Frequent Elements [(#347)](heap/top_k_frequent_elements) - 桶排序思想
 * Find Median from Data Stream [(#295)](heap/find_median_from_data_stream) - 雙堆維護中位數
-* Merge k Sorted Lists (#23) - k 路歸併
+* Merge k Sorted Lists [(#23)](heap/merge_k_sorted_lists) - k 路歸併
 
 <br>
 
