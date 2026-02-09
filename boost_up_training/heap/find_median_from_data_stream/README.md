@@ -342,6 +342,85 @@ func (this *MedianFinder) FindMedian() float64 {
 
 ### Thinking
 
+#### First: What is Subtree Size?
+
+Each node tracks: "How many nodes are in my subtree (including myself)?"
+
+```
+        4 (size=5)
+       / \
+      2   5 (size=1)
+  (size=3)
+    / \
+   1   3
+(size=1)(size=1)
+```
+
+<br>
+
+#### Second: Finding Kth Smallest
+
+Say we want the 3rd smallest element.
+
+The key insight:
+
+If left subtree has L nodes, then:
+
+* Positions 1 to L → in left subtree
+* Position L+1 → current node
+* Positions L+2 and beyond → in right subtree
+
+<br>
+
+**Trace Through: Find 3rd Smallest**
+
+```go
+    4 (size=5)
+       / \
+      2   5 (size=1)
+  (size=3)
+    / \
+   1   3
+(size=1)(size=1)
+```
+
+At node 4:
+
+* Left subtree size = 3
+* We want position 3
+* Is 3 ≤ 3? YES → go left!
+
+At node 2:
+
+* Left subtree size = 1
+* We want position 3
+* Is 3 ≤ 1? NO
+* Is 3 == 1 + 1 = 2? NO
+* So go right, and adjust: find position 3 - 1 - 1 = 1st in right subtree
+
+At node 3:
+
+* Left subtree size = 0
+* We want position 1
+* Is 1 ≤ 0? NO
+* Is 1 == 0 + 1 = 1? YES → Found it! Return 3
+
+<br>
+
+#### For Median: Which K?
+
+```
+Total nodes = 5
+
+If odd (5 nodes):
+    median = 3rd smallest → findKth(root, 3)
+
+If even (6 nodes):
+    median = average of 3rd and 4th smallest
+    → (findKth(root, 3) + findKth(root, 4)) / 2
+```
+
+
 ### Code
 
 ```go
