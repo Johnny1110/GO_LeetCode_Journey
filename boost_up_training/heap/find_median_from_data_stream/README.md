@@ -527,4 +527,106 @@ func (this *MedianFinder) FindMedian() float64 {
 
 **The unbalanced BST can't handle sorted input efficiently.**
 
+<br>
+<br>
+
+### AVL Enhancement
+
+#### What Makes AVL Special
+
+Every node tracks its height, and we ensure:
+
+```
+abs(leftHeight - rightHeight) ≤ 1
+```
+
+This difference is called the **Balance Factor**.
+
+```
+Balance Factor (BF) = leftHeight - rightHeight
+
+BF = -1, 0, or 1  → Balanced
+BF < -1 or BF > 1 → Unbalanced! Need rotation
+```
+
+<br>
+
+#### First: Update Node
+
+
+```go
+type Node struct {
+    Val    int
+    Left   *Node
+    Right  *Node
+    Height int    // NEW: track height instead of size
+    Size   int    // keep for FindKth
+}
+```
+
+<br>
+<br>
+
+## The Four Rotation Cases
+
+When a node becomes unbalanced, we fix it with rotations:
+
+<br>
+
+Case 1: Left-Left (BF > 1, insert went left-left)
+
+```
+        30 (BF=2)              20
+       /                      /  \
+      20          →         10    30
+     /
+    10
+
+→ Single RIGHT rotation
+```
+
+<br>
+
+Case 2: Right-Right (BF < -1, insert went right-right)
+
+```
+    10 (BF=-2)                20
+      \                      /  \
+       20        →         10    30
+         \
+          30
+
+→ Single LEFT rotation
+```
+
+<br>
+
+Case 3: Left-Right (BF > 1, insert went left-right)
+
+```
+      30 (BF=2)              30              20
+     /                      /               /  \
+    10          →         20      →       10    30
+      \                  /
+       20              10
+
+→ LEFT rotate left child, then RIGHT rotate root
+```
+
+<br>
+
+Case 4: Right-Left (BF < -1, insert went right-left)
+
+```
+    10 (BF=-2)            10                  20
+      \                     \                /  \
+       30        →           20     →      10    30
+      /                        \
+     20                         30
+
+→ RIGHT rotate right child, then LEFT rotate root
+```
+
+<br>
+<br>
 
