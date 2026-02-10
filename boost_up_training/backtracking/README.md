@@ -14,15 +14,15 @@ Backtracking is essentially exploring a decision tree. Let me guide you to disco
 Question 1: If we process elements left-to-right, and at each element we decide "include it or not", what does the tree look like for [1,2]?
 
 ```
-[]
-/  \
-include 1?
-/        \
-[1]         []
-/   \       /   \
-include 2?     include 2?
-/   \         /    \
-[1,2]  [1]     [2]    []
+                    []
+                   /  \
+            include 1?  
+               /        \
+             [1]         []
+            /   \       /   \
+      include 2?     include 2?
+         /   \         /    \
+      [1,2]  [1]     [2]    []
 ```
 
 Question 2: Where are our "answers" in this tree? (leaves? every node? specific nodes?)
