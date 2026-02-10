@@ -112,7 +112,7 @@ function backtrack(current_state, remaining_choices):
 
 Pattern:
 
-```
+```go
 func backtrack(index):
     if index == len(nums):
         record result       // only leaves are answers
@@ -163,7 +163,7 @@ func backtracking(resultCollection *[][]int, currentState []int, nums []int, idx
 
 Pattern:
 
-```
+```go
 func backtrack(index):
     record result           // every node is answer
     for i := index to end:
@@ -206,3 +206,41 @@ func backtrackingA(result *[][]int, currentState []int, nums []int, idx int) {
 Result:
 
 ![1.png](imgs/1.png)
+
+<br>
+<br>
+
+---
+
+<br>
+
+## Important - Backtracking Pattern
+
+
+###  Loop-based
+
+```go
+func backtrack(index):
+    record result           // every node is answer
+    for i := index to end:
+        choose nums[i]      // update state
+        backtrack(i + 1)    // go deeper
+        unchoose            // undo state
+```
+
+<br>
+
+### Binary decision
+
+```go
+func backtrack(index):
+    if index == len(nums):
+        record result       // only leaves are answers
+        return
+    
+    choose nums[index]      // include this element
+    backtrack(index + 1)
+    unchoose
+    
+    backtrack(index + 1)    // exclude this element (no choose/unchoose needed)
+```
