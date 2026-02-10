@@ -118,8 +118,8 @@ DP 的核心是狀態定義和狀態轉移方程。理解「最優子結構」�
 backtracking code pattern -> [link](backtracking)
 
 * Subsets [(#78)](backtracking/subsets) - 子集生成
-* Permutations (#46) - 全排列
-* Combination Sum (#39) - 組合問題
+* Permutations [(#46)](backtracking/permutations) - 全排列
+* Combination Sum [(#39)](backtracking/combination_sum) - 組合問題
 * N-Queens (#51) - 約束滿足
 * Word Search (#79) - 矩陣回溯
 
