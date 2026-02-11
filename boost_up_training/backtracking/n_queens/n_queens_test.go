@@ -1,6 +1,7 @@
 package n_queens
 
 import (
+	"fmt"
 	"sort"
 	"strings"
 	"testing"
@@ -168,4 +169,20 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+
+func Test_SafeZoneChecker(t *testing.T) {
+	checker := NewNQueensContext(4)
+
+	mockCurrentState := [][]bool{
+		{false, true, false, false},
+		{false, false, false, true},
+		{true, false, false, false},
+		{false, false, true, false},
+	}
+
+	checker.currentState = mockCurrentState
+
+	checker.collectCurrentState2Result()
+	fmt.Println(checker.result)
 }
