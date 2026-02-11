@@ -1,5 +1,5 @@
 package word_search
 
-func subsets(nums []int) [][]int {
-	return nil
+func exist(board [][]byte, word string) bool {
+	return false
 }

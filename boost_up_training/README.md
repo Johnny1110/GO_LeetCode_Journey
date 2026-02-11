@@ -120,8 +120,19 @@ backtracking code pattern -> [link](backtracking)
 * Subsets [(#78)](backtracking/subsets) - 子集生成
 * Permutations [(#46)](backtracking/permutations) - 全排列
 * Combination Sum [(#39)](backtracking/combination_sum) - 組合問題
-* N-Queens [(#51)](backtracking/n_queens) - 約束滿足
-* Word Search (#79) - 矩陣回溯
+* N-Queens [(#51)](backtracking/n_queens) - 約束滿足 + 二維陣列對角線特性
+* Word Search [(#79)](backtracking/word_search) - 矩陣回溯
+
+<br>
+
+#### DFS vs backtracking
+
+- DFS: go as deep as possible first, then backtrack
+- Backtracking: DFS + pruning invalid paths + undoing state changes
+
+Backtracking is a specific application of DFS, 
+Every backtracking solution is DFS, but not every DFS is backtracking 
+(e.g., simple tree traversal doesn't undo state).
 
 <br>
 
