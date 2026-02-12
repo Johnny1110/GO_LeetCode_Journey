@@ -138,7 +138,7 @@ Every backtracking solution is DFS, but not every DFS is backtracking
 
 ### 高級數據結構 -> 等級：學徒-8
 
-* LRU Cache (#146) - 哈希表 + 雙向鏈表
+* LRU Cache [(#146)](advance_ds/lru_cache) - 哈希表 + 雙向鏈表
 * Trie/Prefix Tree (#208) - 字典樹
 * Design Add and Search Words (#211) - Trie + DFS
 
