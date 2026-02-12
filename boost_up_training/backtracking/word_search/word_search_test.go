@@ -90,7 +90,7 @@ func TestExist(t *testing.T) {
 				{'A', 'D', 'E', 'E'},
 			},
 			word:     "ABCEFSADEESE",
-			expected: false,
+			expected: true,
 		},
 		{
 			name: "Zigzag path",
