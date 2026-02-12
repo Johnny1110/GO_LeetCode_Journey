@@ -39,12 +39,15 @@ func dfs(board [][]byte, word string, row, col, wordIdx int, visited [][]bool) b
 
 	// mark visited
 	visited[row][col] = true
-	r1 := dfs(board, word, row-1, col, wordIdx+1, visited) // up
-	r2 := dfs(board, word, row+1, col, wordIdx+1, visited) // down
-	r3 := dfs(board, word, row, col+1, wordIdx+1, visited) // right
-	r4 := dfs(board, word, row, col-1, wordIdx+1, visited) // left
+
+	if dfs(board, word, row-1, col, wordIdx+1, visited) ||
+		dfs(board, word, row+1, col, wordIdx+1, visited) ||
+		dfs(board, word, row, col+1, wordIdx+1, visited) ||
+		dfs(board, word, row, col-1, wordIdx+1, visited) {
+		return true
+	}
 
 	visited[row][col] = false
 
-	return r1 || r2 || r3 || r4
+	return false
 }
