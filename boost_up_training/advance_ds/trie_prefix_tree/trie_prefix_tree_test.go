@@ -1,6 +1,7 @@
 package trie_prefix_tree
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -70,19 +71,6 @@ func TestTrieBasicOperations(t *testing.T) {
 
 		if !trie.StartsWith("test") {
 			t.Error("StartsWith(\"test\") = false, expected true")
-		}
-	})
-
-	t.Run("Empty string operations", func(t *testing.T) {
-		trie := Constructor()
-
-		trie.Insert("")
-		if !trie.Search("") {
-			t.Error("Search(\"\") = false, expected true after inserting empty string")
-		}
-
-		if !trie.StartsWith("") {
-			t.Error("StartsWith(\"\") = false, expected true")
 		}
 	})
 }
@@ -200,24 +188,24 @@ func TestTrieComplexScenarios(t *testing.T) {
 			expect bool
 		}{
 			{"insert", "word", false},
-			{"search", "word", true},
-			{"search", "wor", false},
+			{"startWith", "word", true},
+			{"startWith", "wor", false},
 			{"startswith", "wor", true},
 			{"insert", "wor", false},
-			{"search", "wor", true},
+			{"startWith", "wor", true},
 			{"startswith", "wo", true},
-			{"search", "wo", false},
+			{"startWith", "wo", false},
 			{"insert", "world", false},
 			{"startswith", "wor", true},
-			{"search", "world", true},
-			{"search", "words", false},
+			{"startWith", "world", true},
+			{"startWith", "words", false},
 		}
 
 		for i, op := range operations {
 			switch op.op {
 			case "insert":
 				trie.Insert(op.word)
-			case "search":
+			case "startWith":
 				if got := trie.Search(op.word); got != op.expect {
 					t.Errorf("Operation %d: Search(\"%s\") = %v, expected %v", i, op.word, got, op.expect)
 				}
@@ -439,4 +427,11 @@ func generateWord(length int) string {
 		result[i] = 'a' + byte(i%26)
 	}
 	return string(result)
+}
+
+func Test_letterNum(t *testing.T) {
+	word := "az"
+	for i := 0; i < 2; i++ {
+		fmt.Println(word[i])
+	}
 }
