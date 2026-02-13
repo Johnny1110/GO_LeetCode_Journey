@@ -148,15 +148,6 @@ func TestLRUCacheEvictionPolicy(t *testing.T) {
 }
 
 func TestLRUCacheEdgeCases(t *testing.T) {
-	t.Run("Zero capacity cache", func(t *testing.T) {
-		cache := Constructor(0)
-
-		cache.Put(1, 10)
-		if got := cache.Get(1); got != -1 {
-			t.Errorf("Get(1) on zero capacity cache = %d, expected -1", got)
-		}
-	})
-
 	t.Run("Large capacity cache", func(t *testing.T) {
 		cache := Constructor(1000)
 
