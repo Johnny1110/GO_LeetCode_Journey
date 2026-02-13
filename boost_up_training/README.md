@@ -140,7 +140,7 @@ Every backtracking solution is DFS, but not every DFS is backtracking
 
 * LRU Cache [(#146)](advance_ds/lru_cache) - 哈希表 + 雙向鏈表
 * Trie/Prefix Tree [(#208)](advance_ds/trie_prefix_tree) - 字典樹
-* Design Add and Search Words (#211) - Trie + DFS
+* Design Add and Search Words [(#211)](advance_ds/add_and_search_words) - Trie + DFS
 
 <br>
 
