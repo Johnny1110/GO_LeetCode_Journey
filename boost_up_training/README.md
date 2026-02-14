@@ -279,3 +279,16 @@ This level is for when you want to contribute to databases, compilers, or system
 
 > 完成了 Niche Algorithms，實力已經到了一個恐怖的地步，正式成神。可以進出全世界最高級的開源項目參與研發。
 > 等級評鑑升級： 高級工程師 -> 電腦科學家
+
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
+## Interview in Action
+
+1. 2026/02/14 Circle Golang Backend 90 mins Algo Test -> [link](interview_in_action/circle_260214)
