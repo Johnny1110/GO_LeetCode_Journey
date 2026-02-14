@@ -292,3 +292,16 @@ This level is for when you want to contribute to databases, compilers, or system
 ## Interview in Action
 
 1. 2026/02/14 Circle Golang Backend 90 mins Algo Test -> [link](interview_in_action/circle_260214)
+
+<br>
+<br>
+
+## 面向薪資編程 - 手刻速度練習
+
+- LRU Cache（doubly linked list + map）
+- Trie Tree
+- Union-Find
+- Remove Value From List (2 pointers)
+- Binary Search Find Medium
+- Min-Heap, Max-Heap -> Kth Largest Element
+- Int Array QuickSort -> Kth Largest Element
