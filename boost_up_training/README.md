@@ -146,7 +146,7 @@ Every backtracking solution is DFS, but not every DFS is backtracking
 
 ### Bitmap 補充
 
-* Missing Number (#268) - 理解基本 bitmap 標記
+* Missing Number [(#268)](bitmap/missing_number) - 理解基本 bitmap 標記
 * Single Number (#136) - 學習 bit 操作
 * Find All Disappeared (#448) - 練習範圍內去重
 * Find Duplicate (#287) - 多種解法比較
