@@ -80,7 +80,7 @@ func sumN(n int) int {
 
 Result:
 
-[1](imgs/1.png)
+![1](imgs/1.png)
 
 <br>
 
@@ -201,4 +201,4 @@ In the end, XOR the n
 
 Result:
 
-[1](imgs/1.png)
+![1](imgs/1.png)
