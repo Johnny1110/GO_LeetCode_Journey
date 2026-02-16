@@ -149,7 +149,7 @@ Every backtracking solution is DFS, but not every DFS is backtracking
 * Missing Number [(#268)](bitmap/missing_number) - 理解基本 bitmap 標記
 * Single Number [(#136)](bitmap/single_number) - 學習 bit 操作
 * Find All Disappeared [(#448)](bitmap/find_all_disappeared) - 練習範圍內去重
-* Find Duplicate (#287) - 多種解法比較
+* Find Duplicate [(#287)](bitmap/find_duplicate) - 多種解法比較
 * Single Number II (#137) - 深入理解位操作
 * First Missing Positive (#41) - 空間優化技巧
 
