@@ -1,4 +1,4 @@
-# 287. Find the Duplicate Number
+# 287. Find the Duplicate Number (HARD as MDFK 這題太難了，直接死記硬背答案)
 
 <br>
 
@@ -7,6 +7,10 @@
 <br>
 
 link: https://leetcode.com/problems/find-the-duplicate-number
+
+## Floyd's algorithm
+
+>> 用快慢針找出 linked-list 無窮迴圈的入口，做法是在快慢針相遇的 position，重置其中一個指針回到 0，然後兩個指針重新開始以每倫前進一步的步數移動，下次二者相遇的位置就是無窮迴圈的入口。
 
 <br>
 <br>
@@ -63,13 +67,98 @@ Is it possible? yes, but it will lead us to cicle result. I think it doesn't mat
 I did linked-list detection algo before. Let's adapt it in this problem.
 
 <br>
+
+`[3, 1, 3, 4, 2]`
+
+```
+trace: 3 -> 4 -> 2 -> 3 -> 4 -> 2 -> 3 -> 4......
+```
+
+Using **fast/slow pointer** we can find detect cicle in linked-list, but both pointer will meet in somewhere inside of cicle. not necessarily to be the duplicate.
+
+But what we know is duplicate num must exists in cicle `[2, 3, 4]`.
+
+<br>
+
+### Floyd's algorithm 
+
+F = distance from start to cycle entrance
+a = distance from entrance to where slow and fast meet
+C = total cycle length
+
+<br>
+
+What we know when they meet:
+
+* Slow traveled: `F + a` steps
+* Fast traveled: `F + a + (some full cycles) = F + a + kC`
+* Fast moves twice as fast as slow, so:
+
+```
+2(F + a) = F + a + kC
+F + a = kC
+F = kC - a
+```
+
+#### The key insight:
+
+```
+F = kC - a
+```
+
+Starting from the **meeting point**, if you walk `F` more steps equals to you go `kC - a` steps. (F = kC- a)
+ 
+That's the same as going backwards a steps in the cycle(then completing `k` full loops). 
+
+
+
+* One pointer starts at 0, walks F steps → arrives at entrance
+* Other pointer starts at meeting point, walks F steps → also arrives at entrance
+
+**They meet at the entrance. And the entrance is your duplicate number.**
+
+> 幹，這個真的超難，直接背公式吧：
+>> Floyd's algorithm: 用快慢針找出 linked-list 無窮迴圈的入口，做法是在快慢針相遇的 position，重置其中一個指針回到 0，然後兩個指針重新開始以每倫前進一步的步數移動，下次二者相遇的位置就是無窮迴圈的入口。
+
+
+<br>
 <br>
 
 ## Coding
 
 
 ```go
+
 func findDuplicate(nums []int) int {
-    // TODO
+	slowP := 0
+	fastP := 0
+
+	// phase-1: find cicle, and locate 2 pointers at same position.
+	for {
+		slowP = nums[slowP]
+		fastP = nums[nums[fastP]]
+
+		if slowP == fastP {
+			break
+		}
+	}
+
+	// phase-2: locate cicle entrance
+	fastP = 0 // reset fastP to 0
+	for {
+		if fastP == slowP {
+			return fastP
+		}
+
+		// both move 1 step
+		slowP = nums[slowP]
+		fastP = nums[fastP]
+	}
 }
 ```
+
+<br>
+
+Result:
+
+![1](imgs/1.png)
