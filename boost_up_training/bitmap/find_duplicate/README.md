@@ -162,3 +162,26 @@ func findDuplicate(nums []int) int {
 Result:
 
 ![1](imgs/1.png)
+
+
+<br>
+
+## Other Approach
+
+### Binary Search on value range 
+
+This is a clever one. 
+
+Instead of searching the array, you binary search on the answer space `[1, n]`. 
+
+For a mid value, count how many numbers in the array are ≤ mid. If the count exceeds mid, the duplicate must be in `[1, mid]`. Otherwise it's in `[mid+1, n]`. This is `O(n log n)` time, `O(1)` space.
+
+The key insight: **in a perfect array with no duplicates, exactly mid numbers would be `≤ mid`. The duplicate pushes that count higher on one side.**
+
+<br>
+
+### Bit manipulation
+
+For each bit position, count how many times that bit is set across all values in nums, and compare with how many times it's set across `[1, n]`. 
+
+If the count in nums is higher, that bit is set in the duplicate. Build the answer bit by bit. `O(n log n)` time, `O(1)` space.
