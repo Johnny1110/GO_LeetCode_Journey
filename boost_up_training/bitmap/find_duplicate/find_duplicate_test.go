@@ -23,6 +23,11 @@ func TestSandBox(t *testing.T) {
 			nums:     []int{3, 1, 3, 4, 2},
 			expected: 3,
 		},
+		{
+			name:     "Example 4",
+			nums:     []int{3, 3, 3, 3, 3},
+			expected: 3,
+		},
 	}
 
 	for _, tt := range tests {

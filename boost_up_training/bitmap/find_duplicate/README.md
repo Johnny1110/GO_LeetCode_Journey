@@ -185,3 +185,119 @@ The key insight: **in a perfect array with no duplicates, exactly mid numbers wo
 For each bit position, count how many times that bit is set across all values in nums, and compare with how many times it's set across `[1, n]`. 
 
 If the count in nums is higher, that bit is set in the duplicate. Build the answer bit by bit. `O(n log n)` time, `O(1)` space.
+
+
+<br>
+<br>
+
+## Binary Search Approach
+
+Instead of asking "does mid appear twice?", you ask: **"how many numbers in the array are ≤ mid?"**
+
+
+<br>
+
+#### Example: `n = 4`, array = `[1, 3, 2, 4, 2]`
+
+We know the duplicate num is `2`
+
+<br>
+
+If there is no duplicate num in range `n = 4`, the array should be like `[1, 2, 3, 4]`
+
+<br>
+
+whatever we choose `2`, or `3` as `mid`, there must be exactly `mid` count argument `<= mid`.
+
+```
+choose mid = 2:
+
+[1, 2] <= 2
+
+total 2 nums <= mid 2
+```
+
+```
+choose mid = 3:
+
+[1, 2, 3] <= 3
+
+total 3 nums <= mid 3
+```
+
+<br>
+
+Let's back to the problem `[1, 3, 2, 4, 2]`
+
+```
+choose mid = 2
+
+[1, 2, 2] <= 2
+
+total 3 nums <= mid 2
+```
+
+which is means the duplicate number affect left side of array (duplicate num are <= 2)
+
+shrink the boundary to range 1~2, choose mid = 1
+
+```
+choose mid = 1
+
+[1] <= 1
+
+total 1 nums <= mid 1
+```
+
+which is means no duplicate nums <= 1
+
+the answer num is **"2"**
+
+<br>
+
+**The pigeonhole principle is what drives this. **
+
+[pigeonhole principle](https://youtu.be/B2A2pGrDG8I):
+
+* If you have values in `[1, mid]` but the count of such values exceeds mid, there must be a repeat somewhere in that range.
+
+* If the count is normal (`≤ mid`), the duplicate lives in the upper half.
+
+<br>
+
+## Coding
+
+```go
+func findDuplicate(nums []int) int {
+	n := len(nums) - 1
+	return binarySearch(nums, 1, n)
+}
+
+func binarySearch(nums []int, left, right int) int {
+	if left >= right {
+		return left
+	}
+
+	mid := (left + right) / 2
+
+	lessEqMidCount := 0
+	for _, v := range nums {
+		if v <= mid {
+			lessEqMidCount++
+		}
+	}
+
+	// shrink the bounder
+	if lessEqMidCount <= mid {
+		// duplicate at right side
+		return binarySearch(nums, mid+1, right)
+	} else {
+		// duplicate at left side
+		return binarySearch(nums, left, mid)
+	}
+}
+```
+
+Result:
+
+1[1](imgs/1.png)
