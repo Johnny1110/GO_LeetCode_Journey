@@ -300,4 +300,4 @@ func binarySearch(nums []int, left, right int) int {
 
 Result:
 
-1[1](imgs/1.png)
+![1](imgs/1.png)
