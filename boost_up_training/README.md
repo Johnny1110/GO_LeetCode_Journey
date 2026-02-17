@@ -150,7 +150,7 @@ Every backtracking solution is DFS, but not every DFS is backtracking
 * Single Number [(#136)](bitmap/single_number) - 學習 bit 操作
 * Find All Disappeared [(#448)](bitmap/find_all_disappeared) - 練習範圍內去重
 * Find Duplicate [(#287)](bitmap/find_duplicate) - 多種解法比較 -> PS: 這題直接用背的吧，太難了。
-* Single Number II (#137) - 深入理解位操作
+* Single Number II [(#137)](bitmap/single_number_ii) - 深入理解位操作
 * First Missing Positive (#41) - 空間優化技巧
 
 
