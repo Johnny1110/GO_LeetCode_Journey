@@ -9,6 +9,11 @@ func TestSandBox(t *testing.T) {
 		expected int
 	}{
 		{
+			name:     "Example 0",
+			nums:     []int{14, 16, 12, 1, 16, 17, 6, 8, 5, 19, 16, 13, 16, 3, 11, 16, 4, 16, 9, 7},
+			expected: 16,
+		},
+		{
 			name:     "Example 1",
 			nums:     []int{1, 2, 3, 4, 4},
 			expected: 4,

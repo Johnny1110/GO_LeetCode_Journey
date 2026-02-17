@@ -301,3 +301,90 @@ func binarySearch(nums []int, left, right int) int {
 Result:
 
 ![2](imgs/2.png)
+
+<br>
+<br>
+
+## Bit manipulation Approach
+
+**Core idea:** 
+
+Use a sequence of bits to track which numbers you've seen. 
+
+Each bit position represents a number. When you encounter a number that already has its bit set, that's your duplicate.
+
+<br>
+
+Let me think about it.
+
+```
+nums = [1, 2, 3, 4, 4], n = 4
+```
+
+If I create a `n` len bit:
+
+```
+0 0 0 0
+```
+
+Iterate through the nums array, each bit represnet a number has been visited.
+
+like after visited `[1, 2, 3, 4]`
+
+the bits should be like:
+
+```
+1 1 1 1
+```
+
+<br>
+
+And also before update bits, we should check target position bit must be `0`.
+
+<br>
+
+Since the problem told us: `1 <= n <= 100000`：
+
+If we using a `[]byte` as bitmap, we need calculate mark position by ourself.
+
+<br>
+
+```go
+import (
+	"math"
+)
+
+func findDuplicate(nums []int) int {
+	// 1 <= n <= 100000
+	bitmap := make([]byte, 100000/8)
+
+	for _, v := range nums {
+		bitmapIdx := (v / 8)
+		bitIdx := v % 8
+
+		if bitIdx == 0 {
+			bitmapIdx -= 1
+		}
+
+		byteGroup := bitmap[bitmapIdx]
+
+		mapping := math.Pow(2, float64(bitIdx)) // mapping value could be [1, 2, 4, 8, 16, 32, 64, 128]
+
+		// using AND
+		// bitIdx will be 0~7, so we push it to 1~8 with adding 1
+		bitIdx += 1
+
+		if int(mapping)&int(byteGroup) > 0 {
+			return v
+		} else {
+			bitmap[bitmapIdx] = byteGroup | byte(mapping)
+		}
+	}
+
+	return 0
+}
+```
+
+Result:
+
+![3](imgs/3.png)
