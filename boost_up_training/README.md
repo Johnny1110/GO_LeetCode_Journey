@@ -171,29 +171,73 @@ Every backtracking solution is DFS, but not every DFS is backtracking
 <br>
 <br>
 
-## Redo 20-30% of the hardest problem (Graduate → Junior Engineer)
-
-將所有心目中覺得有難度的題目整理在這裡並重做一次
+## Redo of the MEDIUM & HARD problems (Graduate → Junior Engineer)
 
 * 所有已知解題方法都要試過一次
-* 整理為什麼覺得難的原因
+* 如果覺得難，要整理為什麼覺得難的原因
 * 趁離開新手村前，誠實的把自己得弱項補足並強化，必須以完全準備好的狀態挑戰下一個階段副本
 
 <br>
+Medium & Hard 題目:
 
-題目：
+### Array & String (MEDIUM/HARD)
+* **3Sum [(#15)](redo/array_and_string/three_sum)** - MEDIUM - 雙指針技巧的經典應用
+* **Container With Most Water [(#11)](redo/array_and_string/container_with_most_water)** - MEDIUM - 雙指針的貪心思想
+* **Sliding Window Maximum [(#239)](redo/array_and_string/sliding_window_maximum)** - HARD - 單調隊列的應用
+* **Product of Array Except Self [(#238)](redo/array_and_string/product_of_array_except_self)** - MEDIUM - 前綴積的思想
 
-* 3Sum [(#15)](array_and_string/three_sum) - 雙指針技巧的經典應用
-* Sliding Window Maximum [(#239)](array_and_string/sliding_window_maximum) - 單調隊列的應用
-* Reorder List [(#143)](linked_list/reorder_list) - 綜合應用
-* Validate BST [(#98)](binary_tree/validate_bst) - 中序遍歷的性質
-* Lowest Common Ancestor (LCA) [(#236)](binary_tree/lowest_common_ancestor) - 遞歸返回值的設計
-* Serialize and Deserialize [(#297)](binary_tree/serialize_and_deserialize) - 樹的編碼思想
-* Binary Tree Maximum Path Sum [(#124)](binary_tree/binary_tree_maximum_path_sum) - 樹形 DP
-* Coin Change [(#322)](dynamic_programming/coin_change) - 完全背包問題
-* Longest Increasing Subsequence [(#300)](dynamic_programming/longest_increasing_subsequence) - 經典 DP
-* Word Break [(#139)](dynamic_programming/word_break) - DP + 字符串
-* Edit Distance [(#72)](dynamic_programming/edit_distance) - 二維 DP
+### Linked List (MEDIUM)
+* **Remove Nth Node From End [(#19)](redo/linked_list/remove_nth_node_from_end)** - MEDIUM - 雙指針技巧
+* **Reorder List [(#143)](redo/linked_list/reorder_list)** - MEDIUM - 綜合應用
+
+### Binary Tree (MEDIUM/HARD)
+* **Binary Tree Level Order Traversal [(#102)](redo/binary_tree/binary_tree_level_order_traversal)** - MEDIUM - BFS 應用
+* **Validate BST [(#98)](redo/binary_tree/validate_bst)** - MEDIUM - 中序遍歷的性質
+* **Lowest Common Ancestor (LCA) [(#236)](redo/binary_tree/lowest_common_ancestor)** - MEDIUM - 遞歸返回值的設計
+* **Serialize and Deserialize [(#297)](redo/binary_tree/serialize_and_deserialize)** - HARD - 樹的編碼思想
+* **Binary Tree Maximum Path Sum [(#124)](redo/binary_tree/binary_tree_maximum_path_sum)** - HARD - 樹形 DP
+
+### Dynamic Programming (MEDIUM/HARD)
+* **Coin Change [(#322)](redo/dynamic_programming/coin_change)** - MEDIUM - 完全背包問題
+* **Longest Increasing Subsequence [(#300)](redo/dynamic_programming/longest_increasing_subsequence)** - MEDIUM - 經典 DP
+* **Word Break [(#139)](redo/dynamic_programming/word_break)** - MEDIUM - DP + 字符串
+* **Edit Distance [(#72)](redo/dynamic_programming/edit_distance)** - MEDIUM - 二維 DP
+* **Unique Paths [(#62)](redo/dynamic_programming/unique_paths)** - MEDIUM - 路徑計數
+
+### Graph (MEDIUM/HARD)
+* **Clone Graph [(#133)](redo/graph/clone_graph)** - MEDIUM - 圖的遍歷與複製
+* **Course Schedule [(#207)](redo/graph/course_schedule)** - MEDIUM - 拓撲排序
+* **Pacific Atlantic Water Flow [(#417)](redo/graph/pacific_atlantic_water_flow)** - MEDIUM - 多源 BFS
+* **Word Ladder [(#127)](redo/graph/word_ladder)** - HARD - BFS 最短路徑
+* **Alien Dictionary [(#269)](redo/graph/alien_dictionary)** - HARD - 拓撲排序應用
+
+### Heap/Priority Queue (MEDIUM/HARD)
+* **Kth Largest Element [(#215)](redo/heap/kth_largest_element)** - MEDIUM - 快速選擇 vs 堆
+* **Top K Frequent Elements [(#347)](redo/heap/top_k_frequent_elements)** - MEDIUM - 桶排序思想
+* **Find Median from Data Stream [(#295)](redo/heap/find_median_from_data_stream)** - HARD - 雙堆維護中位數
+* **Merge k Sorted Lists [(#23)](redo/heap/merge_k_sorted_lists)** - HARD - k 路歸併
+
+### Backtracking (MEDIUM/HARD)
+* **Subsets [(#78)](redo/backtracking/subsets)** - MEDIUM - 子集生成
+* **Permutations [(#46)](redo/backtracking/permutations)** - MEDIUM - 全排列
+* **Combination Sum [(#39)](redo/backtracking/combination_sum)** - MEDIUM - 組合問題
+* **N-Queens [(#51)](redo/backtracking/n_queens)** - HARD - 約束滿足 + 二維陣列對角線特性
+* **Word Search [(#79)](redo/backtracking/word_search)** - MEDIUM - 矩陣回溯
+
+### Advanced Data Structures (MEDIUM/HARD)
+* **LRU Cache [(#146)](redo/advance_ds/lru_cache)** - MEDIUM - 哈希表 + 雙向鏈表
+* **Trie/Prefix Tree [(#208)](redo/advance_ds/trie_prefix_tree)** - MEDIUM - 字典樹
+* **Design Add and Search Words [(#211)](redo/advance_ds/add_and_search_words)** - MEDIUM - Trie + DFS
+
+### Bitmap (MEDIUM/HARD)
+* **Find Duplicate [(#287)](redo/bitmap/find_duplicate)** - MEDIUM - 多種解法比較
+* **Single Number II [(#137)](redo/bitmap/single_number_ii)** - MEDIUM - 深入理解位操作
+* **First Missing Positive [(#41)](redo/bitmap/first_missing_positive)** - HARD - 空間優化技巧
+
+**總計**: 31 道 MEDIUM & HARD 題目
+- MEDIUM: 24 題
+- HARD: 7 題
+
 
 > 鞏固完每一個專項的技能後，就可以開始真正開始探索未知領域，進行更有挑戰性的任務
 > 等級評鑑升級：畢業生 -> 初級工程師
