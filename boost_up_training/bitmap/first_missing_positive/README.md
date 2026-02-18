@@ -110,7 +110,7 @@ func firstMissingPositive(nums []int) int {
 
 	// stage-2, find min index which val is not negative
 	for i, v := range nums {
-		if v == -1 {
+		if v != i+1 {
 			return i + 1
 		}
 	}
