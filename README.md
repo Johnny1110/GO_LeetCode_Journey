@@ -8,6 +8,42 @@ weekly leetcode with golang. Making progress step by step.
 
 <br>
 
+---
+
+---
+
+
+
+## Boost Up Training
+
+* 模式覆蓋：這些題目覆蓋了 20+ 種核心算法模式，掌握後可以解決 80% 的面試題
+* 難度遞進：從基礎到進階，建立系統性知識
+* 高頻出現：這些都是 FAANG 等大廠的真實面試題
+
+<br>
+
+### 學習方法論：
+
+* 每道題都要理解時間/空間複雜度的權衡
+* 寫出多種解法，理解優化過程
+* 總結通用模板（如滑動窗口、二分查找模板）
+
+<br>
+
+__質量比數量更重要__
+
+<br>
+
+目錄：([README.md](boost_up_training/README.md))
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
 ## LeetCode Log
 
 <br>
@@ -99,32 +135,6 @@ __Golang Leetcode Journey stop right here, immigrate to Rust language. [here](ht
 <br>
 
 ---
-
-<br>
-<br>
-
-
-## Boost Up Training
-
-* 模式覆蓋：這些題目覆蓋了 20+ 種核心算法模式，掌握後可以解決 80% 的面試題
-* 難度遞進：從基礎到進階，建立系統性知識
-* 高頻出現：這些都是 FAANG 等大廠的真實面試題
-
-<br>
-
-### 學習方法論：
-
-* 每道題都要理解時間/空間複雜度的權衡
-* 寫出多種解法，理解優化過程
-* 總結通用模板（如滑動窗口、二分查找模板）
-
-<br>
-
-__質量比數量更重要__
-
-<br>
-
-目錄：([README.md](boost_up_training/README.md))
 
 
 <br>
