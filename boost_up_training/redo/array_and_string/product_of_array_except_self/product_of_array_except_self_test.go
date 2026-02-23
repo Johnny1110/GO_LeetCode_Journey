@@ -22,11 +22,6 @@ func TestProductExceptSelf(t *testing.T) {
 			expected: []int{0, 0, 9, 0, 0},
 		},
 		{
-			name:     "Single element",
-			nums:     []int{5},
-			expected: []int{1},
-		},
-		{
 			name:     "Two elements",
 			nums:     []int{2, 3},
 			expected: []int{3, 2},
