@@ -187,6 +187,7 @@ Medium & Hard 題目:
 * **Product of Array Except Self [(#238)](redo/array_and_string/product_of_array_except_self)** - MEDIUM - 前綴積的思想
 
 ### Linked List (MEDIUM)
+* **Reverse Linked List [(#206)](redo/linked_list/reverse_linked_list/README.md)** - 反轉 Linked List
 * **Remove Nth Node From End [(#19)](redo/linked_list/remove_nth_node_from_end)** - MEDIUM - 雙指針技巧
 * **Reorder List [(#143)](redo/linked_list/reorder_list)** - MEDIUM - 綜合應用
 
