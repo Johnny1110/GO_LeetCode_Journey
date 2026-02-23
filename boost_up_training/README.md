@@ -182,7 +182,7 @@ Medium & Hard 題目:
 
 ### Array & String (MEDIUM/HARD)
 * **3Sum [(#15)](redo/array_and_string/three_sum)** - MEDIUM - 雙指針技巧的經典應用
-* **Container With Most Water [(#11)](redo/array_and_string/container_with_most_water/README.md)** - MEDIUM - 雙指針的貪心思想
+* **Container With Most Water [(#11)](redo/array_and_string/container_with_most_water)** - MEDIUM - 雙指針的貪心思想
 * **Sliding Window Maximum [(#239)](redo/array_and_string/sliding_window_maximum)** - HARD - 單調隊列的應用
 * **Product of Array Except Self [(#238)](redo/array_and_string/product_of_array_except_self)** - MEDIUM - 前綴積的思想
 
