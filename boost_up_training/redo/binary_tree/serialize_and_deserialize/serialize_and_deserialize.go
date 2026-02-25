@@ -19,6 +19,10 @@ func Constructor() Codec {
 
 // [1, 2, 3, nil, nil, 4, 5]
 func (this *Codec) serialize(root *TreeNode) string {
+	if root == nil {
+		return ""
+	}
+
 	Q := Queue(make([]*TreeNode, 0))
 	ret := []string{}
 
@@ -46,42 +50,54 @@ func (this *Codec) serialize(root *TreeNode) string {
 
 func (this *Codec) deserialize(data string) *TreeNode {
 	strVals := strings.Split(data, ",")
-	idx := 0
 
-	var buildNode func(strVals []string, idx int) *TreeNode
-	buildNode = func(strVals []string, idx int) *TreeNode {
-		if idx >= len(strVals) {
-			return nil
-		}
-
-		valstr := strVals[idx]
-		if valstr == "null" {
-			return nil
-		}
-
-		ival, _ := strconv.Atoi(valstr)
-		this := &TreeNode{
-			Val:   ival,
-			Left:  buildNode(strVals, leftIdx(idx)),
-			Right: buildNode(strVals, rightIdx(idx)),
-		}
-
-		return this
+	if data == "" || len(strVals) == 0 {
+		return nil
+	}
+	
+	Q := Queue(make([]*TreeNode, 0))
+	val, _ := strconv.Atoi(strVals[0])
+	head := &TreeNode{
+		Val: val, 
 	}
 
-	return buildNode(strVals, idx)
+	Q.Push(head)
+
+	idx := 1
+
+	// BFS ================================================
+	for Q.Len() != 0 {
+
+		thisLevelLen := Q.Len()
+		for range thisLevelLen {
+			node := Q.Pop()
+
+			if idx < len(strVals) && strVals[idx] != "null"  {
+				leftVal, _ := strconv.Atoi(strVals[idx])
+				node.Left = &TreeNode {
+					Val: leftVal,
+				}
+				Q.Push(node.Left)
+			} 
+			idx++
+
+			if  idx < len(strVals) && strVals[idx] != "null"  {
+				rightVal, _ := strconv.Atoi(strVals[idx])
+				node.Right = &TreeNode {
+					Val: rightVal,
+				}
+				Q.Push(node.Right)
+			}
+			idx++
+		}
+	}
+	// BFS ================================================
+
+	return head
+
 }
 
 // ===================================================
-// func left(idx): idx*2+1
-func leftIdx(idx int) int {
-	return idx*2 + 1
-}
-
-// func right(idx): idx*2+2
-func rightIdx(idx int) int {
-	return idx*2 + 2
-}
 
 type Queue []*TreeNode
 
