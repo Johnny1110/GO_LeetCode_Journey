@@ -195,8 +195,8 @@ Medium & Hard 題目:
 * **Binary Tree Level Order Traversal [(#102)](redo/binary_tree/binary_tree_level_order_traversal)** - MEDIUM - BFS 應用
 * **Validate BST [(#98)](redo/binary_tree/validate_bst)** - MEDIUM - 中序遍歷的性質
 * **Lowest Common Ancestor (LCA) [(#236)](redo/binary_tree/lowest_common_ancestor)** - MEDIUM - 遞歸返回值的設計
-* **Serialize and Deserialize [(#297)](redo/binary_tree/serialize_and_deserialize)** - HARD - 樹的編碼思想
-* **Binary Tree Maximum Path Sum [(#124)](redo/binary_tree/binary_tree_maximum_path_sum)** - HARD - 樹形 DP
+* **Serialize and Deserialize [(#297)](redo/binary_tree/serialize_and_deserialize/README.md)** - HARD - 樹的編碼思想
+* **Binary Tree Maximum Path Sum [(#124)](redo/binary_tree/binary_tree_maximum_path_sum/README.md)** - HARD - 樹形 DP
 
 ### Dynamic Programming (MEDIUM/HARD)
 * **Coin Change [(#322)](redo/dynamic_programming/coin_change)** - MEDIUM - 完全背包問題
