@@ -17,101 +17,68 @@ func Constructor() Codec {
 	return Codec{}
 }
 
-// [1, 2, 3, nil, nil, 4, 5]
 func (this *Codec) serialize(root *TreeNode) string {
 	if root == nil {
 		return ""
 	}
 
-	Q := Queue(make([]*TreeNode, 0))
-	ret := []string{}
+	strVals := []string{}
 
-	Q.Push(root)
-
-	for Q.Len() > 0 {
-
-		thisLevelLen := Q.Len()
-		for range thisLevelLen {
-			node := Q.Pop()
-			if node == nil {
-				ret = append(ret, "null")
-			} else {
-				ret = append(ret, strconv.Itoa(node.Val))
-				Q.Push(node.Left)
-				Q.Push(node.Right)
-			}
+	var dfs func(node *TreeNode)
+	dfs = func(node *TreeNode) {
+		if node == nil {
+			strVals = append(strVals, "null")
+			return
 		}
 
+		sv := strconv.Itoa(node.Val)
+		strVals = append(strVals, sv)
+
+		// left & right
+		dfs(node.Left)
+		dfs(node.Right)
 	}
 
-	res := strings.Join(ret, ",")
-	return res
+	dfs(root)
+
+	return strings.Join(strVals, ",")
 }
 
 func (this *Codec) deserialize(data string) *TreeNode {
-	strVals := strings.Split(data, ",")
-
-	if data == "" || len(strVals) == 0 {
+	if data == "" {
 		return nil
 	}
-	
-	Q := Queue(make([]*TreeNode, 0))
-	val, _ := strconv.Atoi(strVals[0])
-	head := &TreeNode{
-		Val: val, 
-	}
 
-	Q.Push(head)
+	strVals := strings.Split(data, ",")
 
-	idx := 1
+	idx := 0
 
-	// BFS ================================================
-	for Q.Len() != 0 {
+	var dfs func() *TreeNode
+	dfs = func() *TreeNode {
 
-		thisLevelLen := Q.Len()
-		for range thisLevelLen {
-			node := Q.Pop()
-
-			if idx < len(strVals) && strVals[idx] != "null"  {
-				leftVal, _ := strconv.Atoi(strVals[idx])
-				node.Left = &TreeNode {
-					Val: leftVal,
-				}
-				Q.Push(node.Left)
-			} 
-			idx++
-
-			if  idx < len(strVals) && strVals[idx] != "null"  {
-				rightVal, _ := strconv.Atoi(strVals[idx])
-				node.Right = &TreeNode {
-					Val: rightVal,
-				}
-				Q.Push(node.Right)
-			}
-			idx++
+		if idx >= len(strVals) {
+			return nil
 		}
+
+		strV := strVals[idx]
+
+		idx++
+
+		if strV == "null" {
+			return nil
+		} else {
+			val, _ := strconv.Atoi(strV)
+			node := &TreeNode{
+				Val:   val,
+				Left:  dfs(),
+				Right: dfs(),
+			}
+			return node
+		}
+
 	}
-	// BFS ================================================
 
-	return head
-
+	return dfs()
 }
 
 // ===================================================
-
-type Queue []*TreeNode
-
-func (q Queue) Len() int {
-	return len(q)
-}
-
-func (q *Queue) Push(node *TreeNode) {
-	*q = append(*q, node)
-}
-
-func (q *Queue) Pop() *TreeNode {
-	ret := (*q)[0]
-	(*q)[0] = nil
-	*q = (*q)[1:]
-	return ret
-}

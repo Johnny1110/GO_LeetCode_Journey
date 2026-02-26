@@ -378,5 +378,6 @@ func Test_serialize(t *testing.T) {
 	root := buildTree
 
 	res := codec.serialize(root())
+	fmt.Println("serialize : @.@")
 	fmt.Println(res)
 }
