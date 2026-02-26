@@ -22,26 +22,29 @@ func (this *Codec) serialize(root *TreeNode) string {
 		return ""
 	}
 
+	Q := NodeQueue(make([]*TreeNode, 0))
+	Q.Push(root)
+
 	strVals := []string{}
 
-	var dfs func(node *TreeNode)
-	dfs = func(node *TreeNode) {
-		if node == nil {
-			strVals = append(strVals, "null")
-			return
+	for Q.Len() > 0 {
+
+		levelLen := Q.Len()
+		for range levelLen {
+			node := Q.Pop()
+			if node != nil {
+				strVals = append(strVals, strconv.Itoa(node.Val))
+				Q.Push(node.Left)
+				Q.Push(node.Right)
+			} else {
+				strVals = append(strVals, "null")
+			}
+
 		}
-
-		sv := strconv.Itoa(node.Val)
-		strVals = append(strVals, sv)
-
-		// left & right
-		dfs(node.Left)
-		dfs(node.Right)
 	}
 
-	dfs(root)
-
 	return strings.Join(strVals, ",")
+
 }
 
 func (this *Codec) deserialize(data string) *TreeNode {
@@ -49,36 +52,70 @@ func (this *Codec) deserialize(data string) *TreeNode {
 		return nil
 	}
 
-	strVals := strings.Split(data, ",")
+	strVal := strings.Split(data, ",")
+	Q := NodeQueue(make([]*TreeNode, 0))
 
-	idx := 0
+	rootVal, _ := strconv.Atoi(strVal[0])
+	root := &TreeNode{
+		Val: rootVal,
+	}
 
-	var dfs func() *TreeNode
-	dfs = func() *TreeNode {
+	Q.Push(root)
 
-		if idx >= len(strVals) {
-			return nil
-		}
+	idx := 1
 
-		strV := strVals[idx]
+	for idx < len(strVal) && Q.Len() > 0 {
 
-		idx++
+		levelLen := Q.Len()
+		for range levelLen {
 
-		if strV == "null" {
-			return nil
-		} else {
-			val, _ := strconv.Atoi(strV)
-			node := &TreeNode{
-				Val:   val,
-				Left:  dfs(),
-				Right: dfs(),
+			node := Q.Pop()
+
+			leftValStr := strVal[idx]
+			idx++
+			if leftValStr != "null" {
+				leftVal, _ := strconv.Atoi(leftValStr)
+				leftNode := &TreeNode{
+					Val: leftVal,
+				}
+				node.Left = leftNode
+				Q.Push(leftNode)
 			}
-			return node
+
+			rightValStr := strVal[idx]
+			idx++
+			if rightValStr != "null" {
+				rightVal, _ := strconv.Atoi(rightValStr)
+				rightNode := &TreeNode{
+					Val: rightVal,
+				}
+				node.Right = rightNode
+				Q.Push(rightNode)
+			}
 		}
 
 	}
 
-	return dfs()
+	return root
+
 }
 
 // ===================================================
+
+type NodeQueue []*TreeNode
+
+func (q NodeQueue) Len() int {
+	return len(q)
+}
+
+func (q *NodeQueue) Push(node *TreeNode) {
+	*q = append(*q, node)
+}
+
+func (q *NodeQueue) Pop() *TreeNode {
+	ret := (*q)[0]
+	(*q)[0] = nil
+	*q = (*q)[1:]
+
+	return ret
+}
