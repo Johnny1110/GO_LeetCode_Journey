@@ -26,7 +26,7 @@ func TestMaxPathSum(t *testing.T) {
 			expected: -3,
 		},
 		{
-			name: "Example 1 - [1,2,3]",
+			name: "Example 1",
 			buildTree: func() *TreeNode {
 				root := &TreeNode{Val: 1}
 				root.Left = &TreeNode{Val: 2}
