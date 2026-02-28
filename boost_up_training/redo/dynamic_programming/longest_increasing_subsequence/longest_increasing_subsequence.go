@@ -9,19 +9,17 @@ func lengthOfLIS(nums []int) int {
 		return 1
 	}
 
-	// better tail
-	tails := []int{}
-	tails = append(tails, nums[0])
+	tails := []int{nums[0]}
 
 	for idx := 1; idx < len(nums); idx++ {
-		currentNum := nums[idx]
 
-		targetTailPosition := binarySearch(tails, currentNum)
+		num := nums[idx]
+		tailPosition := binarySearch(tails, num)
 
-		if targetTailPosition == len(tails) {
-			tails = append(tails, currentNum)
+		if tailPosition == len(tails) {
+			tails = append(tails, num)
 		} else {
-			tails[targetTailPosition] = currentNum
+			tails[tailPosition] = num
 		}
 
 	}
@@ -30,21 +28,19 @@ func lengthOfLIS(nums []int) int {
 }
 
 func binarySearch(tails []int, num int) int {
-	startIdx, endIdx := 0, len(tails)-1
+	left, right := 0, len(tails)-1
 
-	for startIdx <= endIdx {
+	for left <= right {
+		mid := (left + right) / 2
 
-		midIdx := (startIdx + endIdx) / 2
-
-		if tails[midIdx] == num {
-			return midIdx
-		} else if tails[midIdx] < num {
-			startIdx = midIdx + 1
+		if tails[mid] == num {
+			return mid
+		} else if tails[mid] > num {
+			right = mid - 1
 		} else {
-			endIdx = midIdx - 1
+			left = mid + 1
 		}
-
 	}
 
-	return startIdx
+	return left
 }
