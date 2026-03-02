@@ -30,5 +30,4 @@ func wordBreak(s string, wordDict []string) bool {
 	}
 
 	return dp[len(s)]
-
 }
