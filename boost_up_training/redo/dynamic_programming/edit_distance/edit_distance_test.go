@@ -13,7 +13,7 @@ func TestMinDistance(t *testing.T) {
 		expected int
 	}{
 		{
-			name:     "Example 1 - horse to ros",
+			name:     "Example 1",
 			word1:    "horse",
 			word2:    "ros",
 			expected: 3, // replace 'h'→'r', delete 'r', delete 'e'
@@ -347,14 +347,14 @@ func TestMinDistanceOptimalSubstructure(t *testing.T) {
 		// If we know optimal solution for prefixes, we should be able to build optimal solution
 		word1 := "kitten"
 		word2 := "sitting"
-		
+
 		// Test that removing last character gives us a related subproblem
 		prefix1 := word1[:len(word1)-1] // "kitte"
 		prefix2 := word2[:len(word2)-1] // "sittin"
-		
+
 		fullDistance := minDistance(word1, word2)
 		prefixDistance := minDistance(prefix1, prefix2)
-		
+
 		// The full distance should be related to prefix distance
 		// (either same, +1, or in some reasonable relationship)
 		if fullDistance < prefixDistance || fullDistance > prefixDistance+2 {
@@ -366,7 +366,7 @@ func TestMinDistanceOptimalSubstructure(t *testing.T) {
 func BenchmarkMinDistance(b *testing.B) {
 	word1 := "kitten"
 	word2 := "sitting"
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		minDistance(word1, word2)
@@ -376,7 +376,7 @@ func BenchmarkMinDistance(b *testing.B) {
 func BenchmarkMinDistanceEmpty(b *testing.B) {
 	word1 := ""
 	word2 := "test"
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		minDistance(word1, word2)
@@ -386,7 +386,7 @@ func BenchmarkMinDistanceEmpty(b *testing.B) {
 func BenchmarkMinDistanceLongStrings(b *testing.B) {
 	word1 := strings.Repeat("a", 100) + strings.Repeat("b", 100)
 	word2 := strings.Repeat("b", 100) + strings.Repeat("a", 100)
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		minDistance(word1, word2)
@@ -397,7 +397,7 @@ func BenchmarkMinDistanceWorstCase(b *testing.B) {
 	// Worst case: completely different strings
 	word1 := strings.Repeat("a", 150)
 	word2 := strings.Repeat("b", 150)
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		minDistance(word1, word2)
@@ -407,7 +407,7 @@ func BenchmarkMinDistanceWorstCase(b *testing.B) {
 func BenchmarkMinDistanceBestCase(b *testing.B) {
 	// Best case: identical strings
 	word := strings.Repeat("test", 50)
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		minDistance(word, word)
