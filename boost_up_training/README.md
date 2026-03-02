@@ -202,7 +202,7 @@ Medium & Hard 題目:
 * **Coin Change [(#322)](redo/dynamic_programming/coin_change)** - MEDIUM - 完全背包問題
 * **Longest Increasing Subsequence [(#300)](redo/dynamic_programming/longest_increasing_subsequence)** - MEDIUM - 經典 DP
 * **Word Break [(#139)](redo/dynamic_programming/word_break)** - MEDIUM - DP + 字符串
-* **Edit Distance [(#72)](redo/dynamic_programming/edit_distance/README.md)** - MEDIUM - 二維 DP
+* **Edit Distance [(#72)](redo/dynamic_programming/edit_distance)** - MEDIUM - 二維 DP
 * **Unique Paths [(#62)](redo/dynamic_programming/unique_paths)** - MEDIUM - 路徑計數
 
 ### Graph (MEDIUM/HARD)
