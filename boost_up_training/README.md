@@ -206,7 +206,7 @@ Medium & Hard 題目:
 * **Unique Paths [(#62)](redo/dynamic_programming/unique_paths)** - MEDIUM - 路徑計數
 
 ### Graph (MEDIUM/HARD)
-* **Clone Graph [(#133)](redo/graph/clone_graph/README.md)** - MEDIUM - 圖的遍歷與複製
+* **Clone Graph [(#133)](redo/graph/clone_graph)** - MEDIUM - 圖的遍歷與複製
 * **Course Schedule [(#207)](redo/graph/course_schedule/README.md)** - MEDIUM - 拓撲排序
 * **Pacific Atlantic Water Flow [(#417)](redo/graph/pacific_atlantic_water_flow/README.md)** - MEDIUM - 多源 BFS
 * **Word Ladder [(#127)](redo/graph/word_ladder/README.md)** - HARD - BFS 最短路徑
