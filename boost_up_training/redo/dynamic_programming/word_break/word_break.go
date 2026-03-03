@@ -4,30 +4,32 @@ package word_break
 // Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
 func wordBreak(s string, wordDict []string) bool {
 
-	// 1. make dict
+	// make dict
 	dict := make(map[string]bool)
 	for _, word := range wordDict {
 		dict[word] = true
 	}
 
-	// 2. make DP, start from ""
+	// define dp
 	dp := make([]bool, len(s)+1)
-	dp[0] = true // idx-0 = "" -> always be true
+	dp[0] = true // is always valid as start idx
 
-	for idx := 1; idx <= len(s); idx++ {
+	for idx := 1; idx < len(dp); idx++ {
 
 		for x := 0; x <= idx; x++ {
-			// iterate all true string's idx
-			if dp[x] {
-				target := s[x:idx]
-				if dict[target] {
-					dp[idx] = true
-					break
-				}
+
+			if !dp[x] {
+				continue
 			}
+
+			tmp := s[x:idx]
+			if dict[tmp] {
+				// matched
+				dp[idx] = true
+				break
+			}
+
 		}
-
 	}
-
 	return dp[len(s)]
 }
