@@ -1,31 +1,16 @@
 package course_schedule
 
-import "fmt"
-
 // example: prerequisites := [[0, 1], [1, 0]]
 func canFinish(numCourses int, prerequisites [][]int) bool {
 	if len(prerequisites) == 0 {
 		return true
 	}
 
-	dependency := make(map[int]int)
-
 	// 1. create  directed graph
 	dirgraph := make(map[int]IntSet)
 
 	for _, row := range prerequisites {
 		courseA, courseB := row[0], row[1]
-
-		// init dependency if needed
-		if _, exists := dependency[courseA]; exists {
-			dependency[courseA]++
-		} else {
-			dependency[courseA] = 1
-		}
-
-		if _, exists := dependency[courseB]; !exists {
-			dependency[courseB] = 0
-		}
 
 		// build dirgraph
 		if _, exists := dirgraph[courseB]; !exists {
@@ -35,14 +20,44 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 		dirgraph[courseB].Add(courseA)
 	}
 
-	// must find a course not in any set.
-	for head, v := range dependency {
-		if v == 0 { // not depended by other course
-			fmt.Printf("head: %v \n", head)
+	stateTracking := make([]int, numCourses)	// idx: course, val: state
+
+	// state:
+	// 0: non-visited
+	// 1: in_progress
+	// 2: compeleted
+	
+	var dfs func(course int) bool
+	dfs = func(course int) bool {
+		if stateTracking[course] == 1 {
+			return false
+		}else if stateTracking[course] == 2 {
+			return true
+		} else {
+			// 0: non-visited
+			stateTracking[course] = 1 // mark this course as in_progress
+
+			if courseSet, exists := dirgraph[course]; exists {
+				for otherCourse, _ := range courseSet {
+					if !dfs(otherCourse) {
+						return false
+					}
+				}
+			}
+
+			// expolore complelted
+			stateTracking[course] = 2
+			return true
 		}
 	}
 
-	return false
+	for course := range numCourses {
+		if !dfs(course) {
+			return false
+		}
+	}
+
+	return true
 }
 
 // ======================================================
