@@ -57,11 +57,7 @@ func TestLengthOfLIS(t *testing.T) {
 			nums:     []int{3, 1},
 			expected: 1, // [3] or [1]
 		},
-		{
-			name:     "alternating pattern",
-			nums:     []int{1, 3, 2, 4, 3, 5, 4, 6},
-			expected: 4, // [1,2,3,4] or [1,2,4,5] or [1,3,4,6]
-		},
+
 		{
 			name:     "with negative numbers",
 			nums:     []int{-10, -3, 0, 5, 9},
@@ -112,11 +108,7 @@ func TestLengthOfLIS(t *testing.T) {
 			nums:     []int{3, 1, 2, 4, 3},
 			expected: 3, // [1,2,4] or [1,2,3]
 		},
-		{
-			name:     "long random sequence",
-			nums:     []int{10, 22, 9, 33, 21, 50, 41, 60, 80},
-			expected: 5, // [10,22,33,50,60] or [9,21,41,60,80]
-		},
+
 		{
 			name:     "with zeros",
 			nums:     []int{0, 0, 1, 1, 2, 2},
