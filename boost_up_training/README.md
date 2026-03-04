@@ -205,11 +205,11 @@ Medium & Hard 題目:
 * **Edit Distance [(#72)](redo/dynamic_programming/edit_distance)** - MEDIUM - 二維 DP
 * **Unique Paths [(#62)](redo/dynamic_programming/unique_paths)** - MEDIUM - 路徑計數
 
-### Graph (MEDIUM/HARD)
+### Graph (MEDIUM/HARD) - 圖類型題的特徵 -> Visited Mark
 * **Clone Graph [(#133)](redo/graph/clone_graph)** - MEDIUM - 圖的遍歷與複製
 * **Course Schedule [(#207)](redo/graph/course_schedule)** - MEDIUM - 拓撲排序
-* **Pacific Atlantic Water Flow [(#417)](redo/graph/pacific_atlantic_water_flow/README.md)** - MEDIUM - 多源 BFS
-* **Word Ladder [(#127)](redo/graph/word_ladder/README.md)** - HARD - BFS 最短路徑
+* **Pacific Atlantic Water Flow [(#417)](redo/graph/pacific_atlantic_water_flow)** - MEDIUM - 多源 BFS
+* **Word Ladder [(#127)](redo/graph/word_ladder)** - HARD - BFS 最短路徑
 * **Alien Dictionary [(#269)](redo/graph/alien_dictionary/README.md)** - HARD - 拓撲排序應用
 
 ### Heap/Priority Queue (MEDIUM/HARD)
