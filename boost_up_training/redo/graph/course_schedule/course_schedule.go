@@ -2,51 +2,39 @@ package course_schedule
 
 // example: prerequisites := [[0, 1], [1, 0]]
 func canFinish(numCourses int, prerequisites [][]int) bool {
-	if len(prerequisites) == 0 {
-		return true
-	}
 
-	// 1. create  directed graph
+	// init dir graph
 	dirgraph := make(map[int]IntSet)
-
-	for _, row := range prerequisites {
-		courseA, courseB := row[0], row[1]
-
-		// build dirgraph
-		if _, exists := dirgraph[courseB]; !exists {
-			dirgraph[courseB] = NewIntSet()
-		}
-
-		dirgraph[courseB].Add(courseA)
+	for course := range numCourses {
+		dirgraph[course] = IntSet(make(map[int]struct{}))
 	}
 
-	stateTracking := make([]int, numCourses)	// idx: course, val: state
+	for _, prerequisite := range prerequisites {
+		courseA, courceB := prerequisite[0], prerequisite[1]
+		dirgraph[courseA].Add(courceB)
+	}
 
-	// state:
-	// 0: non-visited
-	// 1: in_progress
-	// 2: compeleted
-	
+	stateTracking := make(map[int]State)
+
 	var dfs func(course int) bool
 	dfs = func(course int) bool {
-		if stateTracking[course] == 1 {
+		switch stateTracking[course] {
+		case PENDING:
 			return false
-		}else if stateTracking[course] == 2 {
+		case COMPLETED:
 			return true
-		} else {
-			// 0: non-visited
-			stateTracking[course] = 1 // mark this course as in_progress
+		case UNVISITED:
 
-			if courseSet, exists := dirgraph[course]; exists {
-				for otherCourse, _ := range courseSet {
-					if !dfs(otherCourse) {
-						return false
-					}
+			stateTracking[course] = PENDING
+
+			for nextCourse, _ := range dirgraph[course] {
+				if !dfs(nextCourse) {
+					return false
 				}
 			}
-
-			// expolore complelted
-			stateTracking[course] = 2
+			stateTracking[course] = COMPLETED
+			return true
+		default:
 			return true
 		}
 	}
@@ -60,18 +48,17 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 	return true
 }
 
-// ======================================================
-
+// ==================================
 type IntSet map[int]struct{}
-
-func (s IntSet) Len() int {
-	return len(s)
-}
 
 func (s IntSet) Add(val int) {
 	s[val] = struct{}{}
 }
 
-func NewIntSet() IntSet {
-	return IntSet(make(map[int]struct{}))
-}
+type State int
+
+const (
+	UNVISITED State = iota
+	PENDING
+	COMPLETED
+)
