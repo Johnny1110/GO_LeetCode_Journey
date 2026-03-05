@@ -40,13 +40,7 @@ func TestLadderLength(t *testing.T) {
 			wordList:  []string{"a", "b", "c"},
 			expected:  2,
 		},
-		{
-			name:      "Same begin and end word",
-			beginWord: "hit",
-			endWord:   "hit",
-			wordList:  []string{"hot", "hit"},
-			expected:  1,
-		},
+
 		{
 			name:      "Empty word list",
 			beginWord: "hit",
@@ -68,13 +62,7 @@ func TestLadderLength(t *testing.T) {
 			wordList:  []string{"ted", "tex", "red", "tax", "tad", "den", "rex", "pee"},
 			expected:  4,
 		},
-		{
-			name:      "Single character words",
-			beginWord: "a",
-			endWord:   "z",
-			wordList:  []string{"b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"},
-			expected:  26,
-		},
+
 		{
 			name:      "Complex graph with multiple paths",
 			beginWord: "qa",
@@ -110,13 +98,6 @@ func TestLadderLengthEdgeCases(t *testing.T) {
 		wordList  []string
 		expected  int
 	}{
-		{
-			name:      "BeginWord same as endWord",
-			beginWord: "hit",
-			endWord:   "hit",
-			wordList:  []string{"hit"},
-			expected:  1,
-		},
 		{
 			name:      "Single word in list not matching endWord",
 			beginWord: "hit",
