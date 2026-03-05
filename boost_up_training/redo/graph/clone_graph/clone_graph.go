@@ -15,13 +15,14 @@ func cloneGraph(node *Node) *Node {
 	var dfs func(node *Node) *Node
 	dfs = func(node *Node) *Node {
 		val := node.Val
-		if cpNode, ok := visited[val]; ok {
+
+		if cpNode, exists := visited[val]; exists {
 			return cpNode
 		}
 
 		cpNode := &Node{
 			Val:       val,
-			Neighbors: make([]*Node, len(node.Neighbors)), // empty neighbors
+			Neighbors: make([]*Node, len(node.Neighbors)),
 		}
 
 		visited[val] = cpNode
