@@ -4,94 +4,63 @@ type State int
 
 const (
 	UNVISITED State = iota
-	TOP_LEFT_OK
-	BOT_RIGHT_OK
-	BOTH_OK
+	COMPLETED
 )
 
 func pacificAtlantic(heights [][]int) [][]int {
 	result := [][]int{}
+
 	m, n := len(heights), len(heights[0])
 
-	stateTracking := make([][]State, m)
-	for idx := range m {
-		stateTracking[idx] = make([]State, n)
+	fromTopLeftState := make([][]State, m)
+	fromBotRightState := make([][]State, m)
+	for row := 0; row < m; row++ {
+		fromTopLeftState[row] = make([]State, n)
+		fromBotRightState[row] = make([]State, n)
 	}
 
-	var dfsFromTopLeft func(preHight, row, col int) bool
-	dfsFromTopLeft = func(preHight, row, col int) bool {
-
-		if col >= n || col < 0 || row >= m || row < 0 {
-			return false
+	var dfs func(prevHeight, row, col int, state [][]State)
+	dfs = func(prevHeight, row, col int, state [][]State) {
+		if row >= m || row < 0 || col >= n || col < 0 {
+			return
 		}
 
-		if stateTracking[row][col] == TOP_LEFT_OK || stateTracking[row][col] == BOTH_OK {
-			return true
+		if state[row][col] == COMPLETED {
+			return
 		}
 
-		thisHight := heights[row][col]
-		if preHight <= thisHight {
-			// OK
-			if stateTracking[row][col] == BOT_RIGHT_OK {
-				stateTracking[row][col] = BOTH_OK
+		thisHeight := heights[row][col]
+		if thisHeight >= prevHeight {
+			state[row][col] = COMPLETED
 
-				result = append(result, []int{row, col})
-			} else {
-				stateTracking[row][col] = TOP_LEFT_OK
+			// keep explore
+			dfs(thisHeight, row+1, col, state)
+			dfs(thisHeight, row-1, col, state)
+			dfs(thisHeight, row, col+1, state)
+			dfs(thisHeight, row, col-1, state)
+		}
+	}
+
+	// iterate from left and right
+	for idx := 0; idx < m; idx++ {
+		dfs(0, idx, 0, fromTopLeftState)
+		dfs(0, idx, n-1, fromBotRightState)
+	}
+
+	// iterate from top and bot
+	for idx := 0; idx < n; idx++ {
+		dfs(0, 0, idx, fromTopLeftState)
+		dfs(0, m-1, idx, fromBotRightState)
+	}
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if fromTopLeftState[i][j] == COMPLETED && fromBotRightState[i][j] == COMPLETED {
+				result = append(result, []int{i, j})
 			}
-			// explore 4 path
-			dfsFromTopLeft(thisHight, row-1, col)
-			dfsFromTopLeft(thisHight, row+1, col)
-			dfsFromTopLeft(thisHight, row, col-1)
-			dfsFromTopLeft(thisHight, row, col+1)
 		}
-
-		return true
-	}
-
-	var dfsFromBotRight func(preHight, row, col int) bool
-	dfsFromBotRight = func(preHight, row, col int) bool {
-
-		if col >= n || col < 0 || row >= m || row < 0 {
-			return false
-		}
-
-		if stateTracking[row][col] == BOT_RIGHT_OK || stateTracking[row][col] == BOTH_OK {
-			return true
-		}
-
-		thisHight := heights[row][col]
-		if preHight <= thisHight {
-			// OK
-			if stateTracking[row][col] == TOP_LEFT_OK {
-				stateTracking[row][col] = BOTH_OK
-
-				result = append(result, []int{row, col})
-			} else {
-				stateTracking[row][col] = BOT_RIGHT_OK
-			}
-			// explore 4 path
-			dfsFromBotRight(thisHight, row-1, col)
-			dfsFromBotRight(thisHight, row+1, col)
-			dfsFromBotRight(thisHight, row, col-1)
-			dfsFromBotRight(thisHight, row, col+1)
-		}
-
-		return true
-	}
-
-	// check from top-left: [0, ?] [?, 0]
-	// check from bot_right: [m, ?] [?, n]
-
-	for idx := range n {
-		dfsFromTopLeft(0, 0, idx)
-		dfsFromBotRight(0, m-1, idx)
-	}
-
-	for idx := range m {
-		dfsFromTopLeft(0, idx, 0)
-		dfsFromBotRight(0, idx, n-1)
 	}
 
 	return result
+
 }

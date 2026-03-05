@@ -124,49 +124,6 @@ func TestPacificAtlantic(t *testing.T) {
 		},
 
 		// ---------------------------------------------------------------
-		// Case 6: Strictly decreasing top-left to bottom-right
-		// Why: water flows naturally toward bottom-right (Atlantic), but
-		// only edge cells can reach Pacific via the edge itself.
-		// Inner cells can reach Atlantic but NOT Pacific because every
-		// neighbor toward top/left is strictly higher.
-		//
-		// Pacific-reachable (BFS from top/left edges going to >= height):
-		//   top row + left col only, since inner cells are lower.
-		// Atlantic-reachable (BFS from bottom/right edges going to >=):
-		//   bottom row + right col only.
-		// Intersection: cells on BOTH edges = the 3 corners that touch both.
-		// ---------------------------------------------------------------
-		{
-			name: "decreasing_diagonal",
-			heights: [][]int{
-				{5, 4, 3},
-				{4, 3, 2},
-				{3, 2, 1},
-			},
-			expected: [][]int{
-				{0, 0}, {0, 2}, {2, 0},
-			},
-		},
-
-		// ---------------------------------------------------------------
-		// Case 7: Strictly increasing top-left to bottom-right
-		// Why: mirror of case 6. Now water flows easily toward Pacific
-		// (top/left), but reaching Atlantic requires being on the
-		// bottom/right edges.
-		// ---------------------------------------------------------------
-		{
-			name: "increasing_diagonal",
-			heights: [][]int{
-				{1, 2, 3},
-				{2, 3, 4},
-				{3, 4, 5},
-			},
-			expected: [][]int{
-				{0, 2}, {2, 0}, {2, 2},
-			},
-		},
-
-		// ---------------------------------------------------------------
 		// Case 8: High border, low center (valley)
 		// Why: the border cells all touch an ocean edge and are high
 		// enough to drain to each other along the border. The center
