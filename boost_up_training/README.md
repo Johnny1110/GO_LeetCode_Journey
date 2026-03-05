@@ -210,13 +210,13 @@ Medium & Hard 題目:
 * **Course Schedule [(#207)](redo/graph/course_schedule)** - MEDIUM - 拓撲排序
 * **Pacific Atlantic Water Flow [(#417)](redo/graph/pacific_atlantic_water_flow)** - MEDIUM - 多源 BFS
 * **Word Ladder [(#127)](redo/graph/word_ladder)** - HARD - BFS 最短路徑
-* **Alien Dictionary [(#269)](redo/graph/alien_dictionary/README.md)** - HARD - 拓撲排序應用
+* **Alien Dictionary [(#269)](redo/graph/alien_dictionary)** - HARD - 拓撲排序應用
 
 ### Heap/Priority Queue (MEDIUM/HARD)
-* **Kth Largest Element [(#215)](redo/heap/kth_largest_element)** - MEDIUM - 快速選擇 vs 堆
-* **Top K Frequent Elements [(#347)](redo/heap/top_k_frequent_elements)** - MEDIUM - 桶排序思想
-* **Find Median from Data Stream [(#295)](redo/heap/find_median_from_data_stream)** - HARD - 雙堆維護中位數
-* **Merge k Sorted Lists [(#23)](redo/heap/merge_k_sorted_lists)** - HARD - k 路歸併
+* **Kth Largest Element [(#215)](redo/heap/kth_largest_element/README.md)** - MEDIUM - 快速選擇 vs 堆
+* **Top K Frequent Elements [(#347)](redo/heap/top_k_frequent_elements/README.md)** - MEDIUM - 桶排序思想
+* **Find Median from Data Stream [(#295)](redo/heap/find_median_from_data_stream/README.md)** - HARD - 雙堆維護中位數
+* **Merge k Sorted Lists [(#23)](redo/heap/merge_k_sorted_lists/README.md)** - HARD - k 路歸併
 
 ### Backtracking (MEDIUM/HARD)
 * **Subsets [(#78)](redo/backtracking/subsets)** - MEDIUM - 子集生成
