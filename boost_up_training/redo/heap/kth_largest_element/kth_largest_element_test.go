@@ -10,13 +10,13 @@ func TestFindKthLargest(t *testing.T) {
 		expected int
 	}{
 		{
-			name:     "Classic example 1 - k=2",
+			name:     "Classic 1",
 			nums:     []int{3, 2, 1, 5, 6, 4},
 			k:        2,
 			expected: 5,
 		},
 		{
-			name:     "Classic example 2 - k=4",
+			name:     "Classic 2",
 			nums:     []int{3, 2, 3, 1, 2, 4, 5, 5, 6},
 			k:        4,
 			expected: 4,
@@ -34,13 +34,13 @@ func TestFindKthLargest(t *testing.T) {
 			expected: 1,
 		},
 		{
-			name:     "Single element",
+			name:     "Single",
 			nums:     []int{1},
 			k:        1,
 			expected: 1,
 		},
 		{
-			name:     "Two elements - first largest",
+			name:     "Two",
 			nums:     []int{3, 2},
 			k:        1,
 			expected: 3,

@@ -1,45 +1,42 @@
 package kth_largest_element
 
-import "container/heap"
-
 func findKthLargest(nums []int, k int) int {
 	if len(nums) == 0 {
 		return 0
 	}
 
-	H := MinHeap([]interface{}{})
+	return quickSelect(nums, 0, len(nums)-1, k)
+}
 
-	for _, num := range nums {
-		heap.Push(&H, num)
-		if H.Len() > k {
-			heap.Pop(&H)
-		}
+func quickSelect(nums []int, start, end, k int) int {
+	if start >= end {
+		return nums[start]
 	}
 
-	return heap.Pop(&H).(int)
-}
+	cursor, writer := start, start
 
-type MinHeap []interface{}
+	for cursor < end {
 
-func (h MinHeap) Len() int {
-	return len(h)
-}
+		if nums[cursor] < nums[end] {
+			// swap
+			nums[cursor], nums[writer] = nums[writer], nums[cursor]
+			writer++
+		}
 
-// i priority > j
-func (h MinHeap) Less(i, j int) bool {
-	return h[i].(int) < h[j].(int)
-}
+		cursor++
+	}
 
-func (h MinHeap) Swap(i, j int) {
-	h[i], h[j] = h[j], h[i]
-}
+	nums[writer], nums[end] = nums[end], nums[writer]
 
-func (h *MinHeap) Pop() interface{} {
-	ret := (*h)[h.Len()-1]
-	(*h) = (*h)[:h.Len()-1]
-	return ret.(int)
-}
+	targetIdx := len(nums) - k
+	if writer == targetIdx {
+		return nums[writer]
+	} else if writer > targetIdx {
+		// find left side
+		return quickSelect(nums, start, writer-1, k)
+	} else {
+		// find right side
+		return quickSelect(nums, writer+1, end, k)
+	}
 
-func (h *MinHeap) Push(val interface{}) {
-	*h = append(*h, val)
 }
