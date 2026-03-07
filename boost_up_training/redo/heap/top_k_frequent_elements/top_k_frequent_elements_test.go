@@ -14,13 +14,13 @@ func TestTopKFrequent(t *testing.T) {
 		expected []int
 	}{
 		{
-			name:     "LeetCode Example 1",
+			name:     "Example 1",
 			nums:     []int{1, 1, 1, 2, 2, 3},
 			k:        2,
 			expected: []int{1, 2},
 		},
 		{
-			name:     "LeetCode Example 2",
+			name:     "Example 2",
 			nums:     []int{1},
 			k:        1,
 			expected: []int{1},
@@ -32,7 +32,7 @@ func TestTopKFrequent(t *testing.T) {
 			expected: []int{1, 2},
 		},
 		{
-			name:     "NeetCode Example",
+			name:     "NeetCode",
 			nums:     []int{1, 2, 2, 3, 3, 3},
 			k:        2,
 			expected: []int{2, 3},
@@ -50,7 +50,7 @@ func TestTopKFrequent(t *testing.T) {
 			expected: []int{1, 2, 3}, // Any 3 elements are valid
 		},
 		{
-			name:     "Single most frequent",
+			name:     "Single",
 			nums:     []int{4, 1, -1, 2, -1, 2, 3},
 			k:        2,
 			expected: []int{-1, 2},
@@ -80,7 +80,7 @@ func TestTopKFrequent(t *testing.T) {
 			expected: []int{1, 2, 3},
 		},
 		{
-			name:     "Zero values",
+			name:     "Zero",
 			nums:     []int{0, 0, 1, 1, 1, 2},
 			k:        2,
 			expected: []int{1, 0},
@@ -90,30 +90,30 @@ func TestTopKFrequent(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result := topKFrequent(tt.nums, tt.k)
-			
+
 			// For cases where multiple valid answers exist (same frequency)
 			if tt.name == "All elements same frequency" || tt.name == "K equals unique elements" {
 				if len(result) != len(tt.expected) {
-					t.Errorf("topKFrequent(%v, %d) = %v; want length %d", 
+					t.Errorf("topKFrequent(%v, %d) = %v; want length %d",
 						tt.nums, tt.k, result, len(tt.expected))
 					return
 				}
 				// Verify all returned elements are from the original array
 				if !areValidElements(result, tt.nums) {
-					t.Errorf("topKFrequent(%v, %d) = %v; contains invalid elements", 
+					t.Errorf("topKFrequent(%v, %d) = %v; contains invalid elements",
 						tt.nums, tt.k, result)
 				}
 				return
 			}
-			
+
 			// Sort both slices for comparison since order may vary
 			sort.Ints(result)
 			expectedSorted := make([]int, len(tt.expected))
 			copy(expectedSorted, tt.expected)
 			sort.Ints(expectedSorted)
-			
+
 			if !reflect.DeepEqual(result, expectedSorted) {
-				t.Errorf("topKFrequent(%v, %d) = %v; want %v", 
+				t.Errorf("topKFrequent(%v, %d) = %v; want %v",
 					tt.nums, tt.k, result, tt.expected)
 			}
 		})
@@ -174,29 +174,29 @@ func TestTopKFrequentEdgeCases(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result := topKFrequent(tt.nums, tt.k)
-			
+
 			// For cases where multiple valid answers exist
 			if tt.name == "Two elements equal frequency" || tt.name == "All different elements" {
 				if len(result) != len(tt.expected) {
-					t.Errorf("topKFrequent(%v, %d) = %v; want length %d", 
+					t.Errorf("topKFrequent(%v, %d) = %v; want length %d",
 						tt.nums, tt.k, result, len(tt.expected))
 					return
 				}
 				if !areValidElements(result, tt.nums) {
-					t.Errorf("topKFrequent(%v, %d) = %v; contains invalid elements", 
+					t.Errorf("topKFrequent(%v, %d) = %v; contains invalid elements",
 						tt.nums, tt.k, result)
 				}
 				return
 			}
-			
+
 			// Sort both slices for comparison
 			sort.Ints(result)
 			expectedSorted := make([]int, len(tt.expected))
 			copy(expectedSorted, tt.expected)
 			sort.Ints(expectedSorted)
-			
+
 			if !reflect.DeepEqual(result, expectedSorted) {
-				t.Errorf("topKFrequent(%v, %d) = %v; want %v", 
+				t.Errorf("topKFrequent(%v, %d) = %v; want %v",
 					tt.nums, tt.k, result, tt.expected)
 			}
 		})
@@ -217,24 +217,24 @@ func TestTopKFrequentProperties(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result := topKFrequent(tt.nums, tt.k)
-			
+
 			// Test properties that should always hold
-			
+
 			// 1. Result should have exactly k elements
 			if len(result) != tt.k {
 				t.Errorf("Expected %d elements, got %d", tt.k, len(result))
 			}
-			
+
 			// 2. All returned elements should exist in original array
 			if !areValidElements(result, tt.nums) {
 				t.Errorf("Result contains elements not in original array")
 			}
-			
+
 			// 3. No duplicates in result
 			if hasDuplicates(result) {
 				t.Errorf("Result contains duplicate elements: %v", result)
 			}
-			
+
 			// 4. Verify frequency ordering (most frequent elements should be returned)
 			if !verifyFrequencyOrder(result, tt.nums, tt.k) {
 				t.Errorf("Result does not contain the most frequent elements")
@@ -249,13 +249,13 @@ func areValidElements(result, original []int) bool {
 	for _, num := range original {
 		originalSet[num] = true
 	}
-	
+
 	for _, num := range result {
 		if !originalSet[num] {
 			return false
 		}
 	}
-	
+
 	return true
 }
 
@@ -278,28 +278,28 @@ func verifyFrequencyOrder(result, nums []int, k int) bool {
 	for _, num := range nums {
 		freqMap[num]++
 	}
-	
+
 	// Get all unique elements sorted by frequency (descending)
 	type freqPair struct {
 		num  int
 		freq int
 	}
-	
+
 	var pairs []freqPair
 	for num, freq := range freqMap {
 		pairs = append(pairs, freqPair{num, freq})
 	}
-	
+
 	sort.Slice(pairs, func(i, j int) bool {
 		return pairs[i].freq > pairs[j].freq
 	})
-	
+
 	// Get the top k frequencies
 	topKFreqs := make([]int, 0, k)
 	for i := 0; i < k && i < len(pairs); i++ {
 		topKFreqs = append(topKFreqs, pairs[i].freq)
 	}
-	
+
 	// Verify each result element has a frequency in top k
 	for _, num := range result {
 		freq := freqMap[num]
@@ -314,14 +314,14 @@ func verifyFrequencyOrder(result, nums []int, k int) bool {
 			return false
 		}
 	}
-	
+
 	return true
 }
 
 func BenchmarkTopKFrequent(b *testing.B) {
 	nums := []int{1, 1, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5, 6, 7, 8, 9, 10}
 	k := 3
-	
+
 	for i := 0; i < b.N; i++ {
 		topKFrequent(nums, k)
 	}
@@ -334,7 +334,7 @@ func BenchmarkTopKFrequentLarge(b *testing.B) {
 		nums[i] = i % 100 // Create frequency patterns
 	}
 	k := 10
-	
+
 	for i := 0; i < b.N; i++ {
 		topKFrequent(nums, k)
 	}
@@ -344,7 +344,7 @@ func BenchmarkTopKFrequentWorstCase(b *testing.B) {
 	// All elements have same frequency
 	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
 	k := 5
-	
+
 	for i := 0; i < b.N; i++ {
 		topKFrequent(nums, k)
 	}

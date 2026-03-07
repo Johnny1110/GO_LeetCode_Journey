@@ -1,6 +1,8 @@
 package top_k_frequent_elements
 
-import "container/heap"
+import (
+	"container/heap"
+)
 
 func topKFrequent(nums []int, k int) []int {
 
@@ -18,13 +20,13 @@ func topKFrequent(nums []int, k int) []int {
 
 		heap.Push(H, num)
 		if H.Len() > k {
-			H.Pop()
+			heap.Pop(H)
 		}
 	}
 
 	result := make([]int, k)
-	for range k {
-		result = append(result, heap.Pop(H).(int))
+	for i := len(result) - 1; i >= 0; i-- {
+		result[i] = heap.Pop(H).(int)
 	}
 
 	return result
