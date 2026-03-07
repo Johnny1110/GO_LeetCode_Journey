@@ -1,56 +1,81 @@
 package find_median_from_data_stream
 
+import "container/heap"
+
 type MedianFinder struct {
-	nums []int
+	left  *Heap[int]
+	right *Heap[int]
 }
 
 func Constructor() MedianFinder {
 	return MedianFinder{
-		nums: []int{},
+		left:  NewHeap(func(a, b int) bool { return a > b }),
+		right: NewHeap(func(a, b int) bool { return a < b }),
 	}
 }
 
 func (this *MedianFinder) AddNum(num int) {
-	// binsearch position
-	targetIdx := binarySearch(this.nums, num)
+	this.left.HPush(num)
+	this.right.HPush(this.left.HPop())
 
-	if targetIdx == len(this.nums) {
-		this.nums = append(this.nums, num)
-	} else {
-		// insert
-		this.nums = append(this.nums[:targetIdx+1], this.nums[targetIdx:]...)
-		this.nums[targetIdx] = num
+	if this.right.Len() > this.left.Len()+1 {
+		// balance
+		this.left.HPush(this.right.HPop())
 	}
-
 }
 
 func (this *MedianFinder) FindMedian() float64 {
-	length := len(this.nums)
-	if length%2 == 0 {
-		// even
-		numA := this.nums[length/2]
-		numB := this.nums[(length/2)-1]
-		return float64(numA+numB) / 2
+	if this.right.Len() == 0 {
+		return 0
+	} else if this.left.Len() == this.right.Len() {
+		return (float64(this.left.HPeek()) + float64(this.right.HPeek())) / 2
 	} else {
-		// odd
-		return float64(this.nums[length/2])
+		return float64(this.right.HPeek())
 	}
 }
 
-func binarySearch(nums []int, num int) int {
+// =============================================
 
-	left, right := 0, len(nums)-1
+type Heap[T any] struct {
+	data []T
+	less func(i, j T) bool
+}
 
-	for left <= right {
-		mid := (left + right) / 2
-		if nums[mid] == num {
-			return mid + 1
-		} else if nums[mid] > num {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
+func NewHeap[T any](less func(i, j T) bool) *Heap[T] {
+	return &Heap[T]{
+		data: []T{},
+		less: less,
 	}
+}
 
-	return left
+func (h Heap[T]) Len() int           { return len(h.data) }
+func (h Heap[T]) Less(i, j int) bool { return h.less(h.data[i], h.data[j]) }
+func (h Heap[T]) Swap(i, j int)      { h.data[i], h.data[j] = h.data[j], h.data[i] }
+
+func (h *Heap[T]) Push(val any) {
+	h.data = append(h.data, val.(T))
+}
+
+func (h *Heap[T]) Pop() any {
+	ret := h.data[len(h.data)-1]
+	h.data = h.data[:len(h.data)-1]
+	return ret
+}
+
+func (h Heap[T]) Peek() any {
+	return h.data[0]
+}
+
+// wrapper
+
+func (h *Heap[T]) HPush(val T) {
+	heap.Push(h, val)
+}
+
+func (h *Heap[T]) HPop() T {
+	return heap.Pop(h).(T)
+}
+
+func (h *Heap[T]) HPeek() T {
+	return h.Peek().(T)
 }
