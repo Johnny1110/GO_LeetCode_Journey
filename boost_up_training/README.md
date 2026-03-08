@@ -214,9 +214,9 @@ Medium & Hard 題目:
 
 ### Heap/Priority Queue (MEDIUM/HARD)
 * **Kth Largest Element [(#215)](redo/heap/kth_largest_element)** - MEDIUM - 快速選擇 vs 堆
-* **Top K Frequent Elements [(#347)](redo/heap/top_k_frequent_elements/README.md)** - MEDIUM - 桶排序思想
-* **Find Median from Data Stream [(#295)](redo/heap/find_median_from_data_stream/README.md)** - HARD - 雙堆維護中位數
-* **Merge k Sorted Lists [(#23)](redo/heap/merge_k_sorted_lists/README.md)** - HARD - k 路歸併
+* **Top K Frequent Elements [(#347)](redo/heap/top_k_frequent_elements)** - MEDIUM - 桶排序思想
+* **Find Median from Data Stream [(#295)](redo/heap/find_median_from_data_stream)** - HARD - 雙堆維護中位數
+* **Merge k Sorted Lists [(#23)](redo/heap/merge_k_sorted_lists)** - HARD - k 路歸併
 
 ### Backtracking (MEDIUM/HARD)
 * **Subsets [(#78)](redo/backtracking/subsets)** - MEDIUM - 子集生成
