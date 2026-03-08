@@ -24,7 +24,7 @@ Output: [1,2]
 
 <br>
 
-## Coding - 1
+## Coding - 1 Heap
 
 ```go
 import (
@@ -88,4 +88,13 @@ func (h *MinHeap) Pop() interface{} {
 	h.data = h.data[:len(h.data)-1]
 	return ret
 }
+```
+
+<br>
+<br>
+
+## Coding - 1 Bucket Sort
+
+```go
+
 ```
