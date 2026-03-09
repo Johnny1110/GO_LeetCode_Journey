@@ -9,7 +9,7 @@
 
 <br>
 
-## Algorithms Boost Up Training
+## Algorithms Training
 
 * 模式覆蓋：這些題目覆蓋了 20+ 種核心算法模式，掌握後可以解決 80% 的面試題
 * 難度遞進：從基礎到進階，建立系統性知識
@@ -71,6 +71,36 @@ __質量比數量更重要__
 
 
 目錄：([README.md](system_design_training/README.md))
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
+## Behavioral Interview
+
+* FAANG 每一家都有至少一輪專門的 behavioral round。
+
+    Amazon 甚至是出了名的重視這一輪 — 他們有 16 隻 Leadership Principles，每一條都可能被拿來出題。
+    Meta 也有獨立的 behavioral 環節來檢視你的 collaboration 和 conflict resolution。這一輪表現差是可以直接被刷掉的，不是走過場。
+
+* Behavioral 考試的是你能不能用結構化的方式講清楚過去的工作經驗。典型問題像是
+  * Tell me about a time you disagreed with your team and how you resolved it」
+  * 「Describe a project that failed and what you learned」。
+  
+* 回答的框架通常用 STAR（Situation → Task → Action → Result），重點是事先準備好 5-8 個你工作中的故事，能靈活套用到不同問題上。
+
+<br>
+
+Behavioral — 準備 5-8 個工作故事，練習用 STAR 框架用英文講述。
+
+<br>
+<br>
+
+---
 
 <br>
 <br>
