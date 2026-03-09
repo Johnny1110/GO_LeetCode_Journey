@@ -198,3 +198,18 @@ __有沒有設計過業務框架的經驗？__ 差不多是這樣類型的問題
 3. **LeetCode SQL 考題列入每日練習計畫．這非常重要。**
 4. **LeetCode Concurrency 題目視情況練習。**
 5. **八股文我一樣不會背，這是我覺得很沒意義的事情**
+
+<br>
+<br>
+
+## Claude AI Feedback
+
+* ConcurrentHashMap 的 rehash — 本質上考的是「concurrent data structure 在 resize 時如何保證 thread safety」。這不是 Java 專屬問題，Go 的 sync.Map 設計、甚至你熟悉的 Redis Cluster rehashing 都是同一類思考。ConcurrentHashMap 在 Java 8 之後確實放棄了 Segment 分區鎖，改用 CAS + synchronized 在單一 node 層級加鎖。Rehash 的關鍵是它能做到漸進式遷移：擴容時新舊 table 並存，讀操作兩邊都查，寫操作只往新 table 走，直到遷移完成。
+  
+* volatile — 你的回答方向是對的。更精確地說，volatile 解決的是 CPU cache coherence 在語言層面的可見性保證，加上禁止指令重排（memory ordering）。這在 Go 裡對應的是 sync/atomic 和 happens-before 語義，你之前研究過 Go 的 AtomicReference 和 CAS，其實是同一套理論。
+
+* Spring 把 JDBC Connection 放 ThreadLocal — 你猜的 WeakReference 回收機制其實不是主因。真正的原因比較直覺：一個事務中的多次 DB 操作必須跑在同一條 Connection 上，而 Spring 的 service 層不該顯式傳遞 Connection 參數（這會讓業務代碼跟基礎設施耦合）。ThreadLocal 提供了一個 implicit context passing 的機制，讓同一個 thread 上的所有 DAO 調用自動拿到同一條 Connection，不用動 method signature。這跟你在 BTSE 用 ThreadLocal 存 user principal 是完全一樣的 pattern — thread-scoped implicit context。
+
+* 循環依賴的三級緩存 — 核心思路是：Spring 把 bean 的創建拆成「實例化」和「初始化」兩步。第一級緩存放完成品，第二級放半成品（已實例化但未注入依賴），第三級放 ObjectFactory（用來處理 AOP 代理的情況）。當 A 依賴 B、B 又依賴 A 時，B 在注入 A 時拿到的是 A 的半成品引用，等 B 完成後再回頭完成 A。本質上是用提前暴露未完成的引用來打破循環。
+
+* 所以我的建議不是「去背八股文」，而是把這些當作你已經在學的 systems knowledge 的 Java 具體案例。你既然目標有 FAANG，這些底層概念（memory model、concurrent data structures、IoC container internals）在 system design 面試裡一樣會碰到。
