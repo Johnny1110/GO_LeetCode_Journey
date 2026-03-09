@@ -1,6 +1,6 @@
 # Chasing FAANG Journey
 
-> Journey to the West.
+> Journey to the West (FAANG).
 
 <br>
 
