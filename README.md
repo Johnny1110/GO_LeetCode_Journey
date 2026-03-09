@@ -14,7 +14,7 @@ weekly leetcode with golang. Making progress step by step.
 
 
 
-## Boost Up Training
+## Algorithms Boost Up Training
 
 * 模式覆蓋：這些題目覆蓋了 20+ 種核心算法模式，掌握後可以解決 80% 的面試題
 * 難度遞進：從基礎到進階，建立系統性知識
@@ -35,6 +35,20 @@ __質量比數量更重要__
 <br>
 
 目錄：([README.md](boost_up_training/README.md))
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
+## SQL Boost Up Training
+
+<br>
+
+目錄：([README.md](sql_training/README.md))
 
 <br>
 <br>

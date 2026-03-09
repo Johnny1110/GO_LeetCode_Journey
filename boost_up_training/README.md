@@ -336,7 +336,8 @@ This level is for when you want to contribute to databases, compilers, or system
 
 ## Interview in Action
 
-1. 2026/02/14 Circle Golang Backend 90 mins Algo Test -> [link](interview_in_action/circle_260214)
+1. 2026/02/14 __Circle__ Golang Backend 90 mins Algo Test -> [link](interview_in_action/circle_260214)
+2. 2026/03/09 __Binance__ KYC Module Backend 60 mins Interview -> [link](interview_in_action/binance_260309)
 
 <br>
 <br>
