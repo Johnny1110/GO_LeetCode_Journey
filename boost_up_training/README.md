@@ -219,7 +219,7 @@ Medium & Hard 題目:
 * **Merge k Sorted Lists [(#23)](redo/heap/merge_k_sorted_lists)** - HARD - k 路歸併
 
 ### Backtracking (MEDIUM/HARD)
-* **Subsets [(#78)](redo/backtracking/subsets)** - MEDIUM - 子集生成
+* **Subsets [(#78)](redo/backtracking/subsets/README.md)** - MEDIUM - 子集生成
 * **Permutations [(#46)](redo/backtracking/permutations)** - MEDIUM - 全排列
 * **Combination Sum [(#39)](redo/backtracking/combination_sum)** - MEDIUM - 組合問題
 * **N-Queens [(#51)](redo/backtracking/n_queens)** - HARD - 約束滿足 + 二維陣列對角線特性
