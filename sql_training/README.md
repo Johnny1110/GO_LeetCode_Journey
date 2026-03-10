@@ -4,6 +4,16 @@
 > **使用方式**：每個 Phase 按順序推進，全部完成後進入隨機刷題階段  
 > **建議節奏**：每日 1 題，搭配 LeetCode SQL 題庫練習  
 
+<br>
+
+在開始練習前，請先佈置環境．使用 Docker 啟動 postgreSQL 容器。在每一個章節使用 testing schema 初始化測試資料。
+
+dbname = lico
+
+```
+docker run --name postgres-leetcode -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -e POSTGRES_DB=lico -p 5432:5432 -d postgres:latest
+```
+
 
 <br>
 <br>
@@ -28,7 +38,7 @@
 
 ### 練習題（建議順序）
 
-- [ ] **LC 175. Combine Two Tables** — 最基礎的 LEFT JOIN
+- [ ] **LC 175. Combine Two Tables** — 最基礎的 LEFT JOIN -> [link](combine_Two_tables/README.md)
 - [ ] **LC 181. Employees Earning More Than Their Managers** — Self JOIN
 - [ ] **LC 182. Duplicate Emails** — GROUP BY + HAVING COUNT
 - [ ] **LC 183. Customers Who Never Order** — LEFT JOIN + IS NULL（反向匹配）
