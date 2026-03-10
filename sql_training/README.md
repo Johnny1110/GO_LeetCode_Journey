@@ -13,7 +13,7 @@ docker run --name postgres-leetcode -e POSTGRES_USER=root -e POSTGRES_PASSWORD=r
 ```
 
 
-Local Postgres
+Docker Postgres 資料庫連線參數:
 
 ```
 user     :  root
@@ -22,9 +22,9 @@ dbname   :  lico
 domain   :  localhost:5432
 ```
 
-* 使用任何的 db GUI 輔助工具連接進行測試．
+* 請使用任何的 db GUI 輔助工具連接進行測試．
 
-* **每一題 link 點進去，都會有題目敘述與供測試使用的 table schema + testing data，請自行在 lico database 新增 tables 與測試資料**
+* **每一題的 link 點進去，都會有題目敘述與供測試使用的 table schema + testing data，請自行在 lico database 新增 tables 與測試資料，完成後即可開始練習**
 
 Happy Coding~
 
