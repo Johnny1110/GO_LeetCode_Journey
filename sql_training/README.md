@@ -8,13 +8,25 @@
 
 在開始練習前，請先佈置環境．使用 Docker 啟動 postgreSQL 容器。在每一個章節使用 testing schema 初始化測試資料。
 
-dbname = lico
-
 ```bash
 docker run --name postgres-leetcode -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -e POSTGRES_DB=lico -p 5432:5432 -d postgres:latest
 ```
 
-使用任何的 db GUI 輔助工具連接進行測試．
+
+Local Postgres
+
+```
+user     :  root
+password :  root
+dbname   :  lico
+domain   :  localhost:5432
+```
+
+* 使用任何的 db GUI 輔助工具連接進行測試．
+
+* **每一題 link 點進去，都會有題目敘述與供測試使用的 table schema + testing data，請自行在 lico database 新增 tables 與測試資料**
+
+Happy Coding~
 
 <br>
 <br>
