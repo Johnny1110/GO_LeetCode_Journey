@@ -98,6 +98,10 @@ __質量比數量更重要__
 Behavioral — 準備 5-8 個工作故事，練習用 STAR 框架用英文講述。
 
 <br>
+
+目錄：([README.md](behavioral_training/README.md))
+
+<br>
 <br>
 
 ---
