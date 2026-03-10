@@ -10,10 +10,11 @@
 
 dbname = lico
 
-```
+```bash
 docker run --name postgres-leetcode -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -e POSTGRES_DB=lico -p 5432:5432 -d postgres:latest
 ```
 
+使用任何的 db GUI 輔助工具連接進行測試．
 
 <br>
 <br>
@@ -38,8 +39,8 @@ docker run --name postgres-leetcode -e POSTGRES_USER=root -e POSTGRES_PASSWORD=r
 
 ### 練習題（建議順序）
 
-- [ ] **LC 175. Combine Two Tables** — 最基礎的 LEFT JOIN -> [link](combine_Two_tables/README.md)
-- [ ] **LC 181. Employees Earning More Than Their Managers** — Self JOIN
+- [ ] **LC 175. Combine Two Tables** — 最基礎的 LEFT JOIN -> [link](combine_two_tables)
+- [ ] **LC 181. Employees Earning More Than Their Managers** — Self JOIN -> [link](employees_earning_more_than_their_managers)
 - [ ] **LC 182. Duplicate Emails** — GROUP BY + HAVING COUNT
 - [ ] **LC 183. Customers Who Never Order** — LEFT JOIN + IS NULL（反向匹配）
 - [ ] **LC 197. Rising Temperature** — Self JOIN + 日期運算
