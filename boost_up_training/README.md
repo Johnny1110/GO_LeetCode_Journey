@@ -222,7 +222,7 @@ Medium & Hard 題目:
 * **Subsets [(#78)](redo/backtracking/subsets/README.md)** - MEDIUM - 子集生成
 * **Permutations [(#46)](redo/backtracking/permutations)** - MEDIUM - 全排列
 * **Combination Sum [(#39)](redo/backtracking/combination_sum)** - MEDIUM - 組合問題
-* **N-Queens [(#51)](redo/backtracking/n_queens/README.md)** - HARD - 約束滿足 + 二維陣列對角線特性
+* **N-Queens [(#51)](redo/backtracking/n_queens)** - HARD - 約束滿足 + 二維陣列對角線特性
 * **Word Search [(#79)](redo/backtracking/word_search/README.md)** - MEDIUM - 矩陣回溯
 
 ### Advanced Data Structures (MEDIUM/HARD)
