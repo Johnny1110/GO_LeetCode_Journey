@@ -53,7 +53,7 @@ Happy Coding~
 
 - [ ] **LC 175. Combine Two Tables** — 最基礎的 LEFT JOIN -> [link](combine_2_tables)
 - [ ] **LC 181. Employees Earning More Than Their Managers** — Self JOIN -> [link](employees_earning_more_than_their_managers)
-- [ ] **LC 182. Duplicate Emails** — GROUP BY + HAVING COUNT
+- [ ] **LC 182. Duplicate Emails** — GROUP BY + HAVING COUNT -> [link](duplicate_emails/README.md)
 - [ ] **LC 183. Customers Who Never Order** — LEFT JOIN + IS NULL（反向匹配）
 - [ ] **LC 197. Rising Temperature** — Self JOIN + 日期運算
 - [ ] **LC 511. Game Play Analysis I** — GROUP BY + MIN 聚合
