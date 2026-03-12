@@ -227,8 +227,8 @@ Medium & Hard 題目:
 
 ### Advanced Data Structures (MEDIUM/HARD)
 * **LRU Cache [(#146)](redo/advance_ds/lru_cache/README.md)** - MEDIUM - 哈希表 + 雙向鏈表
-* **Trie/Prefix Tree [(#208)](redo/advance_ds/trie_prefix_tree/README.md)** - MEDIUM - 字典樹
-* **Design Add and Search Words [(#211)](redo/advance_ds/add_and_search_words)** - MEDIUM - Trie + DFS
+* **Trie/Prefix Tree [(#208)](redo/advance_ds/trie_prefix_tree)** - MEDIUM - 字典樹
+* **Design Add and Search Words [(#211)](redo/advance_ds/add_and_search_words/README.md)** - MEDIUM - Trie + DFS
 
 ### Bitmap (MEDIUM/HARD)
 * **Find Duplicate [(#287)](redo/bitmap/find_duplicate)** - MEDIUM - 多種解法比較
