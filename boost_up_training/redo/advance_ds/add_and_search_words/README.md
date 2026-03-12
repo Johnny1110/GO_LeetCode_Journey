@@ -19,10 +19,11 @@ bool search(word) Returns true if there is any string in the data structure that
 Example:
 
 ```
-Input
+Input:
 ["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
 [[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
-Output
+
+Output:
 [null,null,null,null,false,true,true,true]
 ```
 
