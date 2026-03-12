@@ -223,10 +223,10 @@ Medium & Hard 題目:
 * **Permutations [(#46)](redo/backtracking/permutations)** - MEDIUM - 全排列
 * **Combination Sum [(#39)](redo/backtracking/combination_sum)** - MEDIUM - 組合問題
 * **N-Queens [(#51)](redo/backtracking/n_queens)** - HARD - 約束滿足 + 二維陣列對角線特性
-* **Word Search [(#79)](redo/backtracking/word_search/README.md)** - MEDIUM - 矩陣回溯
+* **Word Search [(#79)](redo/backtracking/word_search)** - MEDIUM - 矩陣回溯
 
 ### Advanced Data Structures (MEDIUM/HARD)
-* **LRU Cache [(#146)](redo/advance_ds/lru_cache)** - MEDIUM - 哈希表 + 雙向鏈表
+* **LRU Cache [(#146)](redo/advance_ds/lru_cache/README.md)** - MEDIUM - 哈希表 + 雙向鏈表
 * **Trie/Prefix Tree [(#208)](redo/advance_ds/trie_prefix_tree)** - MEDIUM - 字典樹
 * **Design Add and Search Words [(#211)](redo/advance_ds/add_and_search_words)** - MEDIUM - Trie + DFS
 
