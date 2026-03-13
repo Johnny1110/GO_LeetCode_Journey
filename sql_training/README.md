@@ -16,10 +16,10 @@ docker run --name postgres-leetcode -e POSTGRES_USER=root -e POSTGRES_PASSWORD=r
 Docker Postgres 資料庫連線參數:
 
 ```
-user     :  root
-password :  root
-dbname   :  lico
-domain   :  localhost:5432
+user     :  "root"
+password :  "root"
+dbname   :  "lico"
+domain   :  "localhost:5432"
 ```
 
 * 請使用任何的 db GUI 輔助工具連接進行測試．
@@ -55,8 +55,8 @@ Happy Coding~
 - [ ] **LC 181. Employees Earning More Than Their Managers** — Self JOIN -> [link](employees_earning_more_than_their_managers)
 - [ ] **LC 182. Duplicate Emails** — GROUP BY + HAVING COUNT -> [link](duplicate_emails)
 - [ ] **LC 183. Customers Who Never Order** — LEFT JOIN + IS NULL（反向匹配） -> [link](customers_who_never_order)
-- [ ] **LC 197. Rising Temperature** — Self JOIN + 日期運算
-- [ ] **LC 511. Game Play Analysis I** — GROUP BY + MIN 聚合
+- [ ] **LC 197. Rising Temperature** — Self JOIN + 日期運算 -> [link](rising_temperature)
+- [ ] **LC 511. Game Play Analysis I** — GROUP BY + MIN 聚合 -> [link](game_play_analysis_i)
 - [ ] **LC 577. Employee Bonus** — LEFT JOIN 處理 NULL
 - [ ] **LC 586. Customer Placing the Largest Number of Orders** — GROUP BY + ORDER BY + LIMIT
 - [ ] **LC 1068. Product Sales Analysis I** — 基礎 JOIN
