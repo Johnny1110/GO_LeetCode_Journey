@@ -274,6 +274,10 @@ NeetCode-150 is most frequently asked interview problems
 
 <br>
 
+[Neetcode 150 Category](neetcode150)
+
+<br>
+
 > 完成了 NeetCode-150 挑制挑戰之後，已經完全具備挑戰矽谷副本實力。不過還缺少將算法應用於實戰的經驗。接下來需要更多的實戰訓練。
 > 這個階段完成後，需要匹配 FAANG 的工作來證明自己的實力以達到目標
 > 等級評鑑升級： 初級工程師 -> 中級工程師
