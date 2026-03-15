@@ -29,7 +29,7 @@ __質量比數量更重要__
 
 <br>
 
-* 訓練集總目錄: ([link](boost_up_training))
+* 訓練集總目錄: -> [link](boost_up_training)
 * NeetCode-150: -> [link](boost_up_training/neetcode150)
 
 <br>
@@ -51,7 +51,7 @@ __質量比數量更重要__
 
 <br>
 
-目錄：([README.md](sql_training/README.md))
+目錄: -> [link](sql_training)
 
 <br>
 <br>
@@ -71,7 +71,7 @@ __質量比數量更重要__
 * 資源方面，推薦先讀 ByteByteGo（Alex Xu 的 System Design Interview 那兩本書）。它用圖解方式把每道經典題拆解得很清楚，適合建立初始框架。等框架穩了之後再讀 DDIA（Designing Data-Intensive Applications），那本書的理論深度會讓你在 deep dive 環節甩開其他候選人。
 
 
-目錄：([README.md](system_design_training/README.md))
+目錄: -> [link](system_design_training)
 
 <br>
 <br>
@@ -100,7 +100,7 @@ Behavioral — 準備 5-8 個工作故事，練習用 STAR 框架用英文講述
 
 <br>
 
-目錄：([README.md](behavioral_training/README.md))
+目錄: -> [link](behavioral_training/README.md)
 
 <br>
 <br>
