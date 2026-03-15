@@ -29,7 +29,8 @@ __質量比數量更重要__
 
 <br>
 
-目錄：([README.md](boost_up_training/README.md))
+總目錄目錄: ([link](boost_up_training))
+NeetCode-150: -> [link](boost_up_training/neetcode150)
 
 <br>
 <br>

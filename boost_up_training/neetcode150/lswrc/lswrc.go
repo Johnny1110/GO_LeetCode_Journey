@@ -8,7 +8,7 @@ func lengthOfLongestSubstring(s string) int {
 	for right := 0; right < len(s); right++ {
 		char := s[right]
 
-		if idx, exists := charMap[char]; exists && idx > left {
+		if idx, exists := charMap[char]; exists && idx >= left {
 			left = idx + 1
 		}
 
