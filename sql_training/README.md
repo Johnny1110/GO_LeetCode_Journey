@@ -57,7 +57,7 @@ Happy Coding~
 - [ ] **LC 183. Customers Who Never Order** — LEFT JOIN + IS NULL（反向匹配） -> [link](customers_who_never_order)
 - [ ] **LC 197. Rising Temperature** — Self JOIN + 日期運算 -> [link](rising_temperature)
 - [ ] **LC 511. Game Play Analysis I** — GROUP BY + MIN 聚合 -> [link](game_play_analysis_i)
-- [ ] **LC 577. Employee Bonus** — LEFT JOIN 處理 NULL
+- [ ] **LC 577. Employee Bonus** — LEFT JOIN 處理 NULL ->[link](employee_bonus)
 - [ ] **LC 586. Customer Placing the Largest Number of Orders** — GROUP BY + ORDER BY + LIMIT
 - [ ] **LC 1068. Product Sales Analysis I** — 基礎 JOIN
 - [ ] **LC 1581. Customer Who Visited but Did Not Make Any Transaction** — LEFT JOIN + IS NULL + COUNT
