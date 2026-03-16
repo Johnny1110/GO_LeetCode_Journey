@@ -164,3 +164,73 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	return 0
 }
 ```
+
+<br>
+
+## Java Version
+
+```java
+class Solution {
+        public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+
+            int num1Len = nums1.length;
+            int num2Len = nums2.length;
+            if (num1Len > num2Len) {
+                return findMedianSortedArrays(nums2, nums1);
+            }
+
+            int totalLen = num1Len + num2Len;
+            // leftPartLen -> if totalLen is odd, median is the last element in left part.
+            int leftPartLen = (totalLen + 1) / 2;
+            int lo = 0;
+            int hi = num1Len;
+
+            int aLeftSize, bLeftSize = 0;
+
+            while (lo <= hi) {
+                aLeftSize = (lo + hi) / 2;
+                bLeftSize = leftPartLen - aLeftSize;
+
+                int aLeft = Integer.MIN_VALUE;
+                int bLeft = Integer.MIN_VALUE;
+                int aRight = Integer.MAX_VALUE;
+                int bRight = Integer.MAX_VALUE;
+
+                if (aLeftSize > 0) {
+                    aLeft = nums1[aLeftSize-1];
+                }
+                if (bLeftSize > 0) {
+                    bLeft = nums2[bLeftSize-1];
+                }
+                if (aLeftSize < num1Len) {
+                    aRight = nums1[aLeftSize];
+                }
+                if (bLeftSize < num2Len) {
+                    bRight = nums2[bLeftSize];
+                }
+
+                // try find the validated partition
+                if (aLeft <= bRight && bLeft <= aRight) {
+                    if (totalLen % 2 == 1) {
+                        // odd:
+                        return Math.max(aLeft, bLeft);
+                    } else {
+                        // even: (max left + min right) / 2
+                        return (Math.max(aLeft, bLeft) + Math.min(aRight, bRight)) / 2.0;
+                    }
+                }
+
+                if (aLeft > bRight) {
+                    // we need reduce aLeftSize
+                    hi--;
+                }
+                if (bLeft > aRight) {
+                    // we need increase aLeftSize
+                    lo++;
+                }
+            }
+
+            return 0.0;
+        }
+    }
+```
