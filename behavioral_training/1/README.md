@@ -29,6 +29,14 @@ If both approach is not too much different about trade-off, I support my teammat
 
 <br>
 
+Honestly, I'm don't like to argue with the others, I'd like to listen to what they have to say. If they can provide a better approach to solve technical problem I will be happy with it, because I feel like I awlays can be inpired by other people's great idea, accept the new idea from them and learn how other people think is always my style.
+
+But if I really confirmed that my approach is a better choise, I won't disagree the other teamate immediately, I will say that's a greate idea, it's pretty solid from some perspective. show them that I really listen and consider carefully about their idea. then I will show my opinions, usually that will  be worked.
+
+If both approach don't differ, I support my teammate's idea first.
+
+<br>
+
 ### Structural Improvement
 
 Grammar aside, the biggest thing missing is a concrete story. FAANG behavioral interviews use the **STAR** method (Situation, Task, Action, Result), and interviewers want to hear a specific, real example — not a general description of your style.
