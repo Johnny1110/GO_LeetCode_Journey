@@ -81,7 +81,7 @@ __質量比數量更重要__
 <br>
 <br>
 
-## Behavioral Interview
+## Technical & Behavioral Interview
 
 * FAANG 每一家都有至少一輪專門的 behavioral round。
 
@@ -100,7 +100,10 @@ Behavioral — 準備 5-8 個工作故事，練習用 STAR 框架用英文講述
 
 <br>
 
-目錄: -> [link](behavioral_training/README.md)
+Technical: -> [link](technical_training/README.md)
+
+Behavioral: -> [link](behavioral_training/README.md)
+
 
 <br>
 <br>
@@ -140,8 +143,8 @@ Behavioral — 準備 5-8 個工作故事，練習用 STAR 框架用英文講述
 ## Interview In Action
 
 
-1. 2026/02/14 __Circle__ Golang Backend 90 mins Algo Test -> [link](interview_in_action/circle_260214)
-2. 2026/03/09 __Binance__ KYC Module Backend 60 mins Interview -> [link](interview_in_action/binance_260309)
+1. 2026/02/14 __Circle__ Golang Backend 90 mins Algo Test (1面失敗)-> [link](interview_in_action/circle_260214)
+2. 2026/03/09 __Binance__ Binance KYC Module Backend Interview (1面過關，2面失敗) -> [link](interview_in_action/binance_260309)
 
 
 <br>

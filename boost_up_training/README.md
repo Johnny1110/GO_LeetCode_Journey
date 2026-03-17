@@ -17,10 +17,15 @@ Campaign: 2025/09/20 ~ UNKNOWN
 
 ## 行前須知
 
-開啟旅程前，需要看一下我們這次學習算法的核心概念
+**開啟旅程前，需要看一下我們這次學習算法的核心概念。**
 
 #### [Complexity Analysis 101](common/complexity)
 
+<br>
+
+**每一題都必須把所有 approach 都搞清楚，不是解出來有跑過就算了，另外必須要在解題完成之後分析時空間複雜度並讓 AI 來驗證 (大廠 Live Coding 會考時空間複雜分析)**
+
+<br>
 
 ## 新手村學院 (Apprentice → Graduate) Category
 
