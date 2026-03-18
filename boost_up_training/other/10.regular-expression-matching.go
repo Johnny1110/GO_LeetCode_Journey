@@ -1,6 +1,10 @@
-package rem
+/*
+ * @lc app=leetcode id=10 lang=golang
+ *
+ * [10] Regular Expression Matching
+ */
 
-import "fmt"
+// @lc code=start
 
 func isMatch(s string, p string) bool {
 	// define dp
@@ -39,10 +43,5 @@ func isMatch(s string, p string) bool {
 	return dp[len(s)][len(p)]
 }
 
-func Go() {
-	fmt.Println(isMatch("aabc", "a*bc"))
-	fmt.Println("============================================")
-	fmt.Println(isMatch("abbc", "a*bc"))
-	fmt.Println("============================================")
-	fmt.Println(isMatch("aa", "a*"))
-}
+// @lc code=end
+
