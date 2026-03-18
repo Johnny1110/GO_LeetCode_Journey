@@ -1,5 +1,12 @@
 package cgnibt
 
+// Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
 func goodNodes(root *TreeNode) int {
 	count := 0
 
