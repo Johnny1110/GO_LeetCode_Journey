@@ -58,7 +58,7 @@ Happy Coding~
 - [ ] **LC 197. Rising Temperature** — Self JOIN + 日期運算 -> [link](rising_temperature)
 - [ ] **LC 511. Game Play Analysis I** — GROUP BY + MIN 聚合 -> [link](game_play_analysis_i)
 - [ ] **LC 577. Employee Bonus** — LEFT JOIN 處理 NULL ->[link](employee_bonus)
-- [ ] **LC 586. Customer Placing the Largest Number of Orders** — GROUP BY + ORDER BY + LIMIT -> [link](customer_placing_the_largest_number_of_orders/README.md)
+- [ ] **LC 586. Customer Placing the Largest Number of Orders** — GROUP BY + ORDER BY + LIMIT -> [link](customer_placing_the_largest_number_of_orders)
 - [ ] **LC 1068. Product Sales Analysis I** — 基礎 JOIN
 - [ ] **LC 1581. Customer Who Visited but Did Not Make Any Transaction** — LEFT JOIN + IS NULL + COUNT
 
