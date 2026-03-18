@@ -8,6 +8,8 @@
 
 link: https://leetcode.com/problem-list/plakya4j
 
+> 給自己一年時間，把 neetcode-150 寫過 2 遍．
+
 <br>
 <br>
 
@@ -17,4 +19,5 @@ link: https://leetcode.com/problem-list/plakya4j
 4. Median of Two Sorted Arrays -> [link](motsa) (真的很難，沒有提示幾乎不可能完成)
 5. Longest Palindromic  -> [link](longestpalindromic) (值得再多寫一遍練習)
 6. Coin Change II -> [link](coinchangeii)  -> (背包問題：背解題方式: **順序不重要，`for coin for amt`, 順序重要 `for amt for coin`**) 
-7. Reverse Integer -> [link](reverse_int/README.md)
+7. Reverse Integer -> [link](reverse_int)
+8. Count Good Nodes in Binary Tree -> [link](cgnibt)
