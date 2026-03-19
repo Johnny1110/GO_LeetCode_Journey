@@ -1,10 +1,5 @@
-/*
- * @lc app=leetcode id=11 lang=golang
- *
- * [11] Container With Most Water
- */
+package cwmw
 
-// @lc code=start
 func maxArea(height []int) int {
 	bestAns := 0
 
@@ -28,6 +23,3 @@ func maxArea(height []int) int {
 	return bestAns
 
 }
-
-// @lc code=end
-
