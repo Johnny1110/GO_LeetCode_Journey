@@ -51,21 +51,35 @@ Happy Coding~
 
 ### 練習題（建議順序）
 
-- [ ] **LC 175. Combine Two Tables** — 最基礎的 LEFT JOIN -> [link](combine_2_tables)
-- [ ] **LC 181. Employees Earning More Than Their Managers** — Self JOIN -> [link](employees_earning_more_than_their_managers)
-- [ ] **LC 182. Duplicate Emails** — GROUP BY + HAVING COUNT -> [link](duplicate_emails)
-- [ ] **LC 183. Customers Who Never Order** — LEFT JOIN + IS NULL（反向匹配） -> [link](customers_who_never_order)
-- [ ] **LC 197. Rising Temperature** — Self JOIN + 日期運算 -> [link](rising_temperature)
-- [ ] **LC 511. Game Play Analysis I** — GROUP BY + MIN 聚合 -> [link](game_play_analysis_i)
-- [ ] **LC 577. Employee Bonus** — LEFT JOIN 處理 NULL ->[link](employee_bonus)
-- [ ] **LC 586. Customer Placing the Largest Number of Orders** — GROUP BY + ORDER BY + LIMIT -> [link](customer_placing_the_largest_number_of_orders)
-- [ ] **LC 1068. Product Sales Analysis I** — 基礎 JOIN -> [link](product_sales_analysis_i)
-- [ ] **LC 1581. Customer Who Visited but Did Not Make Any Transaction** — LEFT JOIN + IS NULL + COUNT -> [link](customer_who_visited_but_did_not_make_any_transaction)
+- **LC 175. Combine Two Tables** — 最基礎的 LEFT JOIN -> [link](combine_2_tables)
+- **LC 181. Employees Earning More Than Their Managers** — Self JOIN -> [link](employees_earning_more_than_their_managers)
+- **LC 182. Duplicate Emails** — GROUP BY + HAVING COUNT -> [link](duplicate_emails)
+- **LC 183. Customers Who Never Order** — LEFT JOIN + IS NULL（反向匹配） -> [link](customers_who_never_order)
+- **LC 197. Rising Temperature** — Self JOIN + 日期運算 -> [link](rising_temperature)
+- **LC 511. Game Play Analysis I** — GROUP BY + MIN 聚合 -> [link](game_play_analysis_i)
+- **LC 577. Employee Bonus** — LEFT JOIN 處理 NULL ->[link](employee_bonus)
+- **LC 586. Customer Placing the Largest Number of Orders** — GROUP BY + ORDER BY + LIMIT -> [link](customer_placing_the_largest_number_of_orders)
+- **LC 1068. Product Sales Analysis I** — 基礎 JOIN -> [link](product_sales_analysis_i)
+- **LC 1581. Customer Who Visited but Did Not Make Any Transaction** — LEFT JOIN + IS NULL + COUNT -> [link](customer_who_visited_but_did_not_make_any_transaction)
 
 ### Phase 1 自我檢測
 
 能不能在 10 分鐘內徒手寫出：「找出從未下過訂單的客戶名稱」？  
 如果能，進入 Phase 2。
+
+```
+Assume:
+table: customer, order
+
+Answer:
+select c.username 
+from customer as c 
+where not exists (
+    select 1 
+    from order as o 
+    where o.customer_id = c.id
+);
+```
 
 
 <br>
