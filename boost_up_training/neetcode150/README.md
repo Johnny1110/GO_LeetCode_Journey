@@ -23,3 +23,5 @@ link: https://leetcode.com/problem-list/plakya4j
 8. Count Good Nodes in Binary Tree -> [link](cgnibt)
 9. Regular Expression Matching -> [link](rem) (巨難，難到讓人無言...)
 10. Container With Most Water -> [link](cwmw)
+11. Rotting Oranges -> [link](rottingoranges)
+
