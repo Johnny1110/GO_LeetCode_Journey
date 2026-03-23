@@ -106,7 +106,7 @@ where not exists (
 ### 練習題
 
 - **LC 176. Second Highest Salary** — 子查詢 + LIMIT OFFSET / IFNULL 處理邊界 -> [link](second_highest_salary)
-- **LC 184. Department Highest Salary** — 子查詢找每組最大值
+- **LC 184. Department Highest Salary** — 子查詢找每組最大值 -> [link](department_highest_salary/README.md)
 - **LC 196. Delete Duplicate Emails** — 用子查詢輔助 DELETE（DML 暖身）
 - **LC 512. Game Play Analysis II** — 子查詢配合 GROUP BY
 - **LC 550. Game Play Analysis IV** — 多層子查詢 + 日期偏移
