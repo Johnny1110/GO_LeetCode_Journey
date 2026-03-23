@@ -24,4 +24,6 @@ link: https://leetcode.com/problem-list/plakya4j
 9. Regular Expression Matching -> [link](rem) (巨難，難到讓人無言...)
 10. Container With Most Water -> [link](cwmw)
 11. Rotting Oranges -> [link](rottingoranges)
+12. 3 Sum -> [link](threesum)
+13. Letter Combinations of a Phone Number -> [link](lcoapn)
 
