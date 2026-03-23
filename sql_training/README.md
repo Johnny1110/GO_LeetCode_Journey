@@ -105,15 +105,15 @@ where not exists (
 
 ### 練習題
 
-- [ ] **LC 176. Second Highest Salary** — 子查詢 + LIMIT OFFSET / IFNULL 處理邊界 -> [link](second_highest_salary/README.md)
-- [ ] **LC 184. Department Highest Salary** — 子查詢找每組最大值
-- [ ] **LC 196. Delete Duplicate Emails** — 用子查詢輔助 DELETE（DML 暖身）
-- [ ] **LC 512. Game Play Analysis II** — 子查詢配合 GROUP BY
-- [ ] **LC 550. Game Play Analysis IV** — 多層子查詢 + 日期偏移
-- [ ] **LC 602. Friend Requests II** — UNION + 子查詢統計
-- [ ] **LC 1084. Sales Analysis III** — 條件過濾 + NOT IN / NOT EXISTS
-- [ ] **LC 1141. User Activity for the Past 30 Days I** — 日期範圍 + COUNT DISTINCT
-- [ ] **LC 1164. Product Price at a Given Date** — 子查詢找最近一筆記錄
+- **LC 176. Second Highest Salary** — 子查詢 + LIMIT OFFSET / IFNULL 處理邊界 -> [link](second_highest_salary)
+- **LC 184. Department Highest Salary** — 子查詢找每組最大值
+- **LC 196. Delete Duplicate Emails** — 用子查詢輔助 DELETE（DML 暖身）
+- **LC 512. Game Play Analysis II** — 子查詢配合 GROUP BY
+- **LC 550. Game Play Analysis IV** — 多層子查詢 + 日期偏移
+- **LC 602. Friend Requests II** — UNION + 子查詢統計
+- **LC 1084. Sales Analysis III** — 條件過濾 + NOT IN / NOT EXISTS
+- **LC 1141. User Activity for the Past 30 Days I** — 日期範圍 + COUNT DISTINCT
+- **LC 1164. Product Price at a Given Date** — 子查詢找最近一筆記錄
 
 ### Phase 2 自我檢測
 
@@ -145,16 +145,16 @@ where not exists (
 
 ### 練習題
 
-- [ ] **LC 178. Rank Scores** — DENSE_RANK 基礎用法
-- [ ] **LC 180. Consecutive Numbers** — LAG / LEAD 檢查連續值
-- [ ] **LC 185. Department Top Three Salaries** — DENSE_RANK + PARTITION BY（經典 Top-N per group）
-- [ ] **LC 534. Game Play Analysis III** — SUM OVER 累計計算
-- [ ] **LC 1070. Product Sales Analysis III** — RANK + 篩選第一年
-- [ ] **LC 1158. Market Analysis I** — Window Function 配合 JOIN
-- [ ] **LC 1204. Last Person to Fit in the Bus** — Running SUM + 條件截斷
-- [ ] **LC 1321. Restaurant Growth** — ROWS BETWEEN 移動平均
-- [ ] **LC 1341. Movie Rating** — RANK + UNION ALL 多維度排名
-- [ ] **LC 1907. Count Salary Categories** — 條件分組 + Window（CASE WHEN 搭配）
+- **LC 178. Rank Scores** — DENSE_RANK 基礎用法
+- **LC 180. Consecutive Numbers** — LAG / LEAD 檢查連續值
+- **LC 185. Department Top Three Salaries** — DENSE_RANK + PARTITION BY（經典 Top-N per group）
+- **LC 534. Game Play Analysis III** — SUM OVER 累計計算
+- **LC 1070. Product Sales Analysis III** — RANK + 篩選第一年
+- **LC 1158. Market Analysis I** — Window Function 配合 JOIN
+- **LC 1204. Last Person to Fit in the Bus** — Running SUM + 條件截斷
+- **LC 1321. Restaurant Growth** — ROWS BETWEEN 移動平均
+- **LC 1341. Movie Rating** — RANK + UNION ALL 多維度排名
+- **LC 1907. Count Salary Categories** — 條件分組 + Window（CASE WHEN 搭配）
 
 ### Phase 3 自我檢測
 
@@ -185,13 +185,13 @@ where not exists (
 
 ### 練習題
 
-- [ ] **LC 1070（改用 CTE 重寫）** — 體會 CTE 對可讀性的提升
-- [ ] **LC 1225. Report Contiguous Dates** — CTE 處理連續日期分組（Islands and Gaps）
-- [ ] **LC 1270. All People Report to the Given Manager** — 遞迴 CTE 找管理鏈
-- [ ] **LC 1384. Total Sales Amount by Year** — 遞迴 CTE 生成日期序列
-- [ ] **LC 1613. Find the Missing IDs** — 遞迴 CTE 生成連續數列
-- [ ] **LC 1767. Find the Subtasks That Did Not Execute** — 遞迴 CTE + LEFT JOIN
-- [ ] **LC 185（改用 CTE 重寫）** — 對比子查詢版本的清晰度差異
+- **LC 1070（改用 CTE 重寫）** — 體會 CTE 對可讀性的提升
+- **LC 1225. Report Contiguous Dates** — CTE 處理連續日期分組（Islands and Gaps）
+- **LC 1270. All People Report to the Given Manager** — 遞迴 CTE 找管理鏈
+- **LC 1384. Total Sales Amount by Year** — 遞迴 CTE 生成日期序列
+- **LC 1613. Find the Missing IDs** — 遞迴 CTE 生成連續數列
+- **LC 1767. Find the Subtasks That Did Not Execute** — 遞迴 CTE + LEFT JOIN
+- **LC 185（改用 CTE 重寫）** — 對比子查詢版本的清晰度差異
 
 ### Phase 4 自我檢測
 
@@ -222,11 +222,11 @@ where not exists (
 
 ### 練習題
 
-- [ ] **LC 196. Delete Duplicate Emails** — DELETE + 自連接保留最小 ID
-- [ ] **LC 627. Swap Salary** — UPDATE + CASE WHEN 值交換
-- [ ] **LC 1873. Calculate Special Bonus** — 條件 UPDATE
-- [ ] **練習題（自設）**：寫一個 UPSERT — 如果 user_id 存在就更新 last_login，不存在就插入新行
-- [ ] **練習題（自設）**：用 `INSERT INTO ... SELECT` 把統計結果寫入報表表
+- **LC 196. Delete Duplicate Emails** — DELETE + 自連接保留最小 ID
+- **LC 627. Swap Salary** — UPDATE + CASE WHEN 值交換
+- **LC 1873. Calculate Special Bonus** — 條件 UPDATE
+- **練習題（自設）**：寫一個 UPSERT — 如果 user_id 存在就更新 last_login，不存在就插入新行
+- **練習題（自設）**：用 `INSERT INTO ... SELECT` 把統計結果寫入報表表
 
 ### Phase 5 自我檢測
 
@@ -256,11 +256,11 @@ where not exists (
 
 ### 練習題
 
-- [ ] **LC 618. Students Report By Geography** — 經典行轉列 Pivot
-- [ ] **LC 1179. Reformat Department Table** — CASE WHEN Pivot（月份轉欄位）
-- [ ] **LC 1777. Product's Price for Each Store** — 條件聚合
-- [ ] **LC 1795. Rearrange Products Table** — UNION ALL 反 Pivot
-- [ ] **練習題（自設，模擬幣安原題）**：給定部門表、員工表、專案表、員工專案關聯表，寫出 Top-3 專案最多的部門並以橫向格式輸出
+- **LC 618. Students Report By Geography** — 經典行轉列 Pivot
+- **LC 1179. Reformat Department Table** — CASE WHEN Pivot（月份轉欄位）
+- **LC 1777. Product's Price for Each Store** — 條件聚合
+- **LC 1795. Rearrange Products Table** — UNION ALL 反 Pivot
+- **練習題（自設，模擬幣安原題）**：給定部門表、員工表、專案表、員工專案關聯表，寫出 Top-3 專案最多的部門並以橫向格式輸出
 
 ### Phase 6 自我檢測
 
@@ -304,12 +304,12 @@ where not exists (
 
 ### 學習方式（非刷題，而是實驗）
 
-- [ ] 在本地 PostgreSQL 建一張 100 萬行的假資料表
-- [ ] 對同一查詢分別跑 `EXPLAIN ANALYZE`：無 Index → 加單列 Index → 加複合 Index
-- [ ] 觀察 Seq Scan → Index Scan 的切換點
-- [ ] 試一次 `WHERE LOWER(name) = 'xxx'` vs `WHERE name = 'Xxx'`，觀察 Index 失效
-- [ ] 試一次 `OFFSET 100000 LIMIT 10` vs cursor-based 分頁的效能差異
-- [ ] 讀懂一次 Hash Join vs Nested Loop 的 EXPLAIN 輸出
+- 在本地 PostgreSQL 建一張 100 萬行的假資料表
+- 對同一查詢分別跑 `EXPLAIN ANALYZE`：無 Index → 加單列 Index → 加複合 Index
+- 觀察 Seq Scan → Index Scan 的切換點
+- 試一次 `WHERE LOWER(name) = 'xxx'` vs `WHERE name = 'Xxx'`，觀察 Index 失效
+- 試一次 `OFFSET 100000 LIMIT 10` vs cursor-based 分頁的效能差異
+- 讀懂一次 Hash Join vs Nested Loop 的 EXPLAIN 輸出
 
 ### Phase 7 自我檢測
 
