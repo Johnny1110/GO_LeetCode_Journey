@@ -26,3 +26,5 @@ link: https://leetcode.com/problem-list/plakya4j
 11. Rotting Oranges -> [link](rottingoranges)
 12. 3 Sum -> [link](threesum)
 13. Letter Combinations of a Phone Number -> [link](lcoapn)
+14. Remove Nth Node From End of List -> [link](rnnfeol)
+15. Valid Parentheses -> [link](validparentheses)
