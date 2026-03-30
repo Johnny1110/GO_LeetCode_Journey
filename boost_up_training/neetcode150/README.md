@@ -32,4 +32,4 @@ link: https://leetcode.com/problem-list/plakya4j
 17. Generate Parentheses -> [link](genparentheses) -> (是 backtracking 沒錯，但跟一般的 backtracking 結構稍微不太一樣)
 18. Merge k Sorted Lists -> [link](mksl) -> Divide & Conquer approach 關於 k lists 如何切分合併，需要記住 `interval` 公式
 19. Reverse Nodes in k-Group -> [link](rnikg)
-20. Diameter of Binary Tree -> [link](dobt/README.md)
+20. Diameter of Binary Tree -> [link](dobt)
