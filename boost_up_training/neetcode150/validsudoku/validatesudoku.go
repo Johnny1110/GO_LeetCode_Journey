@@ -1,14 +1,10 @@
-# 36. Valid Sudoku
+package validsudoku
 
-<br>
+import (
+	"fmt"
+	"strconv"
+)
 
----
-
-<br>
-
-## Coding
-
-```go
 func isValidSudoku(board [][]byte) bool {
 	state := NewState()
 
@@ -19,8 +15,9 @@ func isValidSudoku(board [][]byte) bool {
 				continue
 			}
 
-			numIdx := int(board[row][col] - '1')
-			ok := state.ValidateAndUpdate(row, col, numIdx)
+			num, _ := strconv.Atoi(string(board[row][col]))
+			ok := state.ValidateAndUpdate(row, col, num)
+			fmt.Printf("row:%v, col:%v, validate: %v\n", row, col, ok)
 			if !ok {
 				return false
 			}
@@ -59,7 +56,8 @@ func NewState() *State {
 	}
 }
 
-func (s *State) ValidateAndUpdate(row, col, numIdx int) bool {
+func (s *State) ValidateAndUpdate(row, col, num int) bool {
+	numIdx := num - 1
 	// 1. check row and col
 	if s.rows[row][numIdx] || s.cols[col][numIdx] {
 		return false
@@ -67,6 +65,7 @@ func (s *State) ValidateAndUpdate(row, col, numIdx int) bool {
 
 	// 2. check subbox
 	boxIdx := calculateSubboxIdx(row, col)
+	fmt.Printf("boxIdx: %v \n", boxIdx)
 	if s.subboxs[boxIdx][numIdx] {
 		return false
 	}
@@ -82,17 +81,3 @@ func calculateSubboxIdx(row, col int) int {
 	cv := col / 3
 	return base + cv
 }
-```
-
-<br>
-<br>
-
-## Time & Space Complexity
-
-```
-Assume: n = 81 slots of board
-
-Time: O(1) -> iterate 81 times
-
-Space: O(1) -> extra space for rows cols subboxs, they are 2D array.
-```

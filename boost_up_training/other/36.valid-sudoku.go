@@ -1,14 +1,10 @@
-# 36. Valid Sudoku
+/*
+ * @lc app=leetcode id=36 lang=golang
+ *
+ * [36] Valid Sudoku
+ */
 
-<br>
-
----
-
-<br>
-
-## Coding
-
-```go
+// @lc code=start
 func isValidSudoku(board [][]byte) bool {
 	state := NewState()
 
@@ -82,17 +78,6 @@ func calculateSubboxIdx(row, col int) int {
 	cv := col / 3
 	return base + cv
 }
-```
 
-<br>
-<br>
+// @lc code=end
 
-## Time & Space Complexity
-
-```
-Assume: n = 81 slots of board
-
-Time: O(1) -> iterate 81 times
-
-Space: O(1) -> extra space for rows cols subboxs, they are 2D array.
-```
