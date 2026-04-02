@@ -112,7 +112,7 @@ where not exists (
 - **LC 550. Game Play Analysis IV** — 多層子查詢 + 日期偏移 -> [link](game_play_analysis_iv)
 - **LC 602. Friend Requests II** — UNION + 子查詢統計 -> [link](friend_reequests_ii)
 - **LC 1084. Sales Analysis III** — 條件過濾 + NOT IN / NOT EXISTS -> [link](sales_analysis_iii)
-- **LC 1141. User Activity for the Past 30 Days I** — 日期範圍 + COUNT DISTINCT -> [link](user_activity_for_the_past_30_days_i/README.md)
+- **LC 1141. User Activity for the Past 30 Days I** — 日期範圍 + COUNT DISTINCT -> [link](user_activity_for_the_past_30_days_i)
 - **LC 1164. Product Price at a Given Date** — 子查詢找最近一筆記錄
 
 ### Phase 2 自我檢測
