@@ -36,4 +36,4 @@ link: https://leetcode.com/problem-list/plakya4j
 21. Search in Rotated Sorted Array -> [link](sirsa) -> 沒有提示我想不到的，但是原理其實很簡單．要懂得變通．
 22. Valid Sudoku -> [link](validsudoku) -> 幣安考試題目，算 subbox index 的公式需要背一下．
 23. Combination Sum -> [link](combinationsum)
-24. Combination Sum II -> [link](combinationsumii)
+24. Combination Sum II -> [link](combinationsumii) -> 去重有點小 tricky, 需要利用 3sum 時候練習的去重觀念，值得二刷
