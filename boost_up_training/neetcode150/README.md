@@ -37,7 +37,7 @@ link: https://leetcode.com/problem-list/plakya4j
 22. Valid Sudoku -> [link](validsudoku) -> 幣安考試題目，算 subbox index 的公式需要背一下．
 23. Combination Sum -> [link](combinationsum)
 24. Combination Sum II -> [link](combinationsumii) -> 去重有點小 tricky, 需要利用 3sum 時候練習的去重觀念，值得二刷
-25. Trapping Rain Water -> [link](trw)
+25. Trapping Rain Water -> [link](trw) -> 做到極致優化很難，可以多做幾遍熟練一下固定題型
 26. Multiply Strings -> [link](multiplystr) 👈
 27. Jump Game II -> [link](jumpgameii/README.md)
 28. Permutations -> [link](permutations/README.md)
