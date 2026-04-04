@@ -38,7 +38,7 @@ link: https://leetcode.com/problem-list/plakya4j
 23. Combination Sum -> [link](combinationsum)
 24. Combination Sum II -> [link](combinationsumii) -> 去重有點小 tricky, 需要利用 3sum 時候練習的去重觀念，值得二刷
 25. Trapping Rain Water -> [link](trw) -> 做到極致優化很難，可以多做幾遍熟練一下固定題型
-26. Multiply Strings -> [link](multiplystr) 👈
+26. Multiply Strings -> [link](multiplystr) 👈 -> 有點難，要再多練幾次
 27. Jump Game II -> [link](jumpgameii/README.md)
 28. Permutations -> [link](permutations/README.md)
 29. Rotate Image -> [link](rotateimg/README.md)
