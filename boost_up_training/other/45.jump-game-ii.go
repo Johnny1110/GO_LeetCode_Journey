@@ -10,19 +10,21 @@ func jump(nums []int) int {
 		return 0
 	}
 
+	farest := 0
 	jumps := 0
 	currentEnd := 0
-	farthest := 0
 
-	for i := 0; i < len(nums)-1; i++ {
-		farthest = max(farthest, i+nums[i])
+	for i := 0; i < len(nums); i++ {
+		step := nums[i]
+		farest = max(farest, i+step)
 
 		if i == currentEnd {
 			jumps++
-			currentEnd = farthest
-			if currentEnd >= len(nums)-1 {
-				break
-			}
+			currentEnd = farest
+		}
+
+		if currentEnd >= len(nums)-1 {
+			break
 		}
 	}
 
