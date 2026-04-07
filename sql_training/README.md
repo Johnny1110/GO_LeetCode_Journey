@@ -122,8 +122,24 @@ where not exists (
 
 <br>
 
-```sql
+assume table: employees
 
+```
+department_id, employee_id, salary
+```
+<br>
+
+answer:
+
+```sql
+with as tmp (
+    select department_id, max(salary) as salary 
+    from employees 
+    group by department_id
+    )
+select department_id, employee_id, salary 
+from employees as e
+inner join tmp as t on t.department_id = e.department_id and t.salary = e.salary
 ```
 
 <br>
