@@ -121,6 +121,12 @@ where not exists (
 關鍵是你能判斷這題要用子查詢而不是單純 GROUP BY。
 
 <br>
+
+```sql
+
+```
+
+<br>
 <br>
 
 ---
@@ -145,7 +151,7 @@ where not exists (
 
 ### 練習題
 
-- **LC 178. Rank Scores** — DENSE_RANK 基礎用法
+- **LC 178. Rank Scores** — DENSE_RANK 基礎用法 -> [link](rank_scores/README.md)
 - **LC 180. Consecutive Numbers** — LAG / LEAD 檢查連續值
 - **LC 185. Department Top Three Salaries** — DENSE_RANK + PARTITION BY（經典 Top-N per group）
 - **LC 534. Game Play Analysis III** — SUM OVER 累計計算
