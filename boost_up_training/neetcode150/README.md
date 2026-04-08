@@ -40,6 +40,6 @@ link: https://leetcode.com/problem-list/plakya4j
 25. Trapping Rain Water -> [link](trw) -> 做到極致優化很難，可以多做幾遍熟練一下固定題型
 26. Multiply Strings -> [link](multiplystr) -> 有點難，要再多練幾次
 27. Jump Game II -> [link](jumpgameii) -> 再做一次，greedy (可能需要背題目)。 
-28. Permutations -> [link](permutations/README.md) 👈
-29. Rotate Image -> [link](rotateimg/README.md)
+28. Permutations -> [link](permutations)
+29. Rotate Image -> [link](rotateimg/README.md)  👈
 30. Group Anagrams -> [link](groupanagrams/README.md)
