@@ -11,12 +11,12 @@ func jump(nums []int) int {
 	}
 
 	farest := 0
-	jumps := 0
 	currentEnd := 0
+	jumps := 0
 
 	for i := 0; i < len(nums); i++ {
-		step := nums[i]
-		farest = max(farest, i+step)
+		steps := nums[i]
+		farest = max(farest, i+steps)
 
 		if i == currentEnd {
 			jumps++
