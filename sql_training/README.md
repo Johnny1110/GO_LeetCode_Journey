@@ -168,7 +168,7 @@ inner join tmp as t on t.department_id = e.department_id and t.salary = e.salary
 ### 練習題
 
 - **LC 178. Rank Scores** — DENSE_RANK 基礎用法 -> [link](rank_scores)
-- **LC 180. Consecutive Numbers** — LAG / LEAD 檢查連續值
+- **LC 180. Consecutive Numbers** — LAG / LEAD 檢查連續值 ->[link](consecutive_numbers/README.md)
 - **LC 185. Department Top Three Salaries** — DENSE_RANK + PARTITION BY（經典 Top-N per group）
 - **LC 534. Game Play Analysis III** — SUM OVER 累計計算
 - **LC 1070. Product Sales Analysis III** — RANK + 篩選第一年
