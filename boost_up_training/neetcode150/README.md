@@ -41,5 +41,5 @@ link: https://leetcode.com/problem-list/plakya4j
 26. Multiply Strings -> [link](multiplystr) -> 有點難，要再多練幾次
 27. Jump Game II -> [link](jumpgameii) -> 再做一次，greedy (可能需要背題目)。 
 28. Permutations -> [link](permutations)
-29. Rotate Image -> [link](rotateimg)  👈
+29. Rotate Image -> [link](rotateimg) -> 巨難 矩陣旋轉+層數計算
 30. Group Anagrams -> [link](groupanagrams/README.md)
