@@ -67,9 +67,8 @@ Explanation: 1 is the only number that appears consecutively for at least three 
 ```sql
 -- 1. Create the Logs table
 CREATE TABLE Logs (
-    id INT NOT NULL AUTO_INCREMENT,
-    num VARCHAR(255),
-    PRIMARY KEY (id)
+                      id SERIAL PRIMARY KEY,
+                      num VARCHAR(255)
 );
 
 -- 2. Insert the example data
@@ -81,3 +80,29 @@ INSERT INTO Logs (num) VALUES ('1');
 INSERT INTO Logs (num) VALUES ('2');
 INSERT INTO Logs (num) VALUES ('2');
 ```
+
+<br>
+<br>
+
+## Tips
+
+* `LAG()`: Looks backward. It fetches data from a previous row. It is perfect for calculating week-over-week growth, finding the time between purchases, or comparing a current value to a past value.
+
+    ```sql
+    LAG(return_value, offset, default_value) OVER (
+        PARTITION BY column_name 
+        ORDER BY column_name
+    )
+    ```
+
+    <br>
+
+* `LEAD()`: Looks forward. It fetches data from a subsequent row. It is useful for finding the next sequential event, such as a customer's next subscription date.
+
+
+    ```sql
+    LEAD(return_value, offset, default_value) OVER (
+        PARTITION BY column_name 
+        ORDER BY column_name
+    )
+    ```
