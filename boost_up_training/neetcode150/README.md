@@ -42,4 +42,4 @@ link: https://leetcode.com/problem-list/plakya4j
 27. Jump Game II -> [link](jumpgameii) -> 再做一次，greedy (可能需要背題目)。 
 28. Permutations -> [link](permutations)
 29. Rotate Image -> [link](rotateimg) -> 巨難 矩陣旋轉+層數計算
-30. Group Anagrams -> [link](groupanagrams/README.md)
+30. Group Anagrams -> [link](groupanagrams)
