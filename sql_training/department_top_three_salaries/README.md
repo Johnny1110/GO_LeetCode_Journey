@@ -115,5 +115,38 @@ There are no employees with the exact same name, salary and department.
 ## Table Schema + Testing Data
 
 ```sql
+-- Create Department table
+CREATE TABLE IF NOT EXISTS Department (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
 
+-- Create Employee table
+CREATE TABLE IF NOT EXISTS Employee (
+    id INT PRIMARY KEY,
+    name VARCHAR(255),
+    salary INT,
+    departmentId INT,
+    CONSTRAINT fk_department
+        FOREIGN KEY(departmentId) 
+        REFERENCES Department(id)
+);
+
+-- Clean tables before inserting (useful for re-running scripts)
+TRUNCATE TABLE Employee, Department RESTART IDENTITY CASCADE;
+
+-- Insert data into Department
+INSERT INTO Department (id, name) VALUES 
+(1, 'IT'),
+(2, 'Sales');
+
+-- Insert data into Employee
+INSERT INTO Employee (id, name, salary, departmentId) VALUES 
+(1, 'Joe', 85000, 1),
+(2, 'Henry', 80000, 2),
+(3, 'Sam', 60000, 2),
+(4, 'Max', 90000, 1),
+(5, 'Janet', 69000, 1),
+(6, 'Randy', 85000, 1),
+(7, 'Will', 70000, 1);
 ```
