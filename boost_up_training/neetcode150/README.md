@@ -45,3 +45,4 @@ link: https://leetcode.com/problem-list/plakya4j
 30. Group Anagrams -> [link](groupanagrams)
 31. Pow(x, n) -> [link](powxn)
 32. N-Queens -> [link](nqueens)
+33. Maximum Subarray -> [link](maxsubarr)
