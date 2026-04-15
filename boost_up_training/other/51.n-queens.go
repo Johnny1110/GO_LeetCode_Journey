@@ -37,23 +37,18 @@ func solveNQueens(n int) [][]string {
 type Board struct {
 	n            int
 	cols         []bool
-	diaginal     map[int]bool
-	aitiDiaginal map[int]bool
-	state        [][]bool
+	diaginal     []bool
+	aitiDiaginal []bool
+	state        []int
 }
 
 func NewBoard(n int) *Board {
-	state := make([][]bool, n)
-	for i := range state {
-		state[i] = make([]bool, n)
-	}
-
 	return &Board{
 		n:            n,
 		cols:         make([]bool, n),
-		diaginal:     make(map[int]bool),
-		aitiDiaginal: make(map[int]bool),
-		state:        state,
+		diaginal:     make([]bool, 2*n),
+		aitiDiaginal: make([]bool, 2*n),
+		state:        make([]int, n),
 	}
 }
 
@@ -63,7 +58,7 @@ func (b *Board) isSafe(row, col int) bool {
 		return false
 	}
 
-	diaginalKey := row - col
+	diaginalKey := row - col + b.n
 	aitiDiaginalKey := row + col
 
 	// check diaginal & aitiDiaginal
@@ -75,41 +70,41 @@ func (b *Board) isSafe(row, col int) bool {
 }
 
 func (b *Board) put(row, col int) {
-	diaginalKey := row - col
+	diaginalKey := row - col + b.n
 	aitiDiaginalKey := row + col
 
 	b.cols[col] = true
 	b.diaginal[diaginalKey] = true
 	b.aitiDiaginal[aitiDiaginalKey] = true
-	b.state[row][col] = true
+	b.state[row] = col
 }
 
 func (b *Board) remove(row, col int) {
-	diaginalKey := row - col
+	diaginalKey := row - col + b.n
 	aitiDiaginalKey := row + col
 
 	b.cols[col] = false
 	b.diaginal[diaginalKey] = false
 	b.aitiDiaginal[aitiDiaginalKey] = false
-	b.state[row][col] = false
 }
 
 func (b *Board) snapshot() []string {
 	res := make([]string, b.n)
+	chars := make([]uint8, b.n)
 
 	for row := 0; row < b.n; row++ {
 
-		str := ""
+		queenAtCol := b.state[row]
+
 		for col := 0; col < b.n; col++ {
-			// ".Q..","...Q","Q...","..Q."]
-			if b.state[row][col] {
-				str += "Q"
+			if col == queenAtCol {
+				chars[col] = 'Q'
 			} else {
-				str += "."
+				chars[col] = '.'
 			}
 		}
 
-		res[row] = str
+		res[row] = string(chars)
 	}
 
 	return res

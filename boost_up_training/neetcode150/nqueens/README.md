@@ -105,7 +105,6 @@ func (b *Board) snapshot() []string {
 
 		str := ""
 		for col := 0; col < b.n; col++ {
-			// ".Q..","...Q","Q...","..Q."]
 			if b.state[row][col] {
 				str += "Q"
 			} else {
@@ -191,6 +190,119 @@ max backtracking call stack is n.
 
 <br>
 
-3. Use []byte instead of String Concatenation:
+3. Use `[]byte` instead of String Concatenation:
 
     In your snapshot function, you are doing `str += "Q"`. In Go, strings are immutable, so doing `+=` inside a loop creates a brand new string in memory every single iteration. For a faster snapshot, create a `[]byte` for the row, fill it with `'.'`, and then assign the `'Q'` to the correct index before converting the whole line to a string.
+
+
+<br>
+<br>
+
+## Coding - revamp
+
+```go
+func solveNQueens(n int) [][]string {
+	result := [][]string{}
+	board := NewBoard(n)
+
+	var backtracking func(row int)
+	backtracking = func(row int) {
+		if row == n {
+			// reach the end
+			result = append(result, board.snapshot())
+			return
+		}
+
+		for col := 0; col < n; col++ {
+			if board.isSafe(row, col) {
+				// update state
+				board.put(row, col)
+				// go next layer
+				backtracking(row + 1)
+				// roll back state
+				board.remove(row, col)
+			}
+		}
+	}
+
+	backtracking(0)
+
+	return result
+}
+
+type Board struct {
+	n            int
+	cols         []bool
+	diaginal     []bool
+	aitiDiaginal []bool
+	state        []int
+}
+
+func NewBoard(n int) *Board {
+	return &Board{
+		n:            n,
+		cols:         make([]bool, n),
+		diaginal:     make([]bool, 2*n),
+		aitiDiaginal: make([]bool, 2*n),
+		state:        make([]int, n),
+	}
+}
+
+func (b *Board) isSafe(row, col int) bool {
+	// check cols
+	if b.cols[col] {
+		return false
+	}
+
+	diaginalKey := row - col + b.n
+	aitiDiaginalKey := row + col
+
+	// check diaginal & aitiDiaginal
+	if b.diaginal[diaginalKey] || b.aitiDiaginal[aitiDiaginalKey] {
+		return false
+	}
+
+	return true
+}
+
+func (b *Board) put(row, col int) {
+	diaginalKey := row - col + b.n
+	aitiDiaginalKey := row + col
+
+	b.cols[col] = true
+	b.diaginal[diaginalKey] = true
+	b.aitiDiaginal[aitiDiaginalKey] = true
+	b.state[row] = col
+}
+
+func (b *Board) remove(row, col int) {
+	diaginalKey := row - col + b.n
+	aitiDiaginalKey := row + col
+
+	b.cols[col] = false
+	b.diaginal[diaginalKey] = false
+	b.aitiDiaginal[aitiDiaginalKey] = false
+}
+
+func (b *Board) snapshot() []string {
+	res := make([]string, b.n)
+	chars := make([]uint8, b.n)
+
+	for row := 0; row < b.n; row++ {
+
+		queenAtCol := b.state[row]
+
+		for col := 0; col < b.n; col++ {
+			if col == queenAtCol {
+				chars[col] = 'Q'
+			} else {
+				chars[col] = '.'
+			}
+		}
+
+		res[row] = string(chars)
+	}
+
+	return res
+}
+```
