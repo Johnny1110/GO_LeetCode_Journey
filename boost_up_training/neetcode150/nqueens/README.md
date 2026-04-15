@@ -167,3 +167,30 @@ max backtracking call stack is n.
 * The 2D State Matrix (The Culprit): You initialized state [][]bool as an $N \times N$ matrix. Storing an $N \times N$ grid requires O(N²) auxiliary space.
 
 **Conclusion**: Because the 2D matrix is the largest data structure you are holding in memory during the run, the overall space complexity becomes O(N²). (Note: Complexity analysis typically excludes the space required for the final output result array).
+
+
+<br>
+
+### Bonus Tips to Optimize Your Go Code
+
+1. Drop the 2D state array to achieve O(N) Space:
+
+You don't actually need the state [][]bool matrix. You can just keep a 1D array, like queens []int, where the index is the row and the value is the col.
+
+* Example: `queens[0] = 2` means there is a queen at row 0, column 2.
+
+<br>
+
+2. Use slices instead of maps for Diagonals:
+
+Maps in Go have a bit of overhead. You can use simple boolean slices (arrays) for the diagonals.
+
+* The `row - col` calculation can yield negative numbers, but if you add $N-1$ to the formula `(row - col + n - 1)`, it will always be a positive integer between $0$ and $2N$.
+
+* You can initialize your diagonal arrays like this: `make([]bool, 2*n)`. Arrays are faster to access than maps.
+
+<br>
+
+3. Use []byte instead of String Concatenation:
+
+In your snapshot function, you are doing `str += "Q"`. In Go, strings are immutable, so doing `+=` inside a loop creates a brand new string in memory every single iteration. For a faster snapshot, create a `[]byte` for the row, fill it with `'.'`, and then assign the `'Q'` to the correct index before converting the whole line to a string.
