@@ -172,7 +172,7 @@ inner join tmp as t on t.department_id = e.department_id and t.salary = e.salary
 - **LC 185. Department Top Three Salaries** — DENSE_RANK + PARTITION BY（經典 Top-N per group）->[link](department_top_three_salaries)
 - **LC 534. Game Play Analysis III** — SUM OVER 累計計算 -> [link](game_play_analysis_iii)
 - **LC 1070. Product Sales Analysis III** — RANK + 篩選第一年 -> [link](product_sales_analysis_iii)
-- **LC 1158. Market Analysis I** — Window Function 配合 JOIN
+- **LC 1158. Market Analysis I** — Window Function 配合 JOIN -> [link](market_analysis_i)
 - **LC 1204. Last Person to Fit in the Bus** — Running SUM + 條件截斷
 - **LC 1321. Restaurant Growth** — ROWS BETWEEN 移動平均
 - **LC 1341. Movie Rating** — RANK + UNION ALL 多維度排名
