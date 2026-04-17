@@ -46,3 +46,4 @@ link: https://leetcode.com/problem-list/plakya4j
 31. Pow(x, n) -> [link](powxn)
 32. N-Queens -> [link](nqueens)
 33. Maximum Subarray -> [link](maxsubarr)
+34. Spiral Matrix -> [link](spiralmatrix)
