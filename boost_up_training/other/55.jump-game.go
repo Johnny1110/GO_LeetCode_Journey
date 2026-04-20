@@ -1,57 +1,10 @@
-# 55. Jump Game
+/*
+ * @lc app=leetcode id=55 lang=golang
+ *
+ * [55] Jump Game
+ */
 
-<br>
-
----
-
-<br>
-
-## Coding
-
-```go
-func canJump(nums []int) bool {
-	finalIdx := len(nums) - 1
-
-	currEnd := 0
-	farestReach := 0
-
-	for currIdx := 0; currIdx <= currEnd; currIdx++ {
-		steps := nums[currIdx]
-		farestReach = max(farestReach, currIdx+steps)
-
-		if farestReach >= finalIdx {
-			return true
-		}
-
-		if currIdx == currEnd {
-			// update new currEnd
-			currEnd = farestReach
-		}
-	}
-
-	return false
-}
-```
-
-<br>
-<br>
-
-## Time & Space Complexity
-
-```
-Assume: n = input length of nums
-
-Time: O(n) -> worst case every element is 1
-
-Space: O(1)
-```
-
-
-<br>
-
-## Using BFS to rewrite this solution
-
-```go
+// @lc code=start
 func canJump(nums []int) bool {
 	targetIdx := len(nums) - 1
 
@@ -102,4 +55,6 @@ func (q *Queue) Pop() int {
 	(*q) = (*q)[1:]
 	return ret
 }
-```
+
+// @lc code=end
+
