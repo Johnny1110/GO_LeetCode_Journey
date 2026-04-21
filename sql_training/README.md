@@ -175,7 +175,7 @@ inner join tmp as t on t.department_id = e.department_id and t.salary = e.salary
 - **LC 1158. Market Analysis I** — Window Function 配合 JOIN -> [link](market_analysis_i)
 - **LC 1204. Last Person to Fit in the Bus** — Running SUM + 條件截斷 -> [link](last_person_to_fit_in_the_bus)
 - **LC 1321. Restaurant Growth** — ROWS BETWEEN 移動平均 -> [link](restaurant_growth)
-- **LC 1341. Movie Rating** — RANK + UNION ALL 多維度排名
+- **LC 1341. Movie Rating** — RANK + UNION ALL 多維度排名 -> [link](movie_rating/README.md)
 - **LC 1907. Count Salary Categories** — 條件分組 + Window（CASE WHEN 搭配）
 
 ### Phase 3 自我檢測
