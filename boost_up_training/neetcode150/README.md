@@ -49,4 +49,5 @@ link: https://leetcode.com/problem-list/plakya4j
 34. Spiral Matrix -> [link](spiralmatrix)
 35. Jump Game -> [link](jumpgame)
 36. Merge Intervals -> [link](mergeintervals)
-37. Insert Interval -> [link](insertinterval/README.md)
+37. Insert Interval -> [link](insertinterval)
+38. Permutation in String -> [link](permutation_in_string/README.md)

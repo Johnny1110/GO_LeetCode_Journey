@@ -5,14 +5,6 @@
  */
 
 // @lc code=start
-
-type State int
-
-const (
-	MERGE State = iota
-	IDLE
-)
-
 func insert(intervals [][]int, newInterval []int) [][]int {
 	if len(intervals) == 0 {
 		return [][]int{newInterval}
