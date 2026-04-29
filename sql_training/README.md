@@ -180,9 +180,28 @@ inner join tmp as t on t.department_id = e.department_id and t.salary = e.salary
 
 ### Phase 3 自我檢測
 
-能不能寫出：「找出每個部門薪水前 3 名的員工，允許並列」？  
-這題就是你幣安面試碰到的那道，用 `DENSE_RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC)` 就能搞定。
+能不能寫出：「找出每個部門薪水前 3 名的員工，允許並列」？
 
+Assule Table:
+```sql
+create table salary (
+    department_id int,
+    employee_name int,
+    salary int
+)
+```
+
+Solutation:
+```sql
+select department_id, employee_name
+from (select department_id,
+             employee_name,
+             salary,
+             dense_rank() over (partition by department_id order by salary desc) as ranked
+      from salary) as t
+where t.ranked <= 3
+order by department_id, ranked;
+```
 
 <br>
 <br>
@@ -207,8 +226,7 @@ inner join tmp as t on t.department_id = e.department_id and t.salary = e.salary
 
 ### 練習題
 
-- **LC 1070（改用 CTE 重寫）** — 體會 CTE 對可讀性的提升
-- **LC 1225. Report Contiguous Dates** — CTE 處理連續日期分組（Islands and Gaps）
+- **LC 1225. Report Contiguous Dates** — CTE 處理連續日期分組（Islands and Gaps）-> [link](report_contiguous_dates/README.md)
 - **LC 1270. All People Report to the Given Manager** — 遞迴 CTE 找管理鏈
 - **LC 1384. Total Sales Amount by Year** — 遞迴 CTE 生成日期序列
 - **LC 1613. Find the Missing IDs** — 遞迴 CTE 生成連續數列
