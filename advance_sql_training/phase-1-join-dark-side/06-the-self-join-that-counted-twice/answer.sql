@@ -53,7 +53,7 @@ order by user_a, user_b;
 -- 有沒有其他寫法能達到同樣效果？（想想 `LEAST` / `GREATEST`，或 `EXISTS`）
 
 -- LEAST / GREATEST
-
+explain analyse
 SELECT distinct least(a.follower_id, a.followee_id), greatest(a.follower_id, a.followee_id)
 FROM follows a
          JOIN follows b
@@ -62,23 +62,44 @@ FROM follows a
 where a.follower_id <> b.follower_id;
 
 -- EXISTS
-
 select * from follows f
 where f.follower_id < f.followee_id
-and exists (
+  and exists (
     select 1 from follows r
-             where r.follower_id = f.followee_id
-             and r.followee_id = f.follower_id
+    where r.follower_id = f.followee_id
+      and r.followee_id = f.follower_id
 )
 
 -- 這三種寫法在**執行計畫**上有差別嗎？
 
--- ?
+-- LEAST / GREATEST:
+-- Seq Scan on follows b 10 row
+-- Seq Scan on follows a 10 row
+-- Hash Join
+-- HashAggregate -> Distinct
+
+-- EXISTS:
+-- Seq Scan on follows f 6 row
+-- Seq Scan on follows r 10 row
+-- Hash Semi Join
+
+-- Actually, I think they both are similar in terms of execution plan.
 
 -- ------------------------------------------------------------
 -- Q4: 每人好友數（注意去重方向和 Q2 相反！0 好友的人要出現）
 -- ------------------------------------------------------------
 
+with mutual as (
+    select a.follower_id, a.followee_id from follows a
+    where a.follower_id <> a.followee_id
+    and exists (
+        select 1 from follows b where b.follower_id = a.followee_id
+        and b.followee_id = a.follower_id
+    )
+) select u.username, count(m.followee_id) as friend_cnt
+from users u
+left join mutual m on m.follower_id = u.id
+group by u.username;
 
 -- ------------------------------------------------------------
 -- Q5: 三種寫法對比（自連接 / EXISTS / INTERSECT）+ EXPLAIN

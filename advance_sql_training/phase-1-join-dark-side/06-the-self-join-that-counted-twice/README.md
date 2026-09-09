@@ -28,7 +28,7 @@
 <br>
 
 ## Table Schema & Testing Data
-
+6
 ```sql
 DROP TABLE IF EXISTS follows;
 DROP TABLE IF EXISTS users;
