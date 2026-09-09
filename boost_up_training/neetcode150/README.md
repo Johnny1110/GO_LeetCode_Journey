@@ -85,4 +85,4 @@ link: https://leetcode.com/problem-list/plakya4j
 70. Clone Graph -> [link](clone_graph) 
 71. Gas Station -> [link](gas_station) -> greddy 算法，要再練一次
 72. Palindromic Substrings -> [link](palindromic_substrings) -> DP 解法值得重新做一遍
-73. ? -> [link]() 👈 
+73. Single Number -> [link](single_number/README.md) 👈
